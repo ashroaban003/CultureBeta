@@ -1,0 +1,32 @@
+{
+  "careers": [
+    {
+      "id": 1,
+      "title": "Tamilnadu"
+    },
+    {
+      "id": 2,
+      "title": "telungana"
+    },
+    {
+      "id": 3,
+      "title": "assam"
+    },
+    {
+      "id": 4,
+      "title": "kashmiri"
+    },
+    {
+      "id": 5,
+      "title": "punjab"
+    },
+    {
+      "id": 6,
+      "title": "bengal"
+    },
+    {
+      "id": 7,
+      "title": "rajasthan"
+    }
+  ]
+}

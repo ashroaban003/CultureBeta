@@ -1,0 +1,13 @@
+.navhead{
+    display:flex;
+    justify-content: flex-end;
+}
+.navh{
+    align-items: baseline;
+    display:flex;
+    gap: 1rem;
+}
+.navh button{
+    background-color: aqua;
+    padding: 10px;
+}
