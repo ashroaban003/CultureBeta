@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
+import FeatureIcon from './FeatureIcon';
 import './FeaturesBar.css'
 const FeaturesBar = () => {
     return ( 
         <div className="featuresBar">
-            <div className = "feature">
-                POST
-            </div>
-            <div className = "feature">
-                PHTOTOS
-            </div>
-            <div className = "feature">
-                VIDEOS
-            </div>
+            <FeatureIcon feature="POST"/>
+            <FeatureIcon feature="PHOTOS"/>
+            <FeatureIcon feature="VIDEOS"/>
         </div>
      );
 }
