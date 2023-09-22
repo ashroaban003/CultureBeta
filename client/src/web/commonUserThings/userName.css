@@ -1,0 +1,13 @@
+.userName{
+    height: inherit;
+    width: max-content;
+    display: flex;
+    align-items: center;
+}
+.userName span{
+    text-decoration: solid;
+    font-size: larger;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
