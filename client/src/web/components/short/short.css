@@ -23,7 +23,7 @@
     justify-content: left;
     width: auto;
     max-height: auto;
-    margin: 0.4rem;
+    margin: 0.5rem 0.4rem ;
     background-color: transparent;
 }
 
@@ -40,8 +40,8 @@
     grid-column: 1/ 7;
     grid-row: 1/11;
     border-radius: 1rem;
-    margin: 0.1rem 0rem;
-    background-color: rgb(163, 163, 255);
+    margin: 0.1rem 0rem 0rem 0rem;
+    background-color: transparent;
 }
 .shortReactionsBar{
     display: flex;
@@ -81,5 +81,6 @@
     padding: 0;
     max-width: 110%;
     height: 100%;
+    object-fit: cover;
 }
 
