@@ -1,6 +1,7 @@
 .navhead{
     display:flex;
     justify-content: flex-end;
+    background-color: transparent;
 }
 .navh{
     align-items: baseline;

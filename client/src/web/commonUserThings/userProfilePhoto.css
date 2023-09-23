@@ -1,0 +1,7 @@
+.userProfilePhoto{
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    margin-right: 0.5rem;
+}

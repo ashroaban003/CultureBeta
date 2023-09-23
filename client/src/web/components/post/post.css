@@ -1,0 +1,136 @@
+
+.post{
+    display: flex;
+    flex-flow: column;
+    background-color: transparent;
+    height: auto;
+    max-width: 20rem;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    margin: 1rem auto;
+    border: 0.3rem solid white;
+}
+.posterHeader{
+    display: flex;
+    flex-direction: row;
+    border-radius: inherit;
+    align-items: flex-start;
+    justify-content: left;
+    width: auto;
+    max-height: 3rem;
+    margin: 0.4rem;
+    background-color: transparent;
+}
+.more{
+    justify-self: flex-end;
+    align-self: flex-end;
+    background-color: transparent;
+    margin: auto;
+    margin-right: 1rem;
+    padding: auto;
+    text-align: center;
+    font-size: medium;
+    font-weight: 400;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0px 0px 1rem white;
+}
+
+.postContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+    width: max-content;
+    height: max-content;
+    margin: 0.5rem auto;
+    background-color: red;
+}
+.postContentImage{
+    width: 19rem;
+    height: 19rem;
+    border-radius: inherit;
+}
+
+.postReactionsBar{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: inherit;
+    width: max-content;
+    height: max-content;
+    margin: 0.1rem 0.3rem;
+    background-color: transparent;
+}
+
+.like, .comment{
+    width: max-content;
+    height: max-content;
+    background-color: transparent;
+    margin: 0rem 0.2rem;
+    padding: 0;
+}
+.like img{
+    width: 2rem;
+    height: 2rem;
+}
+.comment img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.postDescription{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: inherit;
+    width: 95%;
+    margin: 0.1rem auto;
+    background-color: transparent;
+    font-weight: 300;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: small;
+}
+.description{
+    margin: 0.2rem 0.1rem 0rem 0.1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+}
+.readMore{
+    width: max-content;
+    height: min-content;
+    background-color: transparent;
+    text-decoration: underline;
+    font-weight: 300;
+}
+.postDate{
+    margin: 0 0.1rem;
+    font-weight: 400;
+    font-size: medium;
+}
+
+
+.postTagsBar{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 95%;
+    height: max-content;
+    margin: 0.1rem auto;
+    background-color: transparent;
+}
+
+.postTag{
+    text-align: center;
+    font-size: smaller;
+    padding: auto;
+    color: black;
+    min-width: 3rem;
+    padding: 0rem 0.3rem;
+    border-radius: 0.5rem;
+    height: inherit;
+    margin: 0.2rem 0.1rem;
+}

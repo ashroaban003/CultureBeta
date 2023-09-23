@@ -1,0 +1,46 @@
+.exploreBar{
+    position: relative;
+    background-color:rgb(27, 80, 110);
+    border-radius: 1.5rem;
+    height: 5vh;
+    width: 95vw;
+    margin: auto;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: large;
+}
+.exploreBar::-webkit-scrollbar{
+    /* display: none; */
+    background-color: transparent;
+    height: 0.3rem;
+}
+.exploreBar::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.exploreIcon{
+    background-color: rgb(31, 203, 255);
+    position: relative;
+    min-width: 10rem;
+    height: inherit;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5rem 0 0.5rem;
+}
+.exploreIcon:hover{
+    transform: scale(1.1);
+    background-color: white;
+    cursor: pointer;
+    color:rgb(31, 203, 255);
+}
+
