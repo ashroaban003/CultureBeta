@@ -1,0 +1,85 @@
+.short{
+    display: flex;
+    flex-flow: column;
+    background-color: rgb(0, 182, 164);
+    height: auto;
+    max-width: 20rem;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    margin: 1rem auto;
+    border: 0.3rem solid white;
+    
+}
+.shortProfileInfo{
+    display: flex;
+    flex-direction: row;
+}
+.shortFooter{
+    display: flex;
+    flex-direction: column;
+    border-radius: inherit;
+    align-items: flex-start;
+    justify-content: left;
+    width: auto;
+    max-height: auto;
+    margin: 0.4rem;
+    background-color: transparent;
+}
+
+.contentReactionsContainer{
+    display: grid;
+    gap: 0.01rem;
+    width: 21rem;
+    grid-template-columns: repeat(11, auto);
+    grid-template-rows: repeat(9, 2.6rem);
+    background-color: transparent;
+}
+
+.shortContent{
+    grid-column: 1/ 7;
+    grid-row: 1/11;
+    border-radius: 1rem;
+    margin: 0.1rem 0rem;
+    background-color: rgb(163, 163, 255);
+}
+.shortReactionsBar{
+    display: flex;
+    grid-column: 8;
+    grid-row: 1/6;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: inherit;
+    width: max-content;
+    height: inherit;
+    margin: 0.5rem 0rem;
+    background-color: transparent;
+    gap: 1rem;
+}
+.controlsOfVideo{
+    grid-column: 8;
+    grid-row: 6/10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0 0.5rem 0 0.1rem;
+    max-width: 2.2rem;
+    height: auto;
+    background-color: transparent;
+}
+.controlsOfVideo>button{
+    background-color: transparent;
+    margin: 0.2rem 0rem;
+    padding: 0;
+}
+.controlsOfVideo>button>img{
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    max-width: 110%;
+    height: 100%;
+}
+
