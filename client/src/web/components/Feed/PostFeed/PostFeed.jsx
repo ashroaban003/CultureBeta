@@ -1,8 +1,11 @@
+import { useEffect, useState } from 'react';
 import Posts from '../../home/Posts/Posts';
 import './postfeed.css';
+import axios from 'axios';
+import useFetch from '../../../hooks/usefetch';
 
 export default function PostFeed(params) {
-    const data=[
+    const bufferdata=[
         {
             name: "Ashish",
             icon: "https://placekitten.com/40/40",
@@ -25,7 +28,9 @@ export default function PostFeed(params) {
         }
 
     ];
-
+    const { data, loading,reFetch }=useFetch('http://localhost:4000/api/post')
+   
+    
     return(
         <div className='feed'>
             {data.map((item)=>(

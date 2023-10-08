@@ -15,18 +15,18 @@ export default function Posts({item}) {
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU" alt="Profile" />
                     </div>
                     <div className='flexColStart'>
-                        <span>{item.name}</span>
+                        <span>Anonymous</span>
                         <span className='smalltext'>50k followers</span>
                 </div>
                 
                 </div>
                 <div className='post-comments'>
-                    <span>{item.description}<br/></span>
+                    <span>{item.desc}<br/></span>
                 </div>
 
           </div>
            <div className='post-img-cnt'>
-               <img src="https://thumbs.dreamstime.com/b/free-happy-woman-praising-freedom-beach-sunset-arms-up-young-adult-enjoying-breathing-freely-fresh-air-49157481.jpg" alt=""/>
+               <img src={item.image} alt=""/>
            </div>
            <div className='post-tag-cnt'>
               {tags.map((tag) => (<span className='post-tag'>#{tag}</span>))}

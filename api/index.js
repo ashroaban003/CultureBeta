@@ -4,6 +4,7 @@ const express= require('express');
 const cors = require('cors');
 const cookieparser=require('cookie-parser');
 const authroute = require('./routes/auth.js');
+const postroute= require('./routes/Post.js');
 
 const app=express(); //backend framework good for single root, support api requests
 
@@ -13,7 +14,12 @@ app.use(cors()) //cross origin platform connect backend to frontend
 app.use(express.json()); //to parse json info from http request to frontend
 
 app.use(cookieparser()) //middleware parse cookies like jwt
+
+// Use the bodyParser middleware to parse incoming JSON data and set it max req limit
+
 app.use('/api/auth',authroute);
+app.use('/api/post', postroute);
+
 
 const connect=async()=>{
     try{

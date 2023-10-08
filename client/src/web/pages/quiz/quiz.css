@@ -1,66 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-
-
-p {
-  margin: 20px 0;
+/* quiz.css */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
 }
+
+.score-section {
+  text-align: center;
+  margin: 20px;
+}
+
+.secondary-text {
+  font-size: 20px;
+}
+
+.question-section {
+  text-align: center;
+}
+
+.question-count {
+  font-size: 18px;
+  margin: 10px;
+}
+
+.question-text {
+  font-size: 24px;
+  margin: 20px;
+}
+
+answer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-container {
+  margin: 10px;
+}
+
 button {
-  border: 0;
-  padding: 8px;
-  border-radius: 4px;
-  color: var(--secondary);
-  background: rgb(58, 58, 247);
+  background-color: #007BFF;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.score-section{
-    display: flex;
-    flex-direction: row;
-    gap: 0rem;
+button:hover {
+  background-color: #0056b3;
 }
-.qsizedbox{
-  height: 1rem;
-}
-
-.dummy{
-    display: flex;
-    gap: 2rem
-}
-.question-section{
-    flex-direction: column;
-}
-.answer-section{
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-}
-
-.buttoncls{
-    width: fit-content;
-}
-.quizcnt{
-  background-color: rgb(146, 146, 147);
-  padding: 40px;
-  border-radius: 10px;
-  width: 22rem;
-}
-/* navbar */
-
-
-/* page content */
-
-
-/* help layout */
-
-
-/* faq */
-
-
-/* careers list */
-
-
-/* careers details */
-
-
-/* breadcrumbs */

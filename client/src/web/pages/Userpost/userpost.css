@@ -44,6 +44,16 @@ textarea {
     display: flex;
     flex-wrap: wrap;
 }
+.rederr{
+    padding-left: 1rem;
+    font-size: small;
+    color: red;
+}
+.greensuc{
+    padding-left: 1rem;
+    font-size: small;
+    color: lightgreen;
+}
 
 .tag {
     background-color: #007bff;

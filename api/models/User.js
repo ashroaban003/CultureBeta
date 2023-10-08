@@ -12,6 +12,22 @@ const UserSchema= new Schema(
         type: String,
         required: true,
        },
+       name: {
+        type: String,
+        default: null,
+       },
+       desc:{
+        type: String,
+        default: null,
+       },
+       image: {
+        type: String,
+        default: null,
+       },
+       location: {
+        type: String,
+        default: null,
+       },
        isAdmin:{
         type: Boolean,
         default: false,
