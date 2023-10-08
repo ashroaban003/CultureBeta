@@ -1,7 +1,7 @@
 import React from 'react';
 import './navbar.css';
 
-function Navbar() {
+function HomeNavbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -30,4 +30,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default HomeNavbar;

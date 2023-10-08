@@ -1,54 +1,3 @@
-.navheader{
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    /* position: absolute; */
-    width: 100%;
-    z-index: 100;
-    padding: 20px;
-
-}
-.flex{
-    display: flex;
-}
-.navroute{
-   display: flex;
-   gap: 2rem;
-   align-items: center;
-   margin-right: 2rem;
-}
-.nlink{
-    background-color: white;
-    border: none;
-    color: rgb(137, 135, 135);
-   
-}
-.blink{
-    padding: 5px 14px;
-    border-radius: 5px;
-    color: white;
-    border: none;
-    background-color:  #276998;
-}
-.blink:hover{
-   cursor: pointer;
-   opacity: 0.9;
-}
-.n-link{
-    align-items: center;
-}
-.imag{
-    width: 100%;
-}
-.l_logo{
-    width: 6rem;
-}
-.sizebox{
-    height: 0.9rem;
-}
-.r_logo{
-    width: 10rem;
-}
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -125,10 +74,4 @@
     font-size: 14px;
     color: #333; /* Dark text color */
   }
-  .navaddposts{
-    padding-right: 10px ;
-  }
-  .navaddposts:hover{
-    scale: 1.1;
-    cursor: pointer;
-  }
+  

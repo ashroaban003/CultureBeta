@@ -2,12 +2,11 @@ import likeAfter from "../../../../src/images/likeAfter.svg";
 import comment from "../../../../src/images/comment.svg";
 import likeBefore from "../../../../src/images/likeBefore.svg";
 import { useState } from "react";
-import "../post/post.css";
-const PostReactionsBar = () => {
+
+const ShortReactionsBar = () => {
     const [imageLink, setImageLink] = useState(likeBefore);
-    
     return ( 
-        <div className="postReactionsBar">
+        <div className="shortReactionsBar">
             <button className="like" onClick={()=>{
                 if(imageLink===likeBefore) setImageLink(likeAfter);
                 else setImageLink(likeBefore);
@@ -17,4 +16,4 @@ const PostReactionsBar = () => {
      );
 }
  
-export default PostReactionsBar;
+export default ShortReactionsBar;

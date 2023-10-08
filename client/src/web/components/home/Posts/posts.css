@@ -1,0 +1,57 @@
+.post-section{
+    margin-top: 4rem;
+    background-color : white;
+    width: 30rem;
+    min-height: 10rem;
+    border-radius: 7px;
+    padding-bottom: 2rem;
+}
+.post-container{
+    padding: 1rem;
+}
+.post_header{
+    display: flex;
+    gap: 10px;
+    padding-bottom: 2rem;
+}
+.post-img-cnt img{
+    width: 30rem;
+}
+.post-tag-cnt{
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+}
+.post-tag{
+    font-size: 0.8rem;
+    color: rgb(94, 93, 93);
+}
+.postReactionsBar{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: none;
+    width: max-content;
+    height: max-content;
+    margin: 0.1rem 0.3rem;
+    background-color: transparent;
+}
+
+.like, .comment{
+    width: max-content;
+    height: max-content;
+    background-color: transparent;
+    border-color: transparent;
+    margin: 0rem 0.2rem;
+    padding: 0;
+    border-radius: none;
+}
+.like img{
+    width: 2rem;
+    height: 2rem;
+    
+}
+.comment img{
+    width: 2rem;
+    height: 2rem;
+}

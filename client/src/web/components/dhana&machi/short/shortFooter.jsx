@@ -1,16 +1,17 @@
 import UserProfilePhoto from "../../commonUserThings/userProfilePhoto"
 import profilePhoto from "../../../images/l.png"
 import UserName from "../../commonUserThings/userName";
-import '../post/post.css';
 
-const PosterHeader = () => {
+const ShortFooter = () => {
     return ( 
-        <div className="posterHeader">   
+        <div className="shortFooter">
+        <div className="shortProfileInfo">   
             <UserProfilePhoto imageSource={profilePhoto}></UserProfilePhoto>
             <UserName Name="Sai Pallavi"></UserName>
-            <button className="more">More!!!</button>
+        </div>
+        <span style={{fontSize:"0.8rem"}}>fewlines of content that's it we will restrict the user with no of characters..</span>
         </div>
      );
 }
  
-export default PosterHeader;
+export default ShortFooter;
