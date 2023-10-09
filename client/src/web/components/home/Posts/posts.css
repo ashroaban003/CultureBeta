@@ -1,10 +1,9 @@
 .post-section{
-    margin-top: 4rem;
     background-color : white;
-    width: 30rem;
+    width: 100%;
     min-height: 10rem;
     border-radius: 7px;
-    padding-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 .post-container{
     padding: 1rem;

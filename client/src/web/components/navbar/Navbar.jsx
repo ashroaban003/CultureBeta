@@ -34,7 +34,7 @@ export default function Navbar(params) {
            <li><a href="/">home</a></li>
             <li><a href="#">Stories</a></li>
             <li><a href="/quiz">Quiz</a></li>
-            <li><a href="#">Chatbot</a></li>
+            <li><a href="/chatbot">Chatbot</a></li>
             <div className="profile-image navaddposts" onClick={Addpostclick}>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRybYJ8whzMYdcui47d74-uUMO297xrHXN3QdI7KFiNkktLkMLbBJGfkHbKS2gN23FkMLk&usqp=CAU" alt="Addposts" />
            </div>

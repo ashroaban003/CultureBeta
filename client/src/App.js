@@ -8,6 +8,7 @@ import Login from "./web/pages/login/Login";
 import Signin from "./web/pages/login/Signin";
 import Userpost from './web/pages/Userpost/Userpost';
 import Quiz from './web/pages/quiz/Quiz';
+import ChatBot from './web/pages/chatBot/ChatBot';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/register' element={<Signin/>}/>
           <Route path='/userpost' element={<Userpost/>}/>
           <Route path='/quiz' element={<Quiz/>}/>
+          <Route path='/chatbot' element={<ChatBot />}/>
       </Routes>
     </BrowserRouter>
   );

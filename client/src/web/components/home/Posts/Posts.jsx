@@ -26,7 +26,7 @@ export default function Posts({item}) {
 
           </div>
            <div className='post-img-cnt'>
-               <img src={item.image} alt=""/>
+               <img src={item.image} alt="" style={{width: "90%", paddingLeft: "1rem", paddingRight: "1rem"}}/>
            </div>
            <div className='post-tag-cnt'>
               {tags.map((tag) => (<span className='post-tag'>#{tag}</span>))}
