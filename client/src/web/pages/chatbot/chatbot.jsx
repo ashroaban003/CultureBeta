@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { OpenAI } from 'openai';
-import './chatgpt.css';
+import './chatbot.css';
 
 const ChatGPT = () => {
   const [prompt, setPrompt] = useState('');
