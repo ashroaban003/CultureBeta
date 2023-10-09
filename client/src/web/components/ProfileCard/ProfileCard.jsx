@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import Cover from "../../../images/cover.jpg";
 import Profile from "../../../images/profileImg.jpg";
 import "./ProfileCard.css";
+import { AuthContext } from "../../context/AuthContext";
 
 const ProfileCard = () => {
   const ProfilePage = true;
+  const {user,dispatch}=useContext(AuthContext);
+
   return (
     <div className="ProfileCard">
       <div className="ProfileImages">
         <img src={Cover} alt="" />
-        <img src={Profile} alt="" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU" alt="" />
       </div>
 
       <div className="ProfileName">
-        <span>Sudharshan</span>
+      {user&&
+              <span>{user.username}</span>
+            }
+            {!user &&
+              <span>Anonymous</span>
+            }
         <span>Explorer | Coder | Culture Lover</span>
       </div>
 

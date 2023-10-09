@@ -113,43 +113,43 @@ export default function Quiz() {
       <Navbar />
       <div className='quiz-container'>
         {showscore &&
-          <motion.div
+          <div
             className='score-section'
-            initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
+            // initial={{ x: -100, opacity: 0 }}
+            //   animate={{ x: 0, opacity: 1 }}
+            //   transition={{ duration: 0.5 }}
           >
             <div className='secondary-text'>
               You scored {score} out of {questions.length}
             </div>
-          </motion.div>
+          </div>
         }   
         {!showscore &&
           <div className='question-section'>
             <div className='question-count'>
               <span>Question {q_no + 1}/{questions.length}</span>
             </div>
-            <motion.div
+            <div
               className='question-text'
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
+            //   initial={{ x: -100, opacity: 0 }}
+            //   animate={{ x: 0, opacity: 1 }}
+            //   transition={{ duration: 0.5 }}
             >
               {questions[q_no].questionText}
-            </motion.div>
+            </div>
             <div className='answer-section'>
               {questions[q_no].answerOptions.map((option, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                <div
+                //   key={index}
+                //   initial={{ x: -100, opacity: 0 }}
+                //   animate={{ x: 0, opacity: 1 }}
+                //   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className='button-container'
                 >
                   <button onClick={() => handleAnswer(option.isCorrect)}>
                     {option.answerText}
                   </button>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
