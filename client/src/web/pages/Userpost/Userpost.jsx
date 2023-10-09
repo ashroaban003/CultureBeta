@@ -133,9 +133,8 @@ export default function Userpost(params) {
   return (
     <div className="userpostcnt">
       <Navbar />
-      <div className="sizedbox"></div>
       <div className="addcontainer">
-        <h2>Add post Form</h2>
+      <h2>Share your culture around the globe!</h2>
         <form>
           <label htmlFor="image">Image:</label>
           <input

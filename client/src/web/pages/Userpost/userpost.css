@@ -5,9 +5,9 @@ body {
 
 
 .addcontainer {
-    margin-top: 30rem;
     max-width: 600px;
-    margin: 0 auto;
+    min-height: 25rem;
+    margin: 4% auto;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -21,15 +21,23 @@ form{
 label {
     display: block;
     font-weight: bold;
+    margin: 0.3rem 0rem;
+}
+
+input[type="file"]{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
 }
 
 input[type="text"],
 textarea {
-    width: 100%;
+    min-width: 98%;
+    max-width: 98%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .tags-input {
