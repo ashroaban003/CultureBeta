@@ -31,18 +31,18 @@ export default function Navbar(params) {
         </div>
         <div className="navbar-links">
           <ul className="n-link">
-           <li><a href="/">home</a></li>
-            <li><a href="#">Stories</a></li>
-            <li><a href="/quiz">Quiz</a></li>
-            <li><a href="/chatbot">Chatbot</a></li>
+          <li className="pageslinks"><a href="/">Home</a></li>
+            <li className="pageslinks"><a href="#">Stories</a></li>
+            <li className="pageslinks"><a href="/quiz">Quiz</a></li>
+            <li className="pageslinks"><a href="/chatbot">Chatbot</a></li>
             <div className="profile-image navaddposts" onClick={Addpostclick}>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRybYJ8whzMYdcui47d74-uUMO297xrHXN3QdI7KFiNkktLkMLbBJGfkHbKS2gN23FkMLk&usqp=CAU" alt="Addposts" />
            </div>
             {!user &&
-                    <li className="blink" onClick={loginclick}>login</li>
+                    <li className="blink" onClick={loginclick}>Login</li>
                   }
             {user &&
-                    <li className="blink" onClick={logoutclick}>logout</li>
+                    <li className="blink" onClick={logoutclick}>Logout</li>
                   }
           </ul>
         </div>

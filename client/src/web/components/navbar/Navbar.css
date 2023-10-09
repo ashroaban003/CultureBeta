@@ -1,21 +1,22 @@
 .navheader{
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    /* position: absolute; */
-    width: 100%;
-    z-index: 100;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  top:0%
 
 }
 .flex{
     display: flex;
 }
-.navroute{
-   display: flex;
-   gap: 2rem;
-   align-items: center;
-   margin-right: 2rem;
+.pageslinks{
+  min-width: 1.5rem;
+  color: white;
+  margin-right: 20px;
+  height: 100%;
+  border-left: 0.1rem solid grey;
 }
 .nlink{
     background-color: white;
@@ -33,6 +34,7 @@
 .blink:hover{
    cursor: pointer;
    opacity: 0.9;
+   transform: scale(1.1);
 }
 .n-link{
     align-items: center;
@@ -73,7 +75,6 @@
   .navbar-search {
     flex: 1; /* Expand to fill available space */
     max-width: 270px;
-    margin-left:-100px;
   }
   
   .search-input {
@@ -92,9 +93,6 @@
     display: flex;
   }
   
-  .navbar-links li {
-    margin-right: 20px;
-  }
   
   .navbar-links a {
     text-decoration: none;
@@ -102,11 +100,10 @@
     font-weight: bold;
     font-size: 14px;
     transition: color 0.3s;
+    margin: 0.5rem;
   }
   
-  .navbar-links a:hover {
-    color: #1da1f2; /* Twitter-like blue color on hover */
-  }
+
   
   .navbar-profile {
     display: flex;

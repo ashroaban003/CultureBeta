@@ -5,10 +5,12 @@ import { Followers } from '../../Data/followersData.js'
 const FollowersCard = () => {
   return (
     <div className="FollowersCard">
-        <h3>Who is following you</h3>
+        <span>Connect with others..</span>
 
         {Followers.map((follower, id)=>{
+            
             return(
+                id < 3 &&
                 <div className="follower">
                     <div>
                         <img src={follower.img} alt="" className='followerImage' />
