@@ -44,6 +44,9 @@ export default function Login(params) {
   return (
     <div className="login">
       <div className="lContainer">
+        <p style={{ fontSize: 40, fontWeight: "bold" }}>
+          Welcome to Culture Hub
+        </p>
         <input
           type="text"
           placeholder="username"
@@ -62,8 +65,8 @@ export default function Login(params) {
         <button disabled={loading} onClick={handleClick} className="lButton">
           Login
         </button>
-        <button onClick={regClick} className="rl">
-          /Register
+        <button onClick={regClick} className="lButton">
+          Register
         </button>
         {error && <span>{error}</span>}
       </div>
