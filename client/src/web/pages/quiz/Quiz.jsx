@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './quiz.css'; // Import the CSS file
 import Navbar from '../../components/navbar/Navbar';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 export default function Quiz() {
 	const questions = [
