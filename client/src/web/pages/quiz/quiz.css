@@ -6,6 +6,14 @@
   margin-top: 4rem;
 }
 
+.questionProgress{
+  background-color: blue;
+  /* width: 48%; */
+  height: 0.2rem;
+  margin-bottom: 0.3rem;
+  border-radius: 1rem;
+}
+
 .score-section {
   text-align: center;
   margin: 20px;
@@ -17,6 +25,17 @@
 
 .question-section {
   text-align: center;
+  width: 50%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.question{
+  box-shadow: 0 0.5rem 0.5rem 0.1rem gray;
+  border-radius: 2rem;
+  padding: 1rem 0 0.5rem 0;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
 }
 
 .question-count {
@@ -33,23 +52,31 @@ answer-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .button-container {
   margin: 10px;
+  
 }
 
-button {
+.quizButtons {
+  width: 100%;
   background-color: #007BFF;
   color: #fff;
-  font-size: 16px;
+  font-size: 1.5rem;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  box-shadow:  0 0.2rem 0.2rem 0.1rem blue;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-button:hover {
+.quizButtons:hover {
+
+  box-shadow: inset 0 0.2rem 0.2rem 0.1rem blue;
+  
   background-color: #0056b3;
 }

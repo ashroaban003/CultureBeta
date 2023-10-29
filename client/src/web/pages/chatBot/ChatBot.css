@@ -25,14 +25,22 @@ body {
 
   /* Input bar styles */
   .input-bar {
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #fff; /* Background color for the input bar */
-    border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px;
-    margin-bottom: 20px;
+    
+  }
+
+  .input-bar input{
+    border: 0.1rem solid gray;
+    max-width: 95%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0 2rem 0rem 0;
   }
 
   .Prompt {
@@ -50,6 +58,7 @@ body {
     border-radius: 4px;
     padding: 10px 20px;
     font-size: 16px;
+    box-shadow: 0 0.2rem 0.2rem 0.1rem blue;
     cursor: pointer;
   }
 

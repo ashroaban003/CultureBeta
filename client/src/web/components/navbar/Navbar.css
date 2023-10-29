@@ -12,11 +12,18 @@
     display: flex;
 }
 .pageslinks{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 1.5rem;
   color: white;
-  margin-right: 20px;
-  height: 100%;
+  margin-right: 15px;
+  height: 1rem;
   border-left: 0.1rem solid grey;
+}
+.pageslinks:hover{
+  height: 2rem;
 }
 .nlink{
     background-color: white;
@@ -53,7 +60,8 @@
 }
 .navbar {
     display: flex;
-    justify-content: space-between;
+    position: static;
+    justify-content: center;
     align-items: center;
     background-color: #ffffff; /* Light background color */
     padding: 12px 20px;
@@ -73,8 +81,9 @@
   }
   
   .navbar-search {
-    flex: 1; /* Expand to fill available space */
-    max-width: 270px;
+    flex: 1; /* Expand to fill available space */ 
+     max-width: 270px;
+     margin: 0 3rem 0 auto;
   }
   
   .search-input {
@@ -107,7 +116,10 @@
   
   .navbar-profile {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    margin: 0 0 0 auto;
+    justify-content: flex-end;
+    width: 13rem;
   }
   
   .profile-image img {
