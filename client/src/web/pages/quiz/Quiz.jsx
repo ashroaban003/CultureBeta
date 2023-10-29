@@ -108,10 +108,19 @@ export default function Quiz() {
     }
   }
 
+  const currentWidth = () =>{
+	return ((q_no+1)/questions.length)*48;
+  }
+
   return (
     <div>
       <Navbar />
       <div className='quiz-container'>
+		  <div className="questionProgress" style={{
+			  width: currentWidth()+"%"
+		  }}>
+
+		  </div>
         {showscore &&
           <div
             className='score-section'
@@ -126,6 +135,7 @@ export default function Quiz() {
         }   
         {!showscore &&
           <div className='question-section'>
+			  <div className='question'>
             <div className='question-count'>
               <span>Question {q_no + 1}/{questions.length}</span>
             </div>
@@ -137,6 +147,7 @@ export default function Quiz() {
             >
               {questions[q_no].questionText}
             </div>
+			</div>
             <div className='answer-section'>
               {questions[q_no].answerOptions.map((option, index) => (
                 <div
@@ -146,13 +157,15 @@ export default function Quiz() {
                 //   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className='button-container'
                 >
-                  <button onClick={() => handleAnswer(option.isCorrect)}>
+                  <button className="quizButtons" onClick={() => handleAnswer(option.isCorrect)}>
                     {option.answerText}
                   </button>
                 </div>
               ))}
             </div>
-          </div>
+          
+		  
+		  </div>
         }
       </div>
     </div>

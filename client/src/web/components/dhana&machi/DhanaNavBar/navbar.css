@@ -20,9 +20,9 @@
   }
   
   .navbar-search {
-    flex: 1; /* Expand to fill available space */
-    max-width: 270px;
-    margin-left:-100px;
+    flex: 1; /* Expand to fill available space */ 
+     max-width: 270px;
+     margin: 0 3rem 0 auto;
   }
   
   .search-input {
@@ -60,6 +60,9 @@
   .navbar-profile {
     display: flex;
     align-items: center;
+    margin: 0 0 0 auto;
+    justify-content: flex-end;
+    width: 13rem;
   }
   
   .profile-image img {

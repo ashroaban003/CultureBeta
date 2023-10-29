@@ -66,7 +66,7 @@ export default function Navbar(params) {
       </div>
       <div className="navbar-profile">
         <div className="profile-name">
-          {user && <span>{user.username}</span>}
+          {user && <span style={{display: "inline-block"}}>{user.username}</span>}
           {!user && <span>Anonymous</span>}
         </div>
         <div className="profile-image">
