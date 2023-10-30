@@ -1,26 +1,36 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Background color for the page */
-  }
 
   .container {
     max-width: 800px; /* Adjust the maximum width as needed */
     margin: 0 auto;
     margin-top: 2rem;
-    box-shadow: 0px 4px 6px rgba(0, 0, 5, 0.6); 
+    
     padding: 20px;
-    background-color: #fff; /* Background color for the chat container */
+     /* Background color for the chat container */
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     border-radius: 8px;
   }
 
+  #light .container{
+    box-shadow: 0px 4px 6px rgba(0, 0, 5, 0.6); 
+    background-color: #fff;
+  }
+  #dark .container{
+    box-shadow: 0px 4px 6px rgba(156, 155, 155, 0.6); 
+    background-color: rgb(36, 36, 36);
+  }
+
   /* Header styles */
-  h1 {
+  .botName {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #333; /* Text color for the header */
+     /* Text color for the header */
+  }
+
+  #light .botName{
+    color: #333;
+  }
+  #dark .botName{
+    color: whitesmoke;
   }
 
   /* Input bar styles */
@@ -29,18 +39,26 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff; /* Background color for the input bar */
+    background-color: transparent; /* Background color for the input bar */
     border-radius: 4px;
     padding: 10px;
-    
   }
 
   .input-bar input{
-    border: 0.1rem solid gray;
     max-width: 95%;
     overflow-x: auto;
     overflow-y: hidden;
     margin: 0 2rem 0rem 0;
+  }
+  #light .input-bar input{
+    border: 0.1rem solid gray;
+    background-color: white;
+    color: black;
+  }
+  #dark .input-bar input{
+    background-color: black;
+    border: 0.1rem solid white;
+    color: white;
   }
 
   .Prompt {
@@ -48,7 +66,7 @@ body {
     border: none;
     padding: 10px;
     font-size: 16px;
-    color: #333; /* Text color for the input bar */
+    color: red; /* Text color for the input bar */
   }
 
   .search-button {
@@ -69,4 +87,11 @@ body {
     border-radius: 4px;
     color: #333; /* Text color for chat responses */
     margin-bottom: 10px;
+  }
+
+  #light .warning{
+    color: black;
+  }
+  #dark .warning{
+    color:white;
   }

@@ -1,13 +1,23 @@
 .navheader{
   display: flex;
   justify-content: space-between;
-  background-color: white;
   position: absolute;
   width: 100%;
   z-index: 100;
   top:0%
-
 }
+
+#light .navheader{
+  color: black;
+  background-color: white;
+}
+#dark .navheader{
+  color: white;
+  background-color: black;
+  box-shadow: 0 0rem 0.3rem 0rem white;
+}
+
+
 .flex{
     display: flex;
 }
@@ -133,6 +143,14 @@
     font-weight: bold;
     font-size: 14px;
     color: #333; /* Dark text color */
+  }
+
+  #light .profile-name span{
+    color: #333; 
+  }
+
+  #dark .profile-name span{
+    color: whitesmoke; 
   }
   .navaddposts{
     padding-right: 10px ;

@@ -113,7 +113,7 @@ export default function Quiz() {
   }
 
   return (
-    <div>
+    <div style={{height:"100vh"}}>
       <Navbar />
       <div className='quiz-container'>
 		  <div className="questionProgress" style={{

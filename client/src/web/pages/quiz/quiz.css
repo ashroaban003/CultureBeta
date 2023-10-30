@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4rem;
+  margin: 4rem;
 }
 
 .questionProgress{
@@ -22,6 +22,12 @@
 .secondary-text {
   font-size: 20px;
 }
+#light .secondary-text{
+  color: black;
+}
+#dark .secondary-text{
+  color: white;
+}
 
 .question-section {
   text-align: center;
@@ -30,13 +36,25 @@
 }
 
 .question{
-  box-shadow: 0 0.5rem 0.5rem 0.1rem gray;
   border-radius: 2rem;
   padding: 1rem 0 0.5rem 0;
   width: 100%;
   height: auto;
-  background-color: #fff;
 }
+
+#light .question{
+  background-color: #fff;
+  box-shadow: 0 0.3rem 0.5rem 0rem gray;
+  color: black;
+  
+}
+
+#dark .question{
+  background-color: rgb(29, 29, 29);
+  box-shadow: 0 0.3rem 0.5rem 0rem gray;
+  color: white;
+}
+
 
 .question-count {
   font-size: 18px;

@@ -34,15 +34,14 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="ChatBot">
+    <div className="ChatBot" style={{height:"100vh"}}>
       <Navbar />
       <div className="container">
-        <h1>Culture Bot</h1>
+        <h1 className="botName">Culture Bot</h1>
         <div className="input-bar">
           <input
             type="text"
             className="Prompt"
-            style={{ color: "black" }}
             placeholder="Type your message..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
@@ -52,7 +51,7 @@ const ChatBot = () => {
           </button>
         </div>
         <div className="response">{response}</div>
-        <p style={{ color: "black" }}>
+        <p className="warning">
           {" "}
           <span style={{fontWeight: "bold"}}>Warning</span>: Please don't submit more than three requests within a minute.
         </p>

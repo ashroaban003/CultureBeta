@@ -1,10 +1,20 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff; /* Light background color */
+    align-items: center; /* Light background color */
     padding: 12px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    
+  }
+
+  #light .navbar{
+    color: black;
+    background-color: white;
+    box-shadow: 0 0rem 0.3rem 0rem grey;
+  }
+  #dark .navbar{
+    color: white;
+    background-color: black;
+    box-shadow: 0 0rem 0.3rem 0rem white;
   }
   
   .navbar-logo {
@@ -47,13 +57,20 @@
   
   .navbar-links a {
     text-decoration: none;
-    color: #333; /* Dark text color */
+     /* Dark text color */
     font-weight: bold;
     font-size: 14px;
     transition: color 0.3s;
   }
+
+  #light .navbar-links a{
+    color: #333;
+  }
+  #dark .navbar-links a{
+    color: whitesmoke;
+  }
   
-  .navbar-links a:hover {
+  #light .navbar-links a:hover, #dark .navbar-links a:hover {
     color: #1da1f2; /* Twitter-like blue color on hover */
   }
   

@@ -9,11 +9,20 @@ body {
     min-height: 25rem;
     margin: 4% auto;
     padding: 20px;
-    background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+#light .addcontainer{
+    background-color: white;
+    box-shadow: 0 0.3rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+    color: black;
+}
+#dark .addcontainer{
+    background-color: black;
+    box-shadow: 0 0.3rem 0.5rem 0 rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
 form{
     max-width: 37rem;
 }
@@ -38,6 +47,18 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#light input[type="text"], #light
+textarea{
+
+    background-color: white;
+    color: black;
+}
+#dark input[type="text"], #dark
+textarea{
+background-color: black;
+color: white;
 }
 
 .tags-input {
@@ -73,11 +94,20 @@ textarea {
 .sizedbox{
     height: 3rem;
 }
-button {
+.userPostButton {
     background-color: #007bff;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+    
+  box-shadow:  0 0.23rem 0.2rem 0rem blue;
 }
+
+.userPostButton:hover {
+
+    box-shadow: inset 0 0.2rem 0.2rem 0.1rem blue;
+    
+    background-color: #0056b3;
+  }

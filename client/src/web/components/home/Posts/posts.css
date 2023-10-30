@@ -1,14 +1,30 @@
 .post-section{
-    background-color: white;
     width: 30rem;
     margin: 1rem auto 2.5rem auto;
     min-height: fit-content;
     border-radius: 7px;
     padding-bottom: 2rem;
-    box-shadow: 0rem 0rem 1rem 0.2rem black;
 }
+#light .post-section{
+        background-color: white;
+        box-shadow: 0rem 0rem 1rem 0.2rem black;
+}
+#dark .post-section{
+    background-color: black;
+    box-shadow: 0rem 0rem 1rem 0.2rem grey;
+}
+
+
+
 .post-container{
     padding: 1rem;
+}
+#light .post-container{
+    color:black;
+}
+#dark .post-container{
+    color:white;
+
 }
 .post_header{
     display: flex;
@@ -46,8 +62,14 @@
     font-size: 1rem;
     border-radius: 0.3rem;
     padding: 0.1rem 0.2rem;
+}
+#light .post-tag{
     background-color: black;
-    color: white;
+    color:white;
+}
+#dark .post-tag{
+    background-color: rgb(184, 182, 182);
+    color: black;
 }
 .postReactionsBar{
     display: flex;

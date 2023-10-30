@@ -4,15 +4,36 @@
     align-items: center;
     justify-content: center;
   }
-  .login input{
+
+  
+
+  #light .login input{
+    background-color: white;
     color: black;
+    border: 0.1rem solid black;
   }
+  
+  #dark .login input{
+    background-color: black;
+    color: white;
+    border: 0.1rem solid white;
+  }
+
+  #username, #password {
+    width: 100%;
+    border-radius: 1rem;
+    font-size: large;
+  }
+  #password{
+    height: 2.7rem;
+    padding: 0 0rem 0 0.5rem ;
+  }
+
   .login span{
     color: red;
     background-color: white;
     display: flex;
     justify-content: center;
-    padding: 6px 0 ;
     border-radius: 3px;
   }
   .lContainer {
@@ -20,31 +41,30 @@
     flex-direction: column;
     gap: 10px;
   }
-  
-  .lInput{
-    height: 30px;
-    padding: 10px;
+  #light .lContainer{
+    color: black;
   }
+  #dark .lContainer{
+    color: white;
+  }
+  
   
   .lButton {
     border: none;
     padding: 10px 20px;
-    background-color: #234258;
+    background-color: #0460a1;
     color: white;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
+    box-shadow: 0 0.2rem 0.2rem 0 blue;
+  }
+
+  .lButton:hover{
+    scale: 1.01;
   }
   
   .lButton:disabled{
     background-color: #0071c28c;
     cursor: not-allowed;
-  }
-  .rl{
-    border: none;
-    color: white;
-    background-color: rgb(54, 62, 93);
-    border-radius: 5px;
-    padding: 7px;
-    width:5rem;
   }
