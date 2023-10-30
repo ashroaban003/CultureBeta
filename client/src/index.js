@@ -4,13 +4,17 @@ import './index.css'
 import App from './App'
 import { AuthContextProvider } from './web/context/AuthContext'
 
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
+  
   <React.StrictMode>
+    
     <AuthContextProvider>
-      <div>
+      
         <App />
-      </div>
+      
        
     </AuthContextProvider>
   </React.StrictMode>

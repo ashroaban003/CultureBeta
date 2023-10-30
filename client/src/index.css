@@ -102,21 +102,31 @@ button:hover{
 
 ::-webkit-scrollbar{
   width: 0.6rem;
-  background: transparent;
+  background-color: transparent;
 }
 ::-webkit-scrollbar-thumb{
-  background-color: rgb(108, 108, 253);
+  background-color: blue;
   border-radius: 2rem;
   border: 0.07rem solid blue;
 }
 ::-webkit-scrollbar-track{
-  box-shadow: inset 0 0 1rem 0.1rem lightblue;
+  background-color: black;
+  border-left: 0.1rem solid gray;
 }
 
 /* App */
 .App{
+  
   position:relative;
   overflow-x: clip;
+}
+
+
+#light{
+  background-color: #f5f5f5;
+}
+#dark{
+  background-color: black;
 }
 
 .white-gradient{

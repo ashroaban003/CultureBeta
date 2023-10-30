@@ -52,7 +52,6 @@ export default function Login(params) {
           placeholder="username"
           id="username"
           onChange={handleChange}
-          className="lInput"
         />
 
         <input
@@ -60,7 +59,6 @@ export default function Login(params) {
           placeholder="password"
           id="password"
           onChange={handleChange}
-          className="lInput"
         />
         <button disabled={loading} onClick={handleClick} className="lButton">
           Login

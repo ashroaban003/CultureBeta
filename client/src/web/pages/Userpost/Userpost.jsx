@@ -131,7 +131,7 @@ export default function Userpost(params) {
   };
 
   return (
-    <div className="userpostcnt">
+    <div className="userpostcnt" style={{height:"100vh"}}>
       <Navbar />
       <div className="addcontainer">
       <h2>Share your culture around the globe!</h2>
@@ -166,7 +166,7 @@ export default function Userpost(params) {
           />
           <div className="tags" id="tag-container"></div>
 
-          <button type="submit" disabled={loading} onClick={handleClick}>
+          <button className="userPostButton"type="submit" disabled={loading} onClick={handleClick}>
             Submit
           </button>
           {error && <span className="rederr"> {error}</span>}

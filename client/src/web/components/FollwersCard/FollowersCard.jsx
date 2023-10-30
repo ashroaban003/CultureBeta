@@ -19,7 +19,7 @@ const FollowersCard = () => {
                             <span>@{follower.username}</span>
                         </div>
                     </div>
-                    <button style={{backgroundColor : "linear-gradient(to right, #0074e4, #00a1ff);"}}>
+                    <button className="followButton" style={{backgroundColor : "linear-gradient(to right, #0074e4, #00a1ff);"}}>
                         Follow
                     </button>
                 </div>

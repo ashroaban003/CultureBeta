@@ -2,13 +2,21 @@
 .FollowersCard{
     width: 25%;
     border-radius: 1rem;
-    background-color: white;
     gap: 0.4rem;
     display: flex;
     flex-direction: column;
     padding: 0.7rem 0.1rem 0.4rem 0.1rem;
     position: fixed;
     bottom: 0%;
+}
+
+#light .FollowersCard{
+    background-color: white;
+    color: black;
+}
+#dark .FollowersCard{
+    background-color: rgb(53, 53, 53);
+    color: white;
 }
 
 .FollowersCard>span{
@@ -25,7 +33,16 @@
     padding: 0.3rem;
     border-radius: 1.8rem 0rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+#light .follower{
     border-top: 0.16rem solid rgba(165, 165, 165, 0.726);
+    color: black;
+}
+
+#dark .follower{
+    border-top: 0.16rem solid rgba(221, 220, 220, 0.726);
+    color: whitesmoke;
 }
 
 .follower>div{
@@ -55,6 +72,16 @@
     font-size: 0.95rem;
 }
 
+.followButton{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  box-shadow:  0 0.23rem 0.2rem 0rem blue;
+}
 
 
 

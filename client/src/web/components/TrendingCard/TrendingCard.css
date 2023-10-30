@@ -1,27 +1,52 @@
 .TrendingCard{
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
-    background-color: var(--cardColor);
-    padding: 0 1rem 1rem 1rem;
     border-radius: 1rem;
     position: fixed;
+    
 }
+
+#light .TrendingCard{
+    background-color: var(--cardColor);
+    color: black;
+}
+#dark .TrendingCard{
+    background-color: rgba(63, 62, 62, 0.644);
+    color: white;
+}
+
 
 
 .trending{
     display: flex;
     flex-direction: column;
-    padding: 0.3rem;
+    padding: 0.5rem 1rem;
     gap: 0.4rem;
-    border-top: 0.05rem solid rgb(119, 118, 118);
+    border-radius: 0 1rem 0rem 1rem;
+}
+
+#light .trending{
+    border-top: 0.13rem solid rgba(165, 165, 165, 0.726);
+
+}
+#dark .trending{
+    border-top: 0.13rem solid rgba(221, 220, 220, 0.726);
+
 }
 
 .trending:hover {
-    background-color: rgba(240, 240, 240, 0.849);
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
+
+#light .trending:hover{
+
+    background-color: rgb(240, 240, 240);
+}
+#dark .trending:hover{
+    background-color: rgb(53, 53, 53);
+}
+
 
 .trending>span:nth-of-type(1)
 {

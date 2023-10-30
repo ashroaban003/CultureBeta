@@ -39,7 +39,7 @@ export default function Signin(params) {
 
     
     return(
-        <div className="login">
+        <div className="login" >
         <div className="lContainer">
           <input
             type="text"
@@ -59,7 +59,7 @@ export default function Signin(params) {
           <button disabled={loading} onClick={handleClick} className="lButton">
             Register
           </button>
-          <button  onClick={regClick} className="rl">/Login</button>
+          <button  onClick={regClick} className="lButton">/Login</button>
           {error && <span>{error}</span>}
         </div>
       </div>

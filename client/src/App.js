@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { createContext, useState } from 'react'
 import Home from "./web/pages/home/Home";
 import Login from "./web/pages/login/Login";
 import Signin from "./web/pages/login/Signin";
@@ -15,8 +16,27 @@ import Maharashtra from "./Novelty/Maharashtra";
 import Telangana from "./Novelty/Telangana";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import ReactSwitch from "react-switch";
+
+
+export const ThemeContext = createContext(null);
+
+
 function App() {
+  const [theme, setTheme] = useState("light");
+const toggleTheme = ()=>{
+  setTheme((curr)=>(curr==="light"?"dark":"light"));
+}
   return (
+    <ThemeContext.Provider
+    value = {{theme, toggleTheme}}>
+
+      <div id={theme}>
+        <div style={{position:"fixed",
+        bottom:"0%",
+        right:"0%"}}>
+          <ReactSwitch  onChange={toggleTheme} checked = {theme==="dark"}/>
+      </div>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -35,6 +55,8 @@ function App() {
         <Route path="/Punjab" element={<Punjab />} />
       </Routes>
     </BrowserRouter>
+    </div>
+    </ThemeContext.Provider>
   );
 }
 
