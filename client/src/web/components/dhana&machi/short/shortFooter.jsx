@@ -1,6 +1,6 @@
-import UserProfilePhoto from "../../commonUserThings/userProfilePhoto"
-import profilePhoto from "../../../images/l.png"
-import UserName from "../../commonUserThings/userName";
+import UserProfilePhoto from "../commonUserThings/userProfilePhoto"
+import profilePhoto from "../../../../images/l.png"
+import UserName from "../commonUserThings/userName";
 
 const ShortFooter = () => {
     return ( 

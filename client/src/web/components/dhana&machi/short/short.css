@@ -1,16 +1,30 @@
+.shortContainer{
+    margin: 0;
+}
 .short{
     display: flex;
     flex-flow: column;
-    background-color: rgb(0, 182, 164);
+    
     height: auto;
     max-width: 20rem;
     position: relative;
     padding: 0.5rem 1rem;
     border-radius: 1rem;
-    margin: 1rem auto;
-    border: 0.3rem solid white;
+    margin: 0.8rem auto 0rem auto;
     
 }
+#light .short{
+    background-color: white;
+    color: black;
+    box-shadow: 0rem 0rem 1rem 0.2rem black;
+}
+#dark .short{
+    color: white;
+    background-color: black;
+    
+    box-shadow: 0rem 0rem 1rem 0.2rem grey;
+}
+
 .shortProfileInfo{
     display: flex;
     flex-direction: row;
@@ -70,17 +84,20 @@
     height: auto;
     background-color: transparent;
 }
-.controlsOfVideo>button{
+.muteIcon{
     background-color: transparent;
     margin: 0.2rem 0rem;
     padding: 0;
 }
-.controlsOfVideo>button>img{
+.muteIcon>img{
     background-color: transparent;
     margin: 0;
     padding: 0;
     max-width: 110%;
     height: 100%;
     object-fit: cover;
+}
+.muteIcon{
+    border: none;
 }
 

@@ -2,11 +2,12 @@ import ShortFooter from "./shortFooter"
 import "../short/short.css"
 import ShortReactionsBar from "./shortReactionsBar"
 import ShortContent from "./shortContent"
-import ShortsTagBar from "./shortTagsBar"
+//import ShortsTagBar from "./shortTagsBar"
 import { useState, useRef } from "react"
+import Navbar from "../../navbar/Navbar"
 
-import mute from "../../../../src/images/mute.svg"
-import unmute from "../../../../src/images/unmute.svg"
+import mute from "../../../../images/mute.svg"
+import unmute from "../../../../images//unmute.svg"
 
 const Short = () => {
     const videoRef = useRef();
@@ -21,9 +22,11 @@ const Short = () => {
     }
    
     return ( 
+        <div className="shortContainer" style={{height:"100vh"}}>
+            <Navbar />
         <div className="short">
             
-            <ShortsTagBar></ShortsTagBar>
+            {/* <ShortsTagBar></ShortsTagBar> */}
             <div className="contentReactionsContainer">
             <ShortContent videoRef={videoRef}></ShortContent>
             <ShortReactionsBar></ShortReactionsBar>
@@ -31,7 +34,7 @@ const Short = () => {
                 {/* <button onClick={()=>{
                     handlePausePlay();
                 }}><img src = {state==='paused' ? playButton:pauseButton}/></button> */}
-                <button onClick={()=>{
+                <button className="muteIcon" onClick={()=>{
                     videoMute();
                     if(muteIcon===mute){
                         setMuteIcon(unmute);
@@ -46,6 +49,7 @@ const Short = () => {
             
             
             <ShortFooter></ShortFooter>
+        </div>
         </div>
      );
 }

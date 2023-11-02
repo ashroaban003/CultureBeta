@@ -38,7 +38,7 @@ export default function Navbar(params) {
             <a href="/">Home</a>
           </li>
           <li className="pageslinks">
-            <a href="#">Stories</a>
+            <a href="/shorts">Stories</a>
           </li>
           <li className="pageslinks">
             <a href="/quiz">Quiz</a>
