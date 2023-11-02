@@ -1,6 +1,6 @@
-import likeAfter from "../../../../src/images/likeAfter.svg";
-import comment from "../../../../src/images/comment.svg";
-import likeBefore from "../../../../src/images/likeBefore.svg";
+import likeAfter from "../../../../images/likeAfter.svg";
+import comment from "../../../../images/comment.svg";
+import likeBefore from "../../../../images/likeBefore.svg";
 import { useState } from "react";
 
 const ShortReactionsBar = () => {

@@ -4,6 +4,7 @@ import Home from "./web/pages/home/Home";
 import Login from "./web/pages/login/Login";
 import Signin from "./web/pages/login/Signin";
 import Userpost from "./web/pages/Userpost/Userpost";
+import Short from "./web/components/dhana&machi/short/short"
 import Quiz from "./web/pages/quiz/Quiz";
 import ChatBot from "./web/pages/chatBot/ChatBot";
 import Model from "./Novelty/Model";
@@ -19,14 +20,14 @@ import { OrbitControls } from "@react-three/drei";
 import ReactSwitch from "react-switch";
 
 
-export const ThemeContext = createContext(null);
+export let ThemeContext = createContext(null);
 
 
 function App() {
-  const [theme, setTheme] = useState("light");
-const toggleTheme = ()=>{
-  setTheme((curr)=>(curr==="light"?"dark":"light"));
-}
+  const [theme, setTheme] = useState("dark");
+  const toggleTheme = ()=>{
+    setTheme((curr)=>(curr==="light"?"dark":"light"));
+  }
   return (
     <ThemeContext.Provider
     value = {{theme, toggleTheme}}>
@@ -53,6 +54,7 @@ const toggleTheme = ()=>{
         <Route path="/Assam" element={<Assam />} />
         <Route path="/Maharashtra" element={<Maharashtra />} />
         <Route path="/Punjab" element={<Punjab />} />
+        <Route path="/shorts" element = {<Short/>}></Route>
       </Routes>
     </BrowserRouter>
     </div>
