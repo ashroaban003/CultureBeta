@@ -5,6 +5,10 @@ const {
   getPost,
   updatePost,
   getPosts,
+  likePost,
+  getUserPosts,
+  commentOnPost,
+  deleteComment,
 } = require("../controllers/PostController.js");
 const router = express.Router();
 
@@ -13,7 +17,9 @@ router.get('/', getPosts);
 router.get('/:id', getPost);
 router.put('/:id', updatePost);
 router.delete("/:id", deletePost);
-
-// Like a post is left to do
+router.put('/:id/like', likePost);
+router.get('/:id/userposts', getUserPosts)
+router.post('/:id/comment', commentOnPost);
+router.delete('/:id/comment', deleteComment);
 
 module.exports = router;

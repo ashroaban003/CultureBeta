@@ -5,6 +5,7 @@ const cors = require('cors');
 const cookieparser=require('cookie-parser');
 const authroute = require('./routes/auth.js');
 const postroute= require('./routes/Post.js');
+const userRoute = require('./routes/User.js');
 
 const app=express(); //backend framework good for single root, support api requests
 
@@ -19,6 +20,7 @@ app.use(cookieparser()) //middleware parse cookies like jwt
 
 app.use('/api/auth',authroute);
 app.use('/api/post', postroute);
+app.use('/api/user', userRoute);    
 
 
 const connect=async()=>{
