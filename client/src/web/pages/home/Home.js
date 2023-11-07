@@ -3,6 +3,7 @@ import ProfileSide from "../../components/ProfileSide/ProfileSide";
 import RightSide from "../../components/RightSide/RightSide";
 import Navbar from "../../components/navbar/Navbar";
 import './Home.css'
+import CommentBox from "../../components/CommentBox/CommentBox";
 
 export default function Home(params) {
   return(

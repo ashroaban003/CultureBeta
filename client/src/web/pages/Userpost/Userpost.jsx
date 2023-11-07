@@ -10,6 +10,8 @@ export default function Userpost(params) {
     userId: null,
     image: null,
     desc: undefined,
+    likes: [],
+    comments:[],
     tags: [],
   });
   const [img, setImg] = useState();

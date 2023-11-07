@@ -70,7 +70,7 @@ export default function Navbar(params) {
           {!user && <span>Anonymous</span>}
         </div>
         <div className="profile-image">
-          {user && <img src="https://placekitten.com/40/40" alt="Profile" />}
+          {user && <img onClick={()=>Navigate('/profile')} src="https://placekitten.com/40/40" alt="Profile" />}
           {!user && (
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU"
