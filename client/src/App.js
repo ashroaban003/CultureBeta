@@ -18,15 +18,17 @@ import Telangana from "./Novelty/Telangana";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import ReactSwitch from "react-switch";
+import ProfilePage from "./web/pages/ProfilePage/ProfilePage";
 
 
 export let ThemeContext = createContext(null);
 
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(localStorage.getItem('colorThemeOfCultureHub')?localStorage.getItem('colorThemeOfCultureHub'):'dark');
   const toggleTheme = ()=>{
     setTheme((curr)=>(curr==="light"?"dark":"light"));
+    localStorage.setItem('colorThemeOfCultureHub', theme==="light"?"dark":"light");
   }
   return (
     <ThemeContext.Provider
@@ -40,6 +42,7 @@ function App() {
       </div>
     <BrowserRouter>
       <Routes>
+        <Route path="/profile" element={<ProfilePage/>}/>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signin />} />

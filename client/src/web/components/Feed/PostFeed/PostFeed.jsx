@@ -34,7 +34,7 @@ export default function PostFeed(params) {
     return(
         <div className='feed'>
             {data.map((item)=>(
-                <Posts item={item} key={item._id}/>
+                <Posts item={item} key={item._id} margin="1rem auto 2.5rem auto"/>
             ))}
         </div>
     );

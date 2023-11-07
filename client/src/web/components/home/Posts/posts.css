@@ -1,6 +1,5 @@
 .post-section{
     width: 30rem;
-    margin: 1rem auto 2.5rem auto;
     min-height: fit-content;
     border-radius: 7px;
     padding-bottom: 2rem;
@@ -60,15 +59,15 @@
 }
 .post-tag{
     font-size: 1rem;
+    font-weight: 600;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     border-radius: 0.3rem;
-    padding: 0.1rem 0.2rem;
+    padding: 0.2rem 0.2rem;
 }
 #light .post-tag{
-    background-color: black;
     color:white;
 }
 #dark .post-tag{
-    background-color: rgb(184, 182, 182);
     color: black;
 }
 .postReactionsBar{
@@ -82,7 +81,7 @@
     background-color: transparent;
 }
 
-.like, .comment{
+.like, .commentButton{
     width: max-content;
     height: max-content;
     background-color: transparent;
@@ -91,16 +90,23 @@
     padding: 0;
     border-radius: none;
 }
+.like{
+    padding: 0.1rem 0.25rem;
+    border-radius: 0.8rem;
+    /* background-color: red; */
+    box-shadow: 0 0.15rem 0.2rem 0rem rgb(250, 72, 72);
+}
 .like img{
     width: 2rem;
     height: 2rem;
     
 }
-.comment img{
+.commentButton img{
     width: 2rem;
     height: 2rem;
 }
-.like:hover, .comment:hover{
+.like:hover, .commentButton:hover{
     background: transparent;
     transform: scale(1.1);
 }
+

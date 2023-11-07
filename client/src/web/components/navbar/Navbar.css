@@ -138,6 +138,10 @@
     border-radius: 50%;
     margin-left: 15px;
   }
+  .profile-image:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+  }
   
   .profile-name span {
     font-weight: bold;
