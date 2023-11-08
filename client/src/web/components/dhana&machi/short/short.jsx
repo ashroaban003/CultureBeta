@@ -8,6 +8,7 @@ import Navbar from "../../navbar/Navbar"
 
 import mute from "../../../../images/mute.svg"
 import unmute from "../../../../images//unmute.svg"
+import CommentBox from "../../CommentBox/CommentBox"
 
 const Short = () => {
     const videoRef = useRef();
@@ -49,6 +50,8 @@ const Short = () => {
             
             
             <ShortFooter></ShortFooter>
+            
+        <CommentBox/>
         </div>
         </div>
      );

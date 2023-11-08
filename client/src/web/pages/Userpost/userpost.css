@@ -38,7 +38,7 @@ input[type="file"]{
     font-size: large;
 }
 
-input[type="text"],
+#tags,
 textarea {
     min-width: 98%;
     max-width: 98%;

@@ -87,12 +87,23 @@ const ProfilePage = () => {
       </div>
       {ProfilePage ? "" : <span>My Profile</span>}
       <div className="ProfilePagePostDisplay">
+
+      {
+            // data.filter((item, key)=>true).map((item)=>
+            //     (
+            //     <div style={{width:"20rem",height:"20rem", objectFit:"cover",scale:"0.95", margin:"0 0 0 0.6rem"}}>
+            //       <img src={item.image} style={{width:"20rem",height:"20rem", objectFit:"cover"}}></img>
+            //         {/* <Posts item={item} key={item._id} margin="0 0 0 0"/> */}
+            //     </div>
+            // ))
+            }
+            
             <div className="ProfilePagePostDisplayColumn">
             {
             data.filter((item, key)=>key%2==1).map((item)=>
                 (
                 <div style={{width:"49%",scale:"0.95", margin:"0 1rem 0 1.5rem"}}>
-                    <Posts item={item} key={item._id} margin="0 0 0 0"/>
+                    <Posts item={item} key={item._id} margin="0 0 0 0" height="20rem"/>
                 </div>
             ))
             }
@@ -100,7 +111,7 @@ const ProfilePage = () => {
             <div className="ProfilePagePostDisplayColumn">
             {data.filter((item, key)=>key%2==0).map((item)=>(
                 <div style={{width:"49%",scale:"0.95", margin:"-0.5rem 0 0 1rem"}}>
-                    <Posts item={item} key={item._id} margin="0 0 0 0"/>
+                    <Posts item={item} key={item._id} margin="0 0 0 0" height="20rem"/>
                 </div>
             ))}
             </div>

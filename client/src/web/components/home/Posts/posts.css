@@ -110,3 +110,17 @@
     transform: scale(1.1);
 }
 
+
+.otherUserCommentsToDisplayInPosts{
+    width: 96%;
+    height: 10rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0.5rem;
+    margin: 0.2rem auto;
+    border-radius: 2rem 0 0rem 0 ;
+    box-shadow: 0 0.2rem 0.5rem 0rem black;
+}
+#dark .otherUserCommentsToDisplayInPosts{
+    box-shadow: 0 0rem 0.2rem 0.1rem grey;
+}
