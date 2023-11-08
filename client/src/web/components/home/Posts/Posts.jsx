@@ -3,10 +3,13 @@ import likeAfter from "../../../../images/likeAfter.svg";
 import comment from "../../../../images/comment.svg";
 import likeBefore from "../../../../images/likeBefore.svg";
 import { useState } from "react";
+import CommentBox from '../../CommentBox/CommentBox';
+import OtherUserComment from '../../CommentBox/OtherUserComment';
 
-export default function Posts({item,margin}) {
+export default function Posts({item,margin, height}) {
     const [imageLink, setImageLink] = useState(likeBefore);
     const [backgroundOfLikeButton, setBackgroundOfLikeButton] = useState();
+    const [displayCommentSection, setDisplayCommentSection] = useState(false);
     const tags=item.tags;
      return(
         <section  className='post-section' style={{margin: margin}}>
@@ -27,7 +30,7 @@ export default function Posts({item,margin}) {
 
           </div>
            <div className='post-img-cnt'>
-               <img src={item.image} alt="" style={{width: "90%", paddingLeft: "1rem", paddingRight: "1rem"}}/>
+               <img src={item.image} alt="" style={{width: "90%", height: height,paddingLeft: "1rem", paddingRight: "1rem", objectFit:"cover"}}/>
            </div>
            <div className='post-tag-cnt'>
               {tags.map((tag) => (<span className='post-tag' style={{backgroundColor:"hsl(" + Math.random() * 360 + ", 100%, 60%)"}}>{tag}</span>))}
@@ -40,11 +43,23 @@ export default function Posts({item,margin}) {
                 }
                 else setImageLink(likeBefore);
             }}><img src={imageLink} alt="LikeButton"/></button>
-            <button className="commentButton"><img src={comment} alt="commentButton"/></button>
+            <button className="commentButton" onClick={()=>setDisplayCommentSection((curr)=>!curr)}><img src={comment} alt="commentButton"/></button>
             
         </div>
+        {displayCommentSection && 
         
-        
+        <div style={{width:"96%", margin:"0rem auto"}}>
+            <CommentBox/>
+            <div className="otherUserCommentsToDisplayInPosts">
+                <OtherUserComment/>
+                <OtherUserComment/>
+                <OtherUserComment/>
+                <OtherUserComment/>
+                <OtherUserComment/>
+                <OtherUserComment/>
+            </div>
+        </div>
+        }
         </section>
      )
 };

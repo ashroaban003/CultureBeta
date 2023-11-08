@@ -1,13 +1,18 @@
 .commentBox{
-    position: absolute;
-    width: 30%;
-    height: 30rem;
-    background-color: red;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.commentInput{
-    width: min-content;
+#commentInput{
+    width: 90%;
     margin: 1rem 0rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .commentButton{
@@ -15,10 +20,13 @@
     font-weight: 600;
     padding: 0.1rem 0.4rem;
     border-radius: 1rem;
-    background-color: rgb(1, 206, 1);
+    background-color: transparent;
     box-shadow: 0 0.2rem 0.4rem 0rem rgb(1, 170, 1);
 }
-.commentButton:hover{
-    background-color: rgb(1, 206, 1);
-    box-shadow: inset 0 0.2rem 0.4rem 0rem rgb(1, 170, 1);
+#commentButtonOnPosts{
+    width: min-content;
+    height: min-content;
+    padding: 0.1rem 0.3rem 0 0.3rem;
+    margin: 0 0 0 0.4rem;
+    object-fit: cover;
 }
