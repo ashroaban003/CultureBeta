@@ -7,6 +7,8 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { MOUSE } from "three";
+// import { TajMahal } from "./TajMahal";
 const WB = (props) => {
   const { nodes, materials } = useGLTF("/WB.glb");
   console.log("dummy");
@@ -21,8 +23,22 @@ const WB = (props) => {
         overflow: "hidden",
       }}
     >
-      <OrbitControls enablePan={true} enableRotate={true} />
-      <ambientLight intensity={0.5} />
+      <OrbitControls
+        enablePan={true}
+        enableRotate={true}
+        autoRotate={true}
+        panSpeed={0.5}
+        autoRotateSpeed={1}
+        maxDistance={18}
+        mouseButtons={{
+          LEFT: MOUSE.LEFT,
+          UP: MOUSE.UP,
+          RIGHT: MOUSE.RIGHT,
+          BOTTOM: MOUSE.BOTTOM,
+        }}
+      />
+      {/* <ambientLight intensity={0.5} /> */}
+      <hemisphereLight intensity={0.5} />
       <group {...props} dispose={null}>
         <mesh
           geometry={nodes.Cube.geometry}
@@ -52,6 +68,7 @@ const WB = (props) => {
           rotation-x={Math.PI}
           scale={20}
         />
+        {/* <TajMahal /> */}
         <mesh
           geometry={nodes.Cube005.geometry}
           material={materials["Material.004"]}

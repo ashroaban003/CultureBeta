@@ -7,6 +7,8 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { GoldenTemple } from "./GoldenTemple";
+import { MOUSE } from "three";
 const Assam = (props) => {
   const { nodes, materials } = useGLTF("/Assam.glb");
   console.log("dummy");
@@ -20,8 +22,22 @@ const Assam = (props) => {
         left: 0,
         overflow: "hidden",
       }}
+      camera={{ position: [-20, 0, 0] }}
     >
-      <OrbitControls enablePan={true} enableRotate={true} />
+      <OrbitControls
+        enablePan={true}
+        enableRotate={true}
+        autoRotate={true}
+        panSpeed={0.5}
+        autoRotateSpeed={1}
+        maxDistance={10}
+        mouseButtons={{
+          LEFT: MOUSE.LEFT,
+          UP: MOUSE.UP,
+          RIGHT: MOUSE.RIGHT,
+          BOTTOM: MOUSE.BOTTOM,
+        }}
+      />
       <ambientLight intensity={0.5} />
       <group {...props} dispose={null}>
         <mesh
@@ -38,6 +54,7 @@ const Assam = (props) => {
           rotation-x={Math.PI}
           scale={20}
         />
+
         <mesh
           geometry={nodes.Cube003.geometry}
           material={materials["Material.002"]}

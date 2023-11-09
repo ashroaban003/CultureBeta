@@ -19,6 +19,7 @@ import Maharashtra from "./Maharashtra";
 import Assam from "./Assam";
 import WB from "./WB";
 import AP from "./AP";
+import Karnataka from "/Karnataka";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Canvas>
@@ -35,6 +36,7 @@ root.render(
         <Route path="/Assam" element={<Assam />} />
         <Route path="/Maharashtra" element={<Maharashtra />} />
         <Route path="/Punjab" element={<Punjab />} />
+        <Route path="/Karnataka" element={<Karnataka />} />
       </Routes>
     </BrowserRouter>
   </Canvas>

@@ -28,7 +28,12 @@ const Model = () => {
         overflow: "hidden",
       }}
     >
-      <OrbitControls enablePan={true} enableRotate={true} />
+      <OrbitControls
+        enablePan={false}
+        enableRotate={false}
+        maxDistance={5}
+        minDistance={5}
+      />
       <ambientLight intensity={0.5} />
       <IndiaMap />
     </Canvas>
