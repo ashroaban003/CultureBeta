@@ -43,7 +43,8 @@ export default function Posts({item,margin, height}) {
                 }
                 else setImageLink(likeBefore);
             }}><img src={imageLink} alt="LikeButton"/></button>
-            <button className="commentButton" onClick={()=>setDisplayCommentSection((curr)=>!curr)}><img src={comment} alt="commentButton"/></button>
+            <button className="commentButton" onClick={()=>setDisplayCommentSection((curr)=>!curr)}><img src={comment} alt="commentButton" style={{
+    margin: "0.1rem 0.4rem 0rem 0.4rem"}}/></button>
             
         </div>
         {displayCommentSection && 

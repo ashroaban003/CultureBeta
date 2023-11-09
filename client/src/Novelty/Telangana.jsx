@@ -4,12 +4,17 @@ Command: npx gltfjsx@6.2.13 Telangana.glb
 */
 
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { PositionalAudio, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+// import { Charminar } from "./Charminar";
+import { CharminarTry } from "./Charminartry";
+// import { CharminarNew } from "./CharminarNew";
+import { MOUSE } from "three";
+
 const Telangana = (props) => {
   const { nodes, materials } = useGLTF("/Telangana.glb");
-  console.log("dummy");
+  // console.log("dummy");
   return (
     <Canvas
       style={{
@@ -20,9 +25,25 @@ const Telangana = (props) => {
         left: 0,
         overflow: "hidden",
       }}
+      camera={{ position: [-20, 0, 0] }}
     >
-      <OrbitControls enablePan={true} enableRotate={true} />
-      <ambientLight intensity={0.5} />
+      <OrbitControls
+        enablePan={true}
+        enableRotate={true}
+        autoRotate={true}
+        panSpeed={0.5}
+        autoRotateSpeed={1}
+        maxDistance={18}
+        mouseButtons={{
+          LEFT: MOUSE.LEFT,
+          UP: MOUSE.UP,
+          RIGHT: MOUSE.RIGHT,
+          BOTTOM: MOUSE.BOTTOM,
+        }}
+      />
+      {/* <ambientLight intensity={0.5} /> */}
+      <PositionalAudio autoplay loop url="/Telangana.mp3" distance={3} />
+
       <group {...props} dispose={null}>
         <mesh
           geometry={nodes.Cube.geometry}
@@ -38,6 +59,7 @@ const Telangana = (props) => {
           rotation-x={Math.PI}
           scale={20}
         />
+        <CharminarTry />
         <mesh
           geometry={nodes.Cube003.geometry}
           material={materials["Material.002"]}

@@ -1,10 +1,31 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { createContext, useState } from 'react'
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Home from "./web/pages/home/Home";
+// import Login from "./web/pages/login/Login";
+// import Signin from "./web/pages/login/Signin";
+// import Userpost from "./web/pages/Userpost/Userpost";
+ import Short from "./web/components/dhana&machi/short/short"
+// import Quiz from "./web/pages/quiz/Quiz";
+// import ChatBot from "./web/pages/chatBot/ChatBot";
+// import Model from "./Novelty/Model";
+// import TN from "./Novelty/TN";
+// import AP from "./Novelty/AP";
+// import Punjab from "./Novelty/Punjab";
+// import WB from "./Novelty/WB";
+// import Assam from "./Novelty/Assam";
+// import Maharashtra from "./Novelty/Maharashtra";
+// import Telangana from "./Novelty/Telangana";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import ReactSwitch from "react-switch";
+import ProfilePage from "./web/pages/ProfilePage/ProfilePage";
+
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./web/pages/home/Home";
 import Login from "./web/pages/login/Login";
 import Signin from "./web/pages/login/Signin";
 import Userpost from "./web/pages/Userpost/Userpost";
-import Short from "./web/components/dhana&machi/short/short"
 import Quiz from "./web/pages/quiz/Quiz";
 import ChatBot from "./web/pages/chatBot/ChatBot";
 import Model from "./Novelty/Model";
@@ -15,11 +36,11 @@ import WB from "./Novelty/WB";
 import Assam from "./Novelty/Assam";
 import Maharashtra from "./Novelty/Maharashtra";
 import Telangana from "./Novelty/Telangana";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import ReactSwitch from "react-switch";
-import ProfilePage from "./web/pages/ProfilePage/ProfilePage";
-
+import Delhi from "./Novelty/Delhi";
+// import { Canvas } from "@react-three/fiber";
+// import { OrbitControls } from "@react-three/drei";
+import UttarPradesh from "./Novelty/UttarPradesh";
+import Karnataka from "./Novelty/Karnataka";
 
 export let ThemeContext = createContext(null);
 
@@ -56,6 +77,10 @@ function App() {
         <Route path="/Telangana" element={<Telangana />} />
         <Route path="/Assam" element={<Assam />} />
         <Route path="/Maharashtra" element={<Maharashtra />} />
+        <Route path="/Punjab" element={<Punjab />} />
+        <Route path="/Delhi" element={<Delhi />} />
+        <Route path="/UttarPradesh" element={<UttarPradesh />} />
+        <Route path="/Karnataka" element={<Karnataka />} />
         <Route path="/Punjab" element={<Punjab />} />
         <Route path="/shorts" element = {<Short/>}></Route>
       </Routes>

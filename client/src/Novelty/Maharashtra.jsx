@@ -4,9 +4,14 @@ Command: npx gltfjsx@6.2.13 Maharashtra.glb
 */
 
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { PositionalAudio, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+// import { IndiaGate } from "./IndiaGate";
+// import { IndiaGateTry2 } from "./IndiaGateTry2";
+import { EC } from "./EC";
+import { MOUSE } from "three";
+
 const Maharashtra = (props) => {
   const { nodes, materials } = useGLTF("/Maharashtra.glb");
   console.log("dummy");
@@ -20,8 +25,25 @@ const Maharashtra = (props) => {
         left: 0,
         overflow: "hidden",
       }}
+      camera={{ position: [-20, 0, 0] }}
     >
-      <OrbitControls enablePan={true} enableRotate={true} />
+      {/* <OrbitControls enablePan={true} enableRotate={true} /> */}
+      <OrbitControls
+        enablePan={true}
+        enableRotate={true}
+        autoRotate={true}
+        panSpeed={0.5}
+        autoRotateSpeed={1}
+        maxDistance={18}
+        mouseButtons={{
+          LEFT: MOUSE.LEFT,
+          UP: MOUSE.UP,
+          RIGHT: MOUSE.RIGHT,
+          BOTTOM: MOUSE.BOTTOM,
+        }}
+      />
+      <PositionalAudio autoplay loop url="/Maharashtra.mp3" distance={3} />
+
       <ambientLight intensity={0.5} />
       <group {...props} dispose={null}>
         <mesh
@@ -38,6 +60,7 @@ const Maharashtra = (props) => {
           rotation-x={Math.PI}
           scale={20}
         />
+
         <mesh
           geometry={nodes.Cube003.geometry}
           material={materials["Material.002"]}
@@ -45,6 +68,7 @@ const Maharashtra = (props) => {
           rotation-x={Math.PI}
           scale={20}
         />
+        <EC />
         <mesh
           geometry={nodes.Cube004.geometry}
           material={materials["Material.003"]}

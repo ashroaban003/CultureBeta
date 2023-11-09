@@ -99,21 +99,22 @@ const ProfilePage = () => {
             }
             
             <div className="ProfilePagePostDisplayColumn">
+            {data.filter((item, key)=>key%2==0).reverse().map((item)=>(
+                <div style={{width:"49%",scale:"0.95", margin:"-0.5rem 0 0 1rem"}}>
+                    <Posts item={item} key={item._id} margin="0 0 0 0" height="20rem"/>
+                </div>
+            ))}
+            </div>
+            
+            <div className="ProfilePagePostDisplayColumn">
             {
-            data.filter((item, key)=>key%2==1).map((item)=>
+            data.filter((item, key)=>key%2==1).reverse().map((item)=>
                 (
                 <div style={{width:"49%",scale:"0.95", margin:"0 1rem 0 1.5rem"}}>
                     <Posts item={item} key={item._id} margin="0 0 0 0" height="20rem"/>
                 </div>
             ))
             }
-            </div>
-            <div className="ProfilePagePostDisplayColumn">
-            {data.filter((item, key)=>key%2==0).map((item)=>(
-                <div style={{width:"49%",scale:"0.95", margin:"-0.5rem 0 0 1rem"}}>
-                    <Posts item={item} key={item._id} margin="0 0 0 0" height="20rem"/>
-                </div>
-            ))}
             </div>
       </div>
         </div>

@@ -4,9 +4,14 @@ Command: npx gltfjsx@6.2.13 Punjab.glb
 */
 
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { PerspectiveCamera, PositionalAudio, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+// import { LotusTemple } from "./Lotus_temple";
+// import { IndiaGate } from "./IndiaGate";
+import { MOUSE } from "three";
+import { GoldenTemple } from "./GoldenTemple";
+
 const Punjab = (props) => {
   const { nodes, materials } = useGLTF("/Punjab.glb");
   console.log("dummy");
@@ -20,9 +25,26 @@ const Punjab = (props) => {
         left: 0,
         overflow: "hidden",
       }}
+      camera={{ position: [-20, 0, 0] }}
     >
-      <OrbitControls enablePan={true} enableRotate={true} />
+      {/* <PerspectiveCamera lookAt={}/> */}
       <ambientLight intensity={0.5} />
+      <PositionalAudio autoplay loop url="/Punjab.mp3" distance={3} />
+
+      <OrbitControls
+        enablePan={true}
+        enableRotate={true}
+        autoRotate={true}
+        panSpeed={0.5}
+        autoRotateSpeed={1}
+        maxDistance={15}
+        mouseButtons={{
+          LEFT: MOUSE.LEFT,
+          UP: MOUSE.UP,
+          RIGHT: MOUSE.RIGHT,
+          BOTTOM: MOUSE.BOTTOM,
+        }}
+      />
       <group {...props} dispose={null}>
         <mesh
           geometry={nodes.Cube.geometry}
@@ -38,6 +60,8 @@ const Punjab = (props) => {
           rotation-x={Math.PI}
           scale={20}
         />
+        <GoldenTemple />
+        {/* <IndiaGate /> */}
         <mesh
           geometry={nodes.Cube003.geometry}
           material={materials["Material.002"]}
