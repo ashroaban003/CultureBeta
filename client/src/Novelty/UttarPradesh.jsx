@@ -56,7 +56,7 @@ const UttarPradesh = (props) => {
           autoplay
           loop
           url="/UttarPradeshSong.mp3"
-          distance={3}
+          distance={1.5}
         />
         <mesh
           geometry={nodes.Cube002.geometry}

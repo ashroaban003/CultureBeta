@@ -42,7 +42,7 @@ const Maharashtra = (props) => {
           BOTTOM: MOUSE.BOTTOM,
         }}
       />
-      <PositionalAudio autoplay loop url="/Maharashtra.mp3" distance={3} />
+      <PositionalAudio autoplay loop url="/Maharashtra.mp3" distance={1.5} />
 
       <ambientLight intensity={0.5} />
       <group {...props} dispose={null}>

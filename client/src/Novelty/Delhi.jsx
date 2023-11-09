@@ -28,7 +28,7 @@ const Delhi = (props) => {
       }}
       camera={{ position: [-20, 0, 0] }}
     >
-      <PositionalAudio autoplay loop url="/Delhi.mp3" distance={3} />
+      <PositionalAudio autoplay loop url="/Delhi.mp3" distance={1.5} />
       <OrbitControls
         enablePan={true}
         enableRotate={true}

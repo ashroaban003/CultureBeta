@@ -8,6 +8,63 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
 import "./States.css";
 import { MOUSE, Texture } from "three";
+import axios from "axios";
+
+let response = "";
+let language = "";
+let eng_response = "";
+const handleTTSreq = async ({ response, language }) => {
+  try {
+    console.log(response);
+    const val = {
+      text: response,
+    };
+    const res = await axios.post(
+      "http://localhost:4000/api/tts/" + language,
+      val
+    );
+    console.log(res);
+    const audioBase64 = res.data.audioResponse;
+
+    // Create an audio element
+    const audio = new Audio();
+    //audio.muted= "muted";
+    // Set the base64 audio data as the audio source
+    audio.src = `data:audio/mpeg;base64,${audioBase64}`;
+    //console.log(audio);
+    // Play the audio
+    audio.play();
+    //<audio src={res.data} controls autoPlay/>
+    //<AudioPlayer source={res.data}/>
+  } catch (err) {
+    console.log(err);
+  }
+};
+const handleTTSreq2 = async ({ eng_response }) => {
+  try {
+    console.log(eng_response);
+    const val = {
+      text: eng_response,
+    };
+    const res = await axios.post("http://localhost:4000/api/tts", val);
+    console.log(res);
+    const audioBase64 = res.data.audioResponse;
+
+    // Create an audio element
+    const audio = new Audio();
+    //audio.muted= "muted";
+    // Set the base64 audio data as the audio source
+    audio.src = `data:audio/mpeg;base64,${audioBase64}`;
+    //console.log(audio);
+    // Play the audio
+    audio.play();
+    //<audio src={res.data} controls autoPlay/>
+    //<AudioPlayer source={res.data}/>
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export function IndiaMap(props) {
   const Navigate = useNavigate();
   const { nodes, materials } = useGLTF("/IndiaMap.glb");
@@ -47,6 +104,14 @@ export function IndiaMap(props) {
         material={materials.IndiaMap}
         onClick={() => {
           Navigate("/TN");
+          eng_response = "Welcome to Tamil Nadu";
+          console.log(eng_response);
+          response = "தமிழ்நாடு உங்களை அன்புடன் வரவேற்கிறது";
+          language = "tamil";
+          handleTTSreq({ response, language });
+          setTimeout(() => {
+            handleTTSreq2({ eng_response });
+          }, 7700);
         }}
         position={[0, 0, givPos[0]]}
       />
@@ -81,6 +146,14 @@ export function IndiaMap(props) {
         material={materials.IndiaMap}
         onClick={() => {
           Navigate("/AP");
+          eng_response = "Welcome to Andhra Pradesh";
+          console.log(eng_response);
+          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          language = "telugu";
+          handleTTSreq({ response, language });
+          setTimeout(() => {
+            handleTTSreq2({ eng_response });
+          }, 7700);
         }}
         position={[0, 0, givPos[2]]}
       />
@@ -97,6 +170,14 @@ export function IndiaMap(props) {
         }}
         onClick={() => {
           Navigate("/Karnataka");
+          eng_response = "Welcome to Karnataka";
+          console.log(eng_response);
+          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          language = "kannada";
+          handleTTSreq({ response, language });
+          setTimeout(() => {
+            handleTTSreq2({ eng_response });
+          }, 7700);
         }}
         geometry={nodes.Karnataka.geometry}
         material={materials.IndiaMap}
@@ -117,6 +198,14 @@ export function IndiaMap(props) {
         material={materials.IndiaMap}
         onClick={() => {
           Navigate("/Telangana");
+          response = "తెలంగాణకు స్వాగతం";
+          eng_response = "Welcome to Telangana";
+          console.log(eng_response);
+          language = "telugu";
+          handleTTSreq({ response, language });
+          setTimeout(() => {
+            handleTTSreq2({ eng_response });
+          }, 7700);
         }}
         position={[0, 0, givPos[4]]}
       />
@@ -135,6 +224,14 @@ export function IndiaMap(props) {
         material={materials.IndiaMap}
         onClick={() => {
           Navigate("/Maharashtra");
+          eng_response = "Welcome to Karnataka";
+          console.log(eng_response);
+          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          language = "kannada";
+          handleTTSreq({ response, language });
+          setTimeout(() => {
+            handleTTSreq2({ eng_response });
+          }, 7700);
         }}
         position={[0, 0, givPos[5]]}
       />
@@ -274,6 +371,14 @@ export function IndiaMap(props) {
         }}
         onClick={() => {
           Navigate("/UttarPradesh");
+          eng_response = "Welcome to Uttar Pradesh";
+          console.log(eng_response);
+          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          language = "hindi";
+          handleTTSreq({ response, language });
+          setTimeout(() => {
+            handleTTSreq2({ eng_response });
+          }, 7700);
         }}
         geometry={nodes.UP.geometry}
         material={materials.IndiaMap}
@@ -292,6 +397,14 @@ export function IndiaMap(props) {
         }}
         onClick={() => {
           Navigate("/Delhi");
+          eng_response = "Welcome to Delhi";
+          console.log(eng_response);
+          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          language = "hindi";
+          handleTTSreq({ response, language });
+          setTimeout(() => {
+            handleTTSreq2({ eng_response });
+          }, 7700);
         }}
         geometry={nodes.Haryana.geometry}
         material={materials.IndiaMap}
@@ -327,6 +440,14 @@ export function IndiaMap(props) {
         material={materials.IndiaMap}
         onClick={() => {
           Navigate("/Punjab");
+          eng_response = "Welcome to Punjab";
+          console.log(eng_response);
+          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          language = "punjabi";
+          handleTTSreq({ response, language });
+          setTimeout(() => {
+            handleTTSreq2({ eng_response });
+          }, 7700);
         }}
         position={[0, 0, givPos[17]]}
       />

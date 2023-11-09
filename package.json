@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@google-cloud/text-to-speech": "^5.0.1",
     "@react-three/drei": "^9.87.1",
     "@react-three/fiber": "8.8",
     "framer-motion": "^10.16.4",
