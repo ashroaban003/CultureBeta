@@ -51,7 +51,6 @@ const Short = () => {
             
             <ShortFooter></ShortFooter>
             
-        <CommentBox/>
         </div>
         </div>
      );

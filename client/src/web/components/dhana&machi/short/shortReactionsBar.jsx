@@ -11,7 +11,6 @@ const ShortReactionsBar = () => {
                 if(imageLink===likeBefore) setImageLink(likeAfter);
                 else setImageLink(likeBefore);
             }}><img src={imageLink} alt="LikeButton"/></button>
-            <button className="commentButton"><img src={comment} alt="commentButton"/></button>
         </div>
      );
 }
