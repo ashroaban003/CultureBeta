@@ -2,7 +2,6 @@ import { useContext } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import HomeNavabar from "../dhana&machi/DhanaNavBar/Homenavbar";
 export default function Navbar(params) {
   const Navigate = useNavigate();
   const loginclick = () => {

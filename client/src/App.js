@@ -90,7 +90,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     </div>
-    </ThemeContext.Provider>
+    </ThemeContext.Provider> 
   );
 }
 

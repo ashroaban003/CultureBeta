@@ -142,7 +142,7 @@ button:hover{
  
 }
 /* media queries */
-@media (min-width: 1536px) {
+/* @media (min-width: 1536px) {
   .innerWidth {
     max-width: 1280px;
     margin: auto;
@@ -168,4 +168,4 @@ button:hover{
   .orangeText {
     font-size: 1.2rem;
   }
-}
+} */
