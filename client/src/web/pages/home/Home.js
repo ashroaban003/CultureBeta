@@ -10,9 +10,11 @@ export default function Home(params) {
       <div>
      <Navbar/>  
        <div className="Home">
+         <div className="HomeMain" style={{marginTop: "5rem"}}>
         <ProfileSide />
         <PostFeed/>
         <RightSide />
+        </div>
        </div>
     </div>
   );

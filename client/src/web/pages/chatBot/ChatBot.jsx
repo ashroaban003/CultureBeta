@@ -64,6 +64,7 @@ const ChatBot = () => {
     <div className="ChatBot" style={{ height: "100vh" }}>
       <Navbar />
       <div className="container">
+        <div className="containerMain">
         <h1 className="botName">Culture Bot</h1>
         <div className="input-bar">
           <input
@@ -86,6 +87,8 @@ const ChatBot = () => {
         <button className="tts-button" onClick={handleTTSreq}>
           Hear
         </button>
+
+        </div>
       </div>
     </div>
   );

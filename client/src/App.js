@@ -41,7 +41,6 @@ import Delhi from "./Novelty/Delhi";
 // import { OrbitControls } from "@react-three/drei";
 import UttarPradesh from "./Novelty/UttarPradesh";
 import Karnataka from "./Novelty/Karnataka";
-import UserPostChoice from './web/pages/Userpost/UserPostChoice';
 import UserpostShort from './web/pages/Userpost/UserpostShort';
 
 export let ThemeContext = createContext(null);
@@ -54,6 +53,8 @@ function App() {
     localStorage.setItem('colorThemeOfCultureHub', theme==="light"?"dark":"light");
   }
   return (
+    <>
+    
     <ThemeContext.Provider
     value = {{theme, toggleTheme}}>
 
@@ -63,8 +64,10 @@ function App() {
         right:"0%"}}>
           <ReactSwitch  onChange={toggleTheme} checked = {theme==="dark"}/>
       </div>
+      
     <BrowserRouter>
       <Routes>
+        
         <Route path="/profile" element={<ProfilePage/>}/>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -91,6 +94,8 @@ function App() {
     </BrowserRouter>
     </div>
     </ThemeContext.Provider> 
+    
+</>
   );
 }
 

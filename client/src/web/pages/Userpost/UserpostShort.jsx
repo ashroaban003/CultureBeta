@@ -22,15 +22,15 @@ export default function UserpostShort(params) {
   const videoListRef = ref(storage, "videos/")
   const uploadVideo = (event) => {
     event.preventDefault(); 
-  
+
     if (videoUpload == null) return;
-  
+
     const videoRef = ref(storage, `videos/${videoUpload.name + v4()}`);
     uploadBytes(videoRef, videoUpload).then(() => {
       alert("Video Uploaded");
       setTemp(123123);
     });
-  };
+  }
 
   useEffect( () => {
     listAll(videoListRef).then((res) => {
@@ -52,7 +52,6 @@ export default function UserpostShort(params) {
       })
     })
   }, [temp])
-
   function parseTags(input) {
     const tags = input.split(",").map((tag) => tag.trim());
     return tags;
@@ -86,6 +85,7 @@ export default function UserpostShort(params) {
     <div className="userpostcnt" style={{height:"100vh"}}>
       <Navbar />
       <div className="addcontainer">
+      <div className="addcontainerMain">
         <div className="buttonsOnAddPostDiv">
         <button className="button" onClick={()=>Navigate('/userpost')}>Post Image</button>
         <button className="button" style={{scale:scaleOfButtonSelectedShort}}>Post Video</button>
@@ -127,9 +127,9 @@ export default function UserpostShort(params) {
           />
           <div className="tags" id="tag-container"></div>
 
-          <button className="userPostButton" disabled={loading} onClick={(event) => uploadVideo(event)}>
-  Upload
-</button>
+          <button className="userPostButton"type="submit" disabled={loading} onClick={(event) => uploadVideo(event)}>
+            Upload
+          </button>
           {error && <span className="rederr"> {error}</span>}
           {success && <span className="greensuc">Click again to post</span>}
             </form>
@@ -138,6 +138,7 @@ export default function UserpostShort(params) {
 
 
 
+        </div>
         </div>
       </div>
     </div>
