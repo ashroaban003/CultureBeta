@@ -21,9 +21,7 @@ export default function Userpost(params) {
   const [success, setsuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [imageReady, setImageReady] = useState(false);
-  const [imageOrShort, setImageOrShort] = useState("Image");
   const [scaleOfButtonSelectedImage, setScaleOfButtonSelectedImage] = useState("1.5");
-  const [scaleOfButtonSelectedShort, setScaleOfButtonSelectedShort] = useState("1");
   const [borderRadiusOfForm, setBorderRadiusOfForm] = useState("0 4rem 0 0");
 
   function parseTags(input) {
@@ -138,34 +136,21 @@ export default function Userpost(params) {
   };
 
 
-  const handleUploadVideo = ()=>{
+ 
 
-  }
-
-  const UserPostsImage = ()=>{
-    setImageOrShort("Image");
-    setScaleOfButtonSelectedImage("1.5");
-    setScaleOfButtonSelectedShort("1");
-    setBorderRadiusOfForm("0 4rem 0 0");
-  }
-  const UserPostsShort = ()=>{
-    setImageOrShort("Short");
-    setScaleOfButtonSelectedImage("1");
-    setScaleOfButtonSelectedShort("1.5");
-    setBorderRadiusOfForm("4rem 0 0 0");
-  }
+  
   return (
     <div className="userpostcnt" style={{height:"100vh"}}>
       <Navbar />
       <div className="addcontainer">
         <div className="buttonsOnAddPostDiv">
-        <button className="button" style={{scale:scaleOfButtonSelectedImage}} onClick={()=>UserPostsImage()}>Post Image</button>
-        <button className="button" style={{scale:scaleOfButtonSelectedShort}} onClick={()=>UserPostsShort()}>Post Video</button>
+        <button className="button" style={{scale:scaleOfButtonSelectedImage}}>Post Image</button>
+        <button className="button" onClick={()=>Navigate('/PostShort')}>Post Video</button>
         </div>
         <div style={{borderTop:"0.2rem solid #4066ff", borderRadius:borderRadiusOfForm, padding: "0 1rem"}}>
       <h2>Share your culture around the globe!</h2>
 
-        {imageOrShort=="Image" && <form>
+        <form>
           <label htmlFor="image">Image:</label>
           <input
             type="file"
@@ -204,49 +189,9 @@ export default function Userpost(params) {
           {error && <span className="rederr"> {error}</span>}
           {success && <span className="greensuc">Click again to post</span>}
         </form>
-}
 
-{
-  imageOrShort=="Short" &&
-  <form>
-          <label htmlFor="image">Short:</label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            onChange={handleChange}
-            required
-          />
 
-<label htmlFor="desc">Description:</label>
-         <textarea
-            id="desc"
-            name="desc"
-            rows="4"
-            onChange={handleChange}
-            required
-            maxLength="70"
-          ></textarea>
 
-          <label htmlFor="tags">Tags:</label>
-          <input
-            type="text"
-            id="tags"
-            name="tags"
-            className="tags-input"
-            placeholder="Enter tags separated by commas"
-            onChange={handletags}
-          />
-          <div className="tags" id="tag-container"></div>
-
-          <button className="userPostButton"type="submit" disabled={loading} onClick={handleUploadVideo}>
-            Upload
-          </button>
-          {error && <span className="rederr"> {error}</span>}
-          {success && <span className="greensuc">Click again to post</span>}
-        </form>
-}
 
         </div>
       </div>

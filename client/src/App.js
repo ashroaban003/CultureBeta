@@ -41,6 +41,8 @@ import Delhi from "./Novelty/Delhi";
 // import { OrbitControls } from "@react-three/drei";
 import UttarPradesh from "./Novelty/UttarPradesh";
 import Karnataka from "./Novelty/Karnataka";
+import UserPostChoice from './web/pages/Userpost/UserPostChoice';
+import UserpostShort from './web/pages/Userpost/UserpostShort';
 
 export let ThemeContext = createContext(null);
 
@@ -67,7 +69,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signin />} />
-        <Route path="/userpost" element={<Userpost />} />
+        <Route path="/userpost" element={<Userpost/>} />
+        <Route path="/PostShort" element={<UserpostShort/>} />
+        
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/chatbot" element={<ChatBot />} />
         <Route path="/model" element={<Model />} />
