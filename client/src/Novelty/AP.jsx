@@ -51,7 +51,7 @@ const AP = (props) => {
       <LordBuddha />
 
       <group {...props} dispose={null}>
-        <PositionalAudio autoplay loop url="/APBGM.mp3" distance={1.5} />
+        <PositionalAudio autoplay loop url="/APBGM.mp3" distance={4} />
         <mesh
           geometry={nodes.Cube.geometry}
           material={materials.Material}

@@ -31,6 +31,34 @@ const gen_audio = ({ text, lang }) => {
       ssmlGender: "FEMALE",
     };
   }
+  if (lang == "kannada") {
+    voice = {
+      languageCode: "kn-IN",
+      voiceName: "kn-IN-Standard-A",
+      ssmlGender: "FEMALE",
+    };
+  }
+  if (lang == "marathi") {
+    voice = {
+      languageCode: "mr-IN",
+      voiceName: "mr-IN-Standard-A",
+      ssmlGender: "FEMALE",
+    };
+  }
+  if (lang == "punjabi") {
+    voice = {
+      languageCode: "pa-IN",
+      voiceName: "pa-IN-Standard-A",
+      ssmlGender: "FEMALE",
+    };
+  }
+  if (lang == "hindi") {
+    voice = {
+      languageCode: "hi-IN",
+      voiceName: "hi-IN-Neural2-A",
+      ssmlGender: "FEMALE",
+    };
+  }
   /**
    *  Required. The configuration of the synthesized audio.
    */

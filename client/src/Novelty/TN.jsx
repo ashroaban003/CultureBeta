@@ -51,7 +51,7 @@ const TN = (props) => {
           scale={20}
         />
         {/* <IndianTemples /> */}
-        <PositionalAudio autoplay loop url="/TNsong.mp3" distance={1.5} />
+        <PositionalAudio autoplay loop url="/TNsong.mp3" distance={6} />
         <mesh
           geometry={nodes.Cube002.geometry}
           material={materials["Material.001"]}
