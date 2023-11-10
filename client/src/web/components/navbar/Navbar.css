@@ -6,12 +6,14 @@
   align-items: center;
   padding: 12px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  /* position: fixed; */
+  position: fixed;
+  width: 97%;
+  z-index: 100;
 }
 #light .navbar{
   color: black;
   background-color: white;
-  box-shadow: 0 0rem 0.3rem 0rem grey;  
+  box-shadow: 0 0rem 0.3rem 0rem grey;
 }
 #dark .navbar{
 color: white;

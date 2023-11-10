@@ -18,29 +18,40 @@ export default function UserpostShort(params) {
   const [videoUpload, setVideoUpload] = useState(null);
   const [videoList, setVideoList] = useState(null);
   const [reqVideoUrl, setReqVideoUrl] = useState("");
+  const [temp, setTemp] = useState(12);
   const videoListRef = ref(storage, "videos/")
-  const uploadVideo = () => {
-      console.log(videoUpload);
-      alert("successfully sent");
-    if(videoUpload == null) return;
-    
-    alert("successfully sent");
-    console.log("reached"); 
+  const uploadVideo = (event) => {
+    event.preventDefault(); 
+
+    if (videoUpload == null) return;
+
     const videoRef = ref(storage, `videos/${videoUpload.name + v4()}`);
     uploadBytes(videoRef, videoUpload).then(() => {
-      alert("Video Uploaded")
-    })
-  };
+      alert("Video Uploaded");
+      setTemp(123123);
+    });
+  }
 
   useEffect( () => {
     listAll(videoListRef).then((res) => {
       console.log(res);
-      getDownloadURL(res.items[0]).then((url) => {
-        setReqVideoUrl(url);
-        console.log(reqVideoUrl, " \nIs req rul")
+      res.items.forEach((item) => {
+        // console.log("cur item : ",item)
+        if(videoUpload){
+        console.log("video upload : ",videoUpload.name)
+        if(item._location.path_.includes(videoUpload.name)){
+          console.log("got the same file from fb")
+          getDownloadURL(item).then((url) => {
+            setReqVideoUrl(url);
+            alert("got the req URL");
+            console.log(url)
+            return;
+          })
+        }
+      }
       })
     })
-  })
+  }, [temp])
   function parseTags(input) {
     const tags = input.split(",").map((tag) => tag.trim());
     return tags;
@@ -74,6 +85,7 @@ export default function UserpostShort(params) {
     <div className="userpostcnt" style={{height:"100vh"}}>
       <Navbar />
       <div className="addcontainer">
+      <div className="addcontainerMain">
         <div className="buttonsOnAddPostDiv">
         <button className="button" onClick={()=>Navigate('/userpost')}>Post Image</button>
         <button className="button" style={{scale:scaleOfButtonSelectedShort}}>Post Video</button>
@@ -115,7 +127,7 @@ export default function UserpostShort(params) {
           />
           <div className="tags" id="tag-container"></div>
 
-          <button className="userPostButton"type="submit" disabled={loading} onClick={uploadVideo}>
+          <button className="userPostButton"type="submit" disabled={loading} onClick={(event) => uploadVideo(event)}>
             Upload
           </button>
           {error && <span className="rederr"> {error}</span>}
@@ -126,6 +138,7 @@ export default function UserpostShort(params) {
 
 
 
+        </div>
         </div>
       </div>
     </div>

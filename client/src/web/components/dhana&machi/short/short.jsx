@@ -26,7 +26,7 @@ const Short = () => {
         <div className="shortContainer" style={{height:"100vh"}}>
             <Navbar />
         <div className="short">
-            
+        <div className="shortMain">
             {/* <ShortsTagBar></ShortsTagBar> */}
             <div className="contentReactionsContainer">
             <ShortContent videoRef={videoRef}></ShortContent>
@@ -50,7 +50,7 @@ const Short = () => {
             
             
             <ShortFooter></ShortFooter>
-            
+            </div>
         </div>
         </div>
      );

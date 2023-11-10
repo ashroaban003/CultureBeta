@@ -143,6 +143,7 @@ export default function Userpost(params) {
     <div className="userpostcnt" style={{height:"100vh"}}>
       <Navbar />
       <div className="addcontainer">
+        <div className="addcontainerMain">
         <div className="buttonsOnAddPostDiv">
         <button className="button" style={{scale:scaleOfButtonSelectedImage}}>Post Image</button>
         <button className="button" onClick={()=>Navigate('/PostShort')}>Post Video</button>
@@ -193,6 +194,7 @@ export default function Userpost(params) {
 
 
 
+        </div>
         </div>
       </div>
     </div>
