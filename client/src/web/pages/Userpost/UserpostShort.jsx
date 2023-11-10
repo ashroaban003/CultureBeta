@@ -111,7 +111,7 @@ export default function UserpostShort(params) {
             id="desc"
             name="desc"
             rows="4"
-            onChange={handleChange}
+            // onChange={handleChange}
             required
             maxLength="70"
           ></textarea>
@@ -123,7 +123,7 @@ export default function UserpostShort(params) {
             name="tags"
             className="tags-input"
             placeholder="Enter tags separated by commas"
-            onChange={handletags}
+            // onChange={handletags}
           />
           <div className="tags" id="tag-container"></div>
 
