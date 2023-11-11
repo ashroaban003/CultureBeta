@@ -201,6 +201,21 @@ const deleteComment = async (req, res) => {
   }
 };
 
+const getComments = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const post = await PostModel.findById(id);
+    if (!post) {
+      console.log("No such post");
+      return;
+    }
+    res.status(200).json(post.comments);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 module.exports = {
   createPost,
   getPost,
@@ -211,4 +226,5 @@ module.exports = {
   getUserPosts,
   commentOnPost,
   deleteComment,
+  getComments
 };
