@@ -19,7 +19,7 @@ router.get('/:id', getPost);
 router.put('/:id', updatePost);
 router.delete("/:id", deletePost);
 router.put('/:id/like', likePost);
-router.get('/:id/comment', getComments)
+router.get('/:id/comments', getComments)
 router.get('/:id/userposts', getUserPosts)
 router.post('/:id/comment', commentOnPost);
 router.delete('/:id/comment', deleteComment);

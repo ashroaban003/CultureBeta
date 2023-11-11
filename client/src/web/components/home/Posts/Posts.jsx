@@ -8,6 +8,7 @@ import OtherUserComment from '../../CommentBox/OtherUserComment';
 import { AuthContext } from '../../../context/AuthContext';
 import downarrow from "../../../../images/downarrow.svg";
 import axios from "axios";
+import useFetch from '../../../hooks/usefetch';
 
 export default function Posts({item,margin, height}) {
     const {user}=useContext(AuthContext);
@@ -18,23 +19,28 @@ export default function Posts({item,margin, height}) {
         text: null,
     });
    
-   const [suc,setsuc]=useState("false")
+   const [suc,setsuc]=useState("try again")
+
+   const { data, loading,reFetch }=useFetch(`http://localhost:4000/api/post/${item._id}/comments`)
+
     const handlecomment=async()=>{
         try{
+            setaddcoment({
+                ...addcomment,
+                userId: user.id,
+            })
         const res = await axios.post(`http://localhost:4000/api/post/${item._id}/comment`, addcomment);
          setsuc("success");
+         reFetch();
         }catch(e){
             console.log(e);
         }
     }
     const handleChange = (e) => {
-         setid(user.id);
            e.preventDefault();
+           setsuc("try again");
             setaddcoment((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-            setaddcoment({
-                ...addcomment,
-                userId: user.id,
-            })
+
       };
 
     const [imageLink, setImageLink] = useState(likeBefore);
@@ -88,13 +94,10 @@ export default function Posts({item,margin, height}) {
             
         }
             <div className="otherUserCommentsToDisplayInPosts">
-                 <span>{suc}</span>  
-                <OtherUserComment/>
-                <OtherUserComment/>
-                <OtherUserComment/>
-                <OtherUserComment/>
-                <OtherUserComment/>
-                <OtherUserComment/>
+                <span>{suc}</span>
+                {data.map((item)=>(
+                    <OtherUserComment  item={item} key={item._id}/>
+                ))}
             </div>
         </div>
         }
