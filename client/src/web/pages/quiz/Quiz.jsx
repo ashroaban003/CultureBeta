@@ -116,6 +116,7 @@ export default function Quiz() {
     <div style={{height:"100vh"}}>
       <Navbar />
       <div className='quiz-container'>
+		  <div className="quiz-container-main">
 		  <div className="questionProgress" style={{
 			  width: currentWidth()+"%"
 		  }}>
@@ -167,6 +168,8 @@ export default function Quiz() {
 		  
 		  </div>
         }
+
+</div>
       </div>
     </div>
   );

@@ -1,9 +1,17 @@
+
 .Home{
-    position: relative;
+    position:relative;
     display: grid;
     grid-template-columns: 20rem auto 21rem;
     gap: 2rem;
     margin-left: 2rem;
     margin-right: 2rem;
-    margin-top: 0.8rem;
+}
+.HomeMain{
+    position:relative;
+    display: grid;
+    grid-template-columns: 20rem auto 21rem;
+    gap: 4rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }

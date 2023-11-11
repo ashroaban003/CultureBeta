@@ -72,7 +72,7 @@ const ShortContent = ({videoRef}) => {
             
                 {video && <source src={video} type="video/ogg" />}
             </video>
-            {video && <div id = "videoDurationBar" style={{width:""+((parseFloat(videoRef.current.currentTime).toFixed(6)/parseFloat(videoRef.current.duration))*93.5)+"%", height:"0.2rem", backgroundColor:"red",borderRadius:"0.25rem", translate:"0.5rem -0.6rem 0rem"}}></div>
+            {video && <div id = "videoDurationBar" style={{width:""+((parseFloat(videoRef.current.currentTime).toFixed(6)/parseFloat(videoRef.current.duration))*92)+"%", height:"0.2rem", backgroundColor:"red",borderRadius:"0.25rem", translate:"0.5rem -0.6rem 0rem"}}></div>
 }
         </div>
     );
