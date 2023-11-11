@@ -2,11 +2,41 @@ import './posts.css';
 import likeAfter from "../../../../images/likeAfter.svg";
 import comment from "../../../../images/comment.svg";
 import likeBefore from "../../../../images/likeBefore.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CommentBox from '../../CommentBox/CommentBox';
 import OtherUserComment from '../../CommentBox/OtherUserComment';
+import { AuthContext } from '../../../context/AuthContext';
+import downarrow from "../../../../images/downarrow.svg";
+import axios from "axios";
 
 export default function Posts({item,margin, height}) {
+    const {user}=useContext(AuthContext);
+    const [id,setid]=useState(null);
+   
+    const [addcomment,setaddcoment]=useState({
+        userId: null,
+        text: null,
+    });
+   
+   const [suc,setsuc]=useState("false")
+    const handlecomment=async()=>{
+        try{
+        const res = await axios.post(`http://localhost:4000/api/post/${item._id}/comment`, addcomment);
+         setsuc("success");
+        }catch(e){
+            console.log(e);
+        }
+    }
+    const handleChange = (e) => {
+         setid(user.id);
+           e.preventDefault();
+            setaddcoment((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+            setaddcoment({
+                ...addcomment,
+                userId: user.id,
+            })
+      };
+
     const [imageLink, setImageLink] = useState(likeBefore);
     const [backgroundOfLikeButton, setBackgroundOfLikeButton] = useState();
     const [displayCommentSection, setDisplayCommentSection] = useState(false);
@@ -50,8 +80,15 @@ export default function Posts({item,margin, height}) {
         {displayCommentSection && 
         
         <div style={{width:"96%", margin:"0rem auto"}}>
-            <CommentBox/>
+         { user &&
+           <div className="commentBox">
+            <input id="text" className="commentInput" type="text" onChange={handleChange} placeholder="Share your thoughts..."></input>
+                <button className="commentButton" id="commentButtonOnPosts" onClick={handlecomment}><img src={downarrow}></img></button>
+            </div>
+            
+        }
             <div className="otherUserCommentsToDisplayInPosts">
+                 <span>{suc}</span>  
                 <OtherUserComment/>
                 <OtherUserComment/>
                 <OtherUserComment/>
