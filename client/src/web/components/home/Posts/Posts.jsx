@@ -2,7 +2,7 @@ import './posts.css';
 import likeAfter from "../../../../images/likeAfter.svg";
 import comment from "../../../../images/comment.svg";
 import likeBefore from "../../../../images/likeBefore.svg";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CommentBox from '../../CommentBox/CommentBox';
 import OtherUserComment from '../../CommentBox/OtherUserComment';
 import { AuthContext } from '../../../context/AuthContext';
@@ -22,7 +22,24 @@ export default function Posts({item,margin, height}) {
    const [suc,setsuc]=useState("try again")
 
    const { data, loading,reFetch }=useFetch(`http://localhost:4000/api/post/${item._id}/comments`)
+   const [un,setun]=useState(false);
+   const [uname,setuname]=useState(null);
+   
 
+   const fetch=async()=>{
+    try{
+        const udata= await axios.get(`http://localhost:4000/api/user/${item.userId}`)
+        if(udata){
+            setuname(udata.username)
+            setun(true);
+        }
+    }catch(e){
+        console.log(e);
+    }
+   }
+   useEffect(()=>{
+     if(!un) fetch();
+   })
     const handlecomment=async()=>{
         try{
             setaddcoment({
@@ -55,7 +72,7 @@ export default function Posts({item,margin, height}) {
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU" alt="Profile" />
                     </div>
                     <div className='flexColStart'>
-                        <span>Anonymous</span>
+                        <span>{uname}</span>
                         <span className='smalltext'>50k followers</span>
                 </div>
                 
@@ -83,7 +100,7 @@ export default function Posts({item,margin, height}) {
     margin: "0.1rem 0.4rem 0rem 0.4rem"}}/></button>
             
         </div>
-        {displayCommentSection && 
+        {/* {displayCommentSection && 
         
         <div style={{width:"96%", margin:"0rem auto"}}>
          { user &&
@@ -100,7 +117,7 @@ export default function Posts({item,margin, height}) {
                 ))}
             </div>
         </div>
-        }
+        } */}
         </section>
      )
 };

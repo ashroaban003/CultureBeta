@@ -3,11 +3,11 @@ const mongoose=require('mongoose');
   const shortsSchema = mongoose.Schema(
     {
       userId: { type: String, required: true },
-      desc: { type: String, required: true },
+      desc: String,
       likes: [],
       tags : [],
       image: String,
-      video: String,
+      video: { type: String, required: true },
     },
     {
       timestamps: true,
