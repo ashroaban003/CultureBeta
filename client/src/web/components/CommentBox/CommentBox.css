@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-#commentInput{
+.commentInput{
     width: 90%;
     margin: 1rem 0rem;
     padding: 10px;
