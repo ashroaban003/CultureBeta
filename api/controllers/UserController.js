@@ -121,10 +121,20 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const getAllUsers = async (req, res) => {
+  try {
+    const user = await UserModel.find();
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 module.exports = {
   getUser,
   updateUser,
   followUser,
   deleteUser,
-  unFollowUser
+  unFollowUser,
+  getAllUsers
 };
