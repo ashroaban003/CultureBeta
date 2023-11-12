@@ -5,7 +5,6 @@ import ShortContent from "./shortContent"
 //import ShortsTagBar from "./shortTagsBar"
 import { useState, useRef } from "react"
 import Navbar from "../../navbar/Navbar"
-
 import mute from "../../../../images/mute.svg"
 import unmute from "../../../../images//unmute.svg"
 import CommentBox from "../../CommentBox/CommentBox"
@@ -51,6 +50,11 @@ const Short = () => {
             
             <ShortFooter></ShortFooter>
             </div>
+
+                
+
+
+
         </div>
         </div>
      );

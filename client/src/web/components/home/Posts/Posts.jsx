@@ -9,6 +9,9 @@ import { AuthContext } from '../../../context/AuthContext';
 import downarrow from "../../../../images/downarrow.svg";
 import axios from "axios";
 import useFetch from '../../../hooks/usefetch';
+import deleteDark from '../../../../images/deletedark.svg'
+import deleteLight from '../../../../images/deletelight.svg'
+import { useEffect } from 'react';
 
 export default function Posts({item,margin, height}) {
     const {user}=useContext(AuthContext);
@@ -29,6 +32,7 @@ export default function Posts({item,margin, height}) {
                 ...addcomment,
                 userId: user.id,
             })
+            //console.log(addcomment);
         const res = await axios.post(`http://localhost:4000/api/post/${item._id}/comment`, addcomment);
          setsuc("success");
          reFetch();
@@ -44,11 +48,19 @@ export default function Posts({item,margin, height}) {
       };
 
     const [imageLink, setImageLink] = useState(likeBefore);
+    const [deleteImage, setDeleteImage] = useState(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
     const [backgroundOfLikeButton, setBackgroundOfLikeButton] = useState();
     const [displayCommentSection, setDisplayCommentSection] = useState(false);
     const tags=item.tags;
+
+    useEffect(()=>{
+        setDeleteImage(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
+    },[localStorage.getItem('colorThemeOfCultureHub')]);
+
      return(
         <section  className='post-section' style={{margin: margin}}>
+            {loading && <div className="loadingAnimationDiv"></div>}
+{!loading && <>
            <div className='post-container'>
                 <div className="post_header">
                     <div className="profile-image">
@@ -57,8 +69,14 @@ export default function Posts({item,margin, height}) {
                     <div className='flexColStart'>
                         <span>Anonymous</span>
                         <span className='smalltext'>50k followers</span>
-                </div>
-                
+
+                    </div>
+                    {
+                        height=="20rem" &&
+                        <div style={{width:"1.5rem", height: "1.5rem", margin:" 0 0 0 auto", alignSelf:"flex-start"}}>
+                            <img style={{width:"1.5rem", height: "1.5rem", objectFit:"contain"}} src={deleteImage}></img>
+                        </div>
+                    }
                 </div>
                 <div className='post-comments'>
                     <span>{item.desc}<br/></span>
@@ -94,12 +112,13 @@ export default function Posts({item,margin, height}) {
             
         }
             <div className="otherUserCommentsToDisplayInPosts">
-                <span>{suc}</span>
+                {/* <span>{suc}</span> */}
                 {data.map((item)=>(
                     <OtherUserComment  item={item} key={item._id}/>
                 ))}
             </div>
         </div>
+        }</>
         }
         </section>
      )
