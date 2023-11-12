@@ -5,7 +5,7 @@ import pauseButton from "../../../../images/pause.svg"
 import {Waypoint} from 'react-waypoint';
 
 
-const ShortContent = ({videoRef}) => {
+const ShortContent = ({videoRef, link}) => {
     const [currentTime, setCurrentTime] = useState(0);
     const [video, setVideo] = useState("");
     // const [temp, setTemp] = useState(false);//observed that the video progress bar was coming full due to 0/0 => current/duration
@@ -72,7 +72,7 @@ const ShortContent = ({videoRef}) => {
 
     useEffect(()=>{
         const getVideo = async ()=>{
-            await setVideo("http://techslides.com/demos/sample-videos/small.ogv");
+            await setVideo(link);
         }
         getVideo();
 

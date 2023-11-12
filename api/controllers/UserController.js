@@ -49,10 +49,11 @@ const updateUser = async (req, res) => {
 };
 
 const followUser = async (req, res) => {
+  console.log("follow")
   const id = req.params.id;
-
+ 
   const { curUserId } = req.body;
-
+  
   // curuser want's to follow the user with "id"
 
   if (curUserId === id) {
