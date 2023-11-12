@@ -2,13 +2,16 @@ import './posts.css';
 import likeAfter from "../../../../images/likeAfter.svg";
 import comment from "../../../../images/comment.svg";
 import likeBefore from "../../../../images/likeBefore.svg";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import CommentBox from '../../CommentBox/CommentBox';
 import OtherUserComment from '../../CommentBox/OtherUserComment';
 import { AuthContext } from '../../../context/AuthContext';
 import downarrow from "../../../../images/downarrow.svg";
 import axios from "axios";
 import useFetch from '../../../hooks/usefetch';
+import deleteDark from '../../../../images/deletedark.svg'
+import deleteLight from '../../../../images/deletelight.svg'
+import { useEffect } from 'react';
 
 export default function Posts({item,margin, height}) {
     const {user}=useContext(AuthContext);
@@ -22,30 +25,14 @@ export default function Posts({item,margin, height}) {
    const [suc,setsuc]=useState("try again")
 
    const { data, loading,reFetch }=useFetch(`http://localhost:4000/api/post/${item._id}/comments`)
-   const [un,setun]=useState(false);
-   const [uname,setuname]=useState(null);
-   
 
-   const fetch=async()=>{
-    try{
-        const udata= await axios.get(`http://localhost:4000/api/user/${item.userId}`)
-        if(udata){
-            setuname(udata.username)
-            setun(true);
-        }
-    }catch(e){
-        console.log(e);
-    }
-   }
-   useEffect(()=>{
-     if(!un) fetch();
-   })
     const handlecomment=async()=>{
         try{
             setaddcoment({
                 ...addcomment,
                 userId: user.id,
             })
+            //console.log(addcomment);
         const res = await axios.post(`http://localhost:4000/api/post/${item._id}/comment`, addcomment);
          setsuc("success");
          reFetch();
@@ -61,21 +48,35 @@ export default function Posts({item,margin, height}) {
       };
 
     const [imageLink, setImageLink] = useState(likeBefore);
+    const [deleteImage, setDeleteImage] = useState(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
     const [backgroundOfLikeButton, setBackgroundOfLikeButton] = useState();
     const [displayCommentSection, setDisplayCommentSection] = useState(false);
     const tags=item.tags;
+
+    useEffect(()=>{
+        setDeleteImage(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
+    },[localStorage.getItem('colorThemeOfCultureHub')]);
+
      return(
         <section  className='post-section' style={{margin: margin}}>
+            {loading && <div className="loadingAnimationDiv"></div>}
+{!loading && <>
            <div className='post-container'>
                 <div className="post_header">
                     <div className="profile-image">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU" alt="Profile" />
                     </div>
                     <div className='flexColStart'>
-                        <span>{uname}</span>
+                        <span>Anonymous</span>
                         <span className='smalltext'>50k followers</span>
-                </div>
-                
+
+                    </div>
+                    {
+                        height=="20rem" &&
+                        <div style={{width:"1.5rem", height: "1.5rem", margin:" 0 0 0 auto", alignSelf:"flex-start"}}>
+                            <img style={{width:"1.5rem", height: "1.5rem", objectFit:"contain"}} src={deleteImage}></img>
+                        </div>
+                    }
                 </div>
                 <div className='post-comments'>
                     <span>{item.desc}<br/></span>
@@ -100,7 +101,7 @@ export default function Posts({item,margin, height}) {
     margin: "0.1rem 0.4rem 0rem 0.4rem"}}/></button>
             
         </div>
-        {/* {displayCommentSection && 
+        {displayCommentSection && 
         
         <div style={{width:"96%", margin:"0rem auto"}}>
          { user &&
@@ -111,13 +112,14 @@ export default function Posts({item,margin, height}) {
             
         }
             <div className="otherUserCommentsToDisplayInPosts">
-                <span>{suc}</span>
+                {/* <span>{suc}</span> */}
                 {data.map((item)=>(
                     <OtherUserComment  item={item} key={item._id}/>
                 ))}
             </div>
         </div>
-        } */}
+        }</>
+        }
         </section>
      )
 };
