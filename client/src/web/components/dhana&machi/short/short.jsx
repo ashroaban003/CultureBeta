@@ -9,7 +9,7 @@ import mute from "../../../../images/mute.svg"
 import unmute from "../../../../images//unmute.svg"
 import CommentBox from "../../CommentBox/CommentBox"
 
-const Short = () => {
+const Short = ({item}) => {
     const videoRef = useRef();
     const [state, setState] = useState('paused');
     const [muteIcon, setMuteIcon] = useState(unmute);

@@ -17,6 +17,7 @@ const createShort = async (req, res) => {
 const getShorts = async (req, res) => {
     try {
       const short = await ShortsModel.find();
+      console.log("Short");
       res.status(200).json(short);
     } catch (error) {
       res.status(500).json(error);

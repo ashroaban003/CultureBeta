@@ -10,7 +10,7 @@ const ProfileCard = () => {
   const ProfilePage = true;
   const {user,dispatch}=useContext(AuthContext);
   const navigate = useNavigate();
-  const {data,loading,reFetch}=useFetch(`http://localhost:4000/api/user/${user.id}`)
+  //const {data,loading,reFetch}=useFetch(`http://localhost:4000/api/user/${user.id}`)
 
   return (
     <div className="ProfileCard">
@@ -33,12 +33,12 @@ const ProfileCard = () => {
         <hr />
         <div>
           <div className="follow">
-            <span>{(data.following).length}</span>
+            <span>0</span>
             <span>Followings</span>
           </div>
           <div className="vl"></div>
           <div className="follow">
-            <span>{(data.followers).length}</span>
+            <span>0</span>
             <span>Followers</span>
           </div>
 
