@@ -4,11 +4,13 @@ import Profile from "../../../images/profileImg.jpg";
 import "./ProfileCard.css";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router";
+import useFetch from "../../hooks/usefetch";
 
 const ProfileCard = () => {
   const ProfilePage = true;
   const {user,dispatch}=useContext(AuthContext);
   const navigate = useNavigate();
+  const {data,loading,reFetch}=useFetch(`http://localhost:4000/api/user/${user.id}`)
 
   return (
     <div className="ProfileCard">
@@ -31,12 +33,12 @@ const ProfileCard = () => {
         <hr />
         <div>
           <div className="follow">
-            <span>9,876</span>
+            <span>{(data.following).length}</span>
             <span>Followings</span>
           </div>
           <div className="vl"></div>
           <div className="follow">
-            <span>1</span>
+            <span>{(data.followers).length}</span>
             <span>Followers</span>
           </div>
 
