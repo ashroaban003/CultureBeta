@@ -216,6 +216,19 @@ const getComments = async (req, res) => {
   }
 };
 
+const getPostByTags = async (req, res) => {
+  console.log(" inside getostbytags");
+  const {tag} = req.body;
+  console.log(tag, " is the tag requested\n");
+  try {
+    const posts = await PostModel.find();
+    const filteredPosts = posts.filter(post => post.tags.some(postTag => postTag.includes(tag)));
+    res.status(200).json(filteredPosts);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
 module.exports = {
   createPost,
   getPost,
@@ -226,5 +239,6 @@ module.exports = {
   getUserPosts,
   commentOnPost,
   deleteComment,
-  getComments
+  getComments,
+  getPostByTags
 };
