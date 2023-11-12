@@ -42,6 +42,7 @@ import Delhi from "./Novelty/Delhi";
 import UttarPradesh from "./Novelty/UttarPradesh";
 import Karnataka from "./Novelty/Karnataka";
 import UserpostShort from './web/pages/Userpost/UserpostShort';
+import ShortFeed from './web/components/dhana&machi/short/ShortFeed';
 
 export let ThemeContext = createContext(null);
 
@@ -89,7 +90,7 @@ function App() {
         <Route path="/UttarPradesh" element={<UttarPradesh />} />
         <Route path="/Karnataka" element={<Karnataka />} />
         <Route path="/Punjab" element={<Punjab />} />
-        <Route path="/shorts" element = {<Short/>}></Route>
+        <Route path="/shorts" element = {<ShortFeed/>}></Route>
       </Routes>
     </BrowserRouter>
     </div>

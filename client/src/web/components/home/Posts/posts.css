@@ -124,3 +124,22 @@
 #dark .otherUserCommentsToDisplayInPosts{
     box-shadow: 0 0rem 0.2rem 0.1rem grey;
 }
+
+.loadingAnimationDiv{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.7rem;
+    margin: 0 auto;
+    border-top: 0.2rem solid blue;
+    border-bottom: 0.2rem solid blue;
+    animation: loadingAnimation 1s linear infinite;
+}
+
+@keyframes loadingAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
