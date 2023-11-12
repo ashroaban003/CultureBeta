@@ -16,7 +16,7 @@ const router = express.Router();
 
 router.post('/', createPost);
 router.get('/', getPosts);
-router.get('/tag', getPostByTags);
+router.get('/:id', getPostByTags);
 router.get('/:id', getPost);
 router.put('/:id', updatePost);
 router.delete("/:id", deletePost);

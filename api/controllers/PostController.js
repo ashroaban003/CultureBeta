@@ -218,7 +218,8 @@ const getComments = async (req, res) => {
 
 const getPostByTags = async (req, res) => {
   console.log(" inside getostbytags");
-  const {tag} = req.body;
+  const tag = req.params.id;
+  //const {tag} = req.body;
   console.log(tag, " is the tag requested\n");
   try {
     const posts = await PostModel.find();
