@@ -10,6 +10,13 @@ import { v4} from 'uuid'
 
 
 export default function UserpostShort(params) {
+  const [addpost, setaddpost] = useState({
+    userId: null,
+    video: null,
+    desc: undefined,
+    likes: [],
+    tags: [],
+  });
   const [inptags, settags] = useState(null);
   const [error, setErr] = useState(null);
   const [success, setsuccess] = useState(false);
@@ -77,7 +84,39 @@ export default function UserpostShort(params) {
   };
 
  
+  const handleshortPost = async (e) => {
+    e.preventDefault();
 
+    uploadVideo();
+    setLoading(true);
+
+    try {
+      if (!user) {
+        Navigate("/login");
+      }
+
+      const tagsList = await parseTags(inptags);
+      setaddpost({
+        ...addpost,
+        userId: user.id,
+        tags: tagsList,
+      });
+
+      setaddpost((prev) => ({ ...prev, video: reqVideoUrl }));
+
+      const res = await axios.post("http://localhost:4000/api/shorts/", addpost);
+
+      if(res) setsuccess(true);
+      
+    } catch (e) {
+      setLoading(false);
+      if (addpost.userId) {
+        setErr("Can't post");
+      } else {
+        setsuccess(true);
+      }
+    }
+  };
 
   
   
@@ -98,7 +137,7 @@ export default function UserpostShort(params) {
 
 
             <form>
-          <label htmlFor="image">Short:</label>
+          <label htmlFor="video">Short:</label>
           <input
             type="file"
             onChange={(event) => {
@@ -127,7 +166,7 @@ export default function UserpostShort(params) {
           />
           <div className="tags" id="tag-container"></div>
 
-          <button className="userPostButton"type="submit" disabled={loading} onClick={(event) => uploadVideo(event)}>
+          <button className="userPostButton"type="submit" disabled={loading} onClick={handleshortPost}>
             Upload
           </button>
           {error && <span className="rederr"> {error}</span>}
