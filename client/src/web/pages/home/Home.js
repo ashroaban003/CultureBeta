@@ -20,6 +20,7 @@ export default function Home(params) {
   const {user}=useContext(AuthContext);
   const navigate=useNavigate();
   
+  
   return(
     
       <div>

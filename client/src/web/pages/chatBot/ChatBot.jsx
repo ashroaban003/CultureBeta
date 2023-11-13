@@ -129,9 +129,9 @@ const ChatBot = () => {
           </button>
           {/* Speech recognition buttons */}
           {listening ? (
-            <button onClick={stopListening}>Stop Listening</button>
+            <button className="button" onClick={stopListening}  style={{position:"relative", left:"1rem"}}>Stop Listening</button>
           ) : (
-            <i class="fa fa-microphone" style={{fontSize:'48px'}}onClick={startListening}></i>
+            <i class="fa fa-microphone" style={{fontSize:'48px', cursor:"pointer",position:"relative", bottom:"-0.8rem", left:"1rem"}}onClick={startListening}></i>
           )}
           {/* Display transcript in the component */}
           <p>Transcript: {transcript}</p>

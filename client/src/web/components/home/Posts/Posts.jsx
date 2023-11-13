@@ -65,9 +65,9 @@ export default function Posts({item,margin, height,reload}) {
     const {data2,reFetch2}=useFetch2(`http://localhost:4000/api/user/${item.userId}`);
 
     const {data1,reFetch1}=useFetch1(`http://localhost:4000/api/post/${item._id}/like/${user.id}`);
-    console.log(data1);
+    //console.log(data1);
     const [like,setlike]=useState();
-    console.log(like);
+    //console.log(like);
     // const [vis,setvis]=useState(true)
     useEffect(()=>{
         
