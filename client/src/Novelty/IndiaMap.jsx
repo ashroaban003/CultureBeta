@@ -172,7 +172,7 @@ export function IndiaMap(props) {
           Navigate("/Karnataka");
           eng_response = "Welcome to Karnataka";
           console.log(eng_response);
-          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          response = "ಕರ್ನಾಟಕಕ್ಕೆ ಸ್ವಾಗತ";
           language = "kannada";
           handleTTSreq({ response, language });
           setTimeout(() => {
@@ -226,7 +226,7 @@ export function IndiaMap(props) {
           Navigate("/Maharashtra");
           eng_response = "Welcome to Maharashtra";
           console.log(eng_response);
-          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          response = "महाराष्ट्रात आपले स्वागत आहे";
           language = "marathi";
           handleTTSreq({ response, language });
           setTimeout(() => {
@@ -373,7 +373,7 @@ export function IndiaMap(props) {
           Navigate("/UttarPradesh");
           eng_response = "Welcome to Uttar Pradesh";
           console.log(eng_response);
-          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          response = "उत्तर प्रदेश में आपका स्वागत है";
           language = "hindi";
           handleTTSreq({ response, language });
           setTimeout(() => {
@@ -399,7 +399,7 @@ export function IndiaMap(props) {
           Navigate("/Delhi");
           eng_response = "Welcome to Delhi";
           console.log(eng_response);
-          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          response = "दिल्ली में आपका स्वागत है";
           language = "hindi";
           handleTTSreq({ response, language });
           setTimeout(() => {
@@ -442,7 +442,7 @@ export function IndiaMap(props) {
           Navigate("/Punjab");
           eng_response = "Welcome to Punjab";
           console.log(eng_response);
-          response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
+          response = "ਪੰਜਾਬ ਵਿੱਚ ਤੁਹਾਡਾ ਸੁਆਗਤ ਹੈ";
           language = "punjabi";
           handleTTSreq({ response, language });
           setTimeout(() => {

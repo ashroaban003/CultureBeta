@@ -81,7 +81,7 @@ const Punjab = (props) => {
       {/* <PerspectiveCamera lookAt={}/> */}
       <ambientLight intensity={0.5} />
       <directionalLight intensity={0.5} color={"gold"} />
-      <PositionalAudio autoplay loop url="/Punjab.mp3" distance={1.5} />
+      <PositionalAudio autoplay loop url="/Punjab.mp3" distance={2.5} />
       <OrbitControls
         enablePan={true}
         enableRotate={true}

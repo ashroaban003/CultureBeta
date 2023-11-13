@@ -82,7 +82,7 @@ const Karnataka = (props) => {
     //   camera={{ position: [-20, 0, 0] }}
     // >
     <>
-      <PositionalAudio autoplay loop url="/Karnataka.mp3" distance={1.5} />
+      <PositionalAudio autoplay loop url="/Karnataka.mp3" distance={4} />
       <OrbitControls
         enablePan={true}
         enableRotate={true}
