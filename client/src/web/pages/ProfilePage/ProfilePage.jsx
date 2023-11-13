@@ -64,24 +64,16 @@ const ProfilePage = () => {
         <hr />
         <div>
           <div className="ProfilePagefollow">
-            <span>9,876</span>
-            <span>Followings</span>
+            <span>{user.followings}</span>
+            <span>Following</span>
           </div>
           <div className="ProfilePagevl"></div>
           <div className="ProfilePagefollow">
-            <span>1</span>
+            <span>{user.followers}</span>
             <span>Followers</span>
           </div>
 
-          {ProfilePage && (
-            <>
-              <div className="ProfilePagevl"></div>
-              <div className="ProfilePagefollow">
-                <span>3</span>
-                <span>Posts</span>
-              </div>
-            </>
-          )}
+         
         </div>
         <hr />
       </div>
