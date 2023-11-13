@@ -21,7 +21,7 @@
     padding: 0.1rem 0.4rem;
     border-radius: 1rem;
     background-color: transparent;
-    box-shadow: 0 0.2rem 0.4rem 0rem rgb(1, 170, 1);
+    box-shadow: 0 0.2rem 0.4rem 0rem blue;
 }
 #commentButtonOnPosts{
     width: min-content;

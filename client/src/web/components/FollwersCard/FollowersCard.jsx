@@ -10,7 +10,7 @@ const FollowersCard = () => {
         {Followers.map((follower, id)=>{
             
             return(
-                id < 3 &&
+                id < 5 &&
                 <div className="follower">
                     <div>
                         <img src={follower.img} alt="" className='followerImage' />

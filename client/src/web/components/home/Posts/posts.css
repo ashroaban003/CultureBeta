@@ -45,7 +45,7 @@
     font-weight: 300;
 }
 .post-img-cnt img{
-    box-shadow: 0rem 0rem 0.1rem 0.1rem rgb(71, 71, 71);
+    /* box-shadow: 0rem 0rem 0.1rem 0.1rem rgb(71, 71, 71); */
     width: 29rem;
     margin: 0 0.5rem;
 }
@@ -94,7 +94,7 @@
     padding: 0.1rem 0.25rem;
     border-radius: 0.8rem;
     /* background-color: red; */
-    box-shadow: 0 0.15rem 0.2rem 0rem rgb(250, 72, 72);
+    box-shadow: 0 0.15rem 0.2rem 0rem blue;
 }
 .like img{
     width: 2rem;

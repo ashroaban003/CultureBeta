@@ -50,11 +50,13 @@ export default function Posts({item,margin, height}) {
     const [imageLink, setImageLink] = useState(likeBefore);
     const [deleteImage, setDeleteImage] = useState(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
     const [backgroundOfLikeButton, setBackgroundOfLikeButton] = useState();
+    const [backgroundOfTags, setBackgroundOfTags] = useState(localStorage.getItem('colorThemeOfCultureHub')=="light"?"gray":"white");
     const [displayCommentSection, setDisplayCommentSection] = useState(false);
     const tags=item.tags;
 
     useEffect(()=>{
         setDeleteImage(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
+        setBackgroundOfTags(localStorage.getItem('colorThemeOfCultureHub')=="light"?"gray":"white");
     },[localStorage.getItem('colorThemeOfCultureHub')]);
 
      return(
@@ -87,7 +89,9 @@ export default function Posts({item,margin, height}) {
                <img src={item.image} alt="" style={{width: "90%", height: height,paddingLeft: "1rem", paddingRight: "1rem", objectFit:"cover"}}/>
            </div>
            <div className='post-tag-cnt'>
-              {tags.map((tag) => (<span className='post-tag' style={{backgroundColor:"hsl(" + Math.random() * 360 + ", 100%, 60%)"}}>{tag}</span>))}
+              {tags.map((tag) => (<span className='post-tag' style={{backgroundColor:backgroundOfTags, padding:"0.2rem 0.4rem"
+                // "hsl(" + Math.random() * 360 + ", 100%, 60%)"
+                }}>{tag}</span>))}
            </div>
            <div className="postReactionsBar">
             <button className="like" style={{backgroundColor:backgroundOfLikeButton}} onClick={()=>{
