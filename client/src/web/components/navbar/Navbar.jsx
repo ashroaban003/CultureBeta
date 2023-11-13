@@ -2,8 +2,7 @@ import { useContext } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import HomeNavabar from "../dhana&machi/DhanaNavBar/Homenavbar";
-export default function Navbar(params) {
+export default function Navbar({setTag}) {
   const Navigate = useNavigate();
   const loginclick = () => {
     Navigate("/login");
@@ -21,13 +20,17 @@ export default function Navbar(params) {
     dispatch({ type: "LOGOUT" });
   };
 
+  const handleSettingTags=(e)=>{
+    setTag(e.target.value)
+   }
+
   return (
     <nav className="navbar">
       <div className="navbar-logo" onClick={handleclick}>
         <span className="logo-icon">Culturehub</span>
       </div>
       <div className="navbar-search">
-        <input type="text" placeholder="Search" className="search-input" />
+        <input type="text" placeholder="Search" className="search-input" onChange={handleSettingTags}/>
       </div>
       <div className="navbar-links">
         <ul className="n-link">

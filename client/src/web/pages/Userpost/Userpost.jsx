@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 export default function Userpost(params) {
   const [addpost, setaddpost] = useState({
     userId: null,
@@ -20,6 +21,8 @@ export default function Userpost(params) {
   const [success, setsuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [imageReady, setImageReady] = useState(false);
+  const [scaleOfButtonSelectedImage, setScaleOfButtonSelectedImage] = useState("1.5");
+  const [borderRadiusOfForm, setBorderRadiusOfForm] = useState("0 4rem 0 0");
 
   function parseTags(input) {
     const tags = input.split(",").map((tag) => tag.trim());
@@ -95,7 +98,7 @@ export default function Userpost(params) {
     }
   };
 
-  const handleClick = async (e) => {
+  const handleImagePost = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -132,11 +135,22 @@ export default function Userpost(params) {
     }
   };
 
+
+ 
+
+  
   return (
     <div className="userpostcnt" style={{height:"100vh"}}>
       <Navbar />
       <div className="addcontainer">
+        <div className="addcontainerMain">
+        <div className="buttonsOnAddPostDiv">
+        <button className="button" style={{scale:scaleOfButtonSelectedImage}}>Post Image</button>
+        <button className="button" onClick={()=>Navigate('/PostShort')}>Post Video</button>
+        </div>
+        <div style={{borderTop:"0.2rem solid #4066ff", borderRadius:borderRadiusOfForm, padding: "0 1rem"}}>
       <h2>Share your culture around the globe!</h2>
+
         <form>
           <label htmlFor="image">Image:</label>
           <input
@@ -157,6 +171,8 @@ export default function Userpost(params) {
             required
           ></textarea>
 
+     
+         
           <label htmlFor="tags">Tags:</label>
           <input
             type="text"
@@ -168,12 +184,18 @@ export default function Userpost(params) {
           />
           <div className="tags" id="tag-container"></div>
 
-          <button className="userPostButton"type="submit" disabled={loading} onClick={handleClick}>
-            Submit
+          <button className="userPostButton"type="submit" disabled={loading} onClick={handleImagePost}>
+            Post
           </button>
           {error && <span className="rederr"> {error}</span>}
           {success && <span className="greensuc">Click again to post</span>}
         </form>
+
+
+
+
+        </div>
+        </div>
       </div>
     </div>
   );

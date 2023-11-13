@@ -6,18 +6,25 @@ body {
 
 .addcontainer {
     max-width: 600px;
-    min-height: 25rem;
-    margin: 4% auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 1px solid transparent;
     border-radius: 5px;
 }
-#light .addcontainer{
+.addcontainerMain {
+    max-width: 600px;
+    min-height: 25rem;
+    margin: 5rem auto 1rem auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#light .addcontainerMain{
     background-color: white;
     box-shadow: 0 0.2rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
     color: black;
 }
-#dark .addcontainer{
+#dark .addcontainerMain{
     background-color: black;
     box-shadow: 0 0.2rem 0.5rem 0rem rgba(255, 255, 255, 0.8);
     color: white;
@@ -114,3 +121,10 @@ box-shadow: inset 0 0.2rem 0.5rem 0.3rem rgba(255, 255, 255, 0.3);
     
     background-color: #0056b3;
   }
+
+
+.buttonsOnAddPostDiv{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 1.5rem 0.34rem 1.5rem;
+}

@@ -22,6 +22,7 @@ const createPost = async (req, res) => {
 const getPosts = async (req, res) => {
   try {
     const post = await PostModel.find();
+    post.sort((a, b) => b.createdAt - a.createdAt);
     res.status(200).json(post);
   } catch (error) {
     res.status(500).json(error);
@@ -201,6 +202,55 @@ const deleteComment = async (req, res) => {
   }
 };
 
+const getComments = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const post = await PostModel.findById(id);
+    if (!post) {
+      console.log("No such post");
+      return;
+    }
+    res.status(200).json(post.comments);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+const getPostByTags = async (req, res) => {
+   console.log(" inside getostbytags");
+  const tag = req.params.id;
+  console.log(tag, " is the tag requested\n");
+  try {
+    const posts = await PostModel.find();
+    const filteredPosts = posts.filter(post => post.tags.some(postTag => postTag.includes(tag)));
+    res.status(200).json(filteredPosts);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
+const hasUserLikedPost = async (req, res) => {
+  const id = req.params.id;
+  const userId = req.params.id2;
+
+  try {
+    const post = await PostModel.findById(id);
+    //console.log("post found (hasuser liked)")
+    if(!post){
+      res.status(404).json("no such posts");
+      return;
+    }
+    const liked = (post.likes.includes(userId));
+    if(liked){
+      res.status(200).json({islike:true})
+    }
+    else res.status(200).json({islike:false});
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
 module.exports = {
   createPost,
   getPost,
@@ -211,4 +261,7 @@ module.exports = {
   getUserPosts,
   commentOnPost,
   deleteComment,
+  getComments,
+  getPostByTags,
+  hasUserLikedPost
 };

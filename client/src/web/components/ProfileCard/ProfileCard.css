@@ -1,6 +1,6 @@
 .ProfileCard{
   width: 25%;
-  height: 45%;
+  height: auto;
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;

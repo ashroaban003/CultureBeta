@@ -5,12 +5,11 @@ import ShortContent from "./shortContent"
 //import ShortsTagBar from "./shortTagsBar"
 import { useState, useRef } from "react"
 import Navbar from "../../navbar/Navbar"
-
 import mute from "../../../../images/mute.svg"
 import unmute from "../../../../images//unmute.svg"
 import CommentBox from "../../CommentBox/CommentBox"
 
-const Short = () => {
+const Short = ({item}) => {
     const videoRef = useRef();
     const [state, setState] = useState('paused');
     const [muteIcon, setMuteIcon] = useState(unmute);
@@ -26,10 +25,10 @@ const Short = () => {
         <div className="shortContainer" style={{height:"100vh"}}>
             <Navbar />
         <div className="short">
-            
+        <div className="shortMain">
             {/* <ShortsTagBar></ShortsTagBar> */}
             <div className="contentReactionsContainer">
-            <ShortContent videoRef={videoRef}></ShortContent>
+            <ShortContent videoRef={videoRef} link={item.video}></ShortContent>
             <ShortReactionsBar></ShortReactionsBar>
             <div className="controlsOfVideo">
                 {/* <button onClick={()=>{
@@ -49,9 +48,13 @@ const Short = () => {
             </div>
             
             
-            <ShortFooter></ShortFooter>
-            
-        <CommentBox/>
+            {/* <ShortFooter></ShortFooter> */}
+            </div>
+
+                
+
+
+
         </div>
         </div>
      );

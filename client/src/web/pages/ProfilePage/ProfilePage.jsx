@@ -37,7 +37,7 @@ const ProfilePage = () => {
         }
 
     ];
-    const { data, loading,reFetch }=useFetch('http://localhost:4000/api/post')
+    const { data, loading,reFetch }=useFetch(`http://localhost:4000/api/post/${user.id}/userposts`)
     let count=0;
 
     return ( 
@@ -111,6 +111,7 @@ const ProfilePage = () => {
             data.filter((item, key)=>key%2==1).reverse().map((item)=>
                 (
                 <div style={{width:"49%",scale:"0.95", margin:"0 1rem 0 1.5rem"}}>
+                   {/* <span>{user.id}</span> */}
                     <Posts item={item} key={item._id} margin="0 0 0 0" height="20rem"/>
                 </div>
             ))

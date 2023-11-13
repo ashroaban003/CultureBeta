@@ -1,8 +1,18 @@
 
   .container {
-    max-width: 800px; /* Adjust the maximum width as needed */
-    margin: 0 auto;
-    margin-top: 2rem;
+    max-width: 100%; /* Adjust the maximum width as needed */
+    
+    padding: 20px;
+     /* Background color for the chat container */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px; 
+    height: fit-content;
+  }
+
+  .containerMain{
+    max-width: 50%;/* Adjust the maximum width as needed */
+    margin: 8% auto;
+    background-color: blue;
     
     padding: 20px;
      /* Background color for the chat container */
@@ -10,11 +20,11 @@
     border-radius: 8px;
   }
 
-  #light .container{
+  #light .containerMain{
     box-shadow: 0px 4px 6px rgba(0, 0, 5, 0.6); 
     background-color: #fff;
   }
-  #dark .container{
+  #dark .containerMain{
     box-shadow: 0px 4px 6px rgba(156, 155, 155, 0.6); 
     background-color: rgb(36, 36, 36);
   }
@@ -35,7 +45,8 @@
 
   /* Input bar styles */
   .input-bar {
-    width: 80%;
+    width: 95%;
+    background-color: red;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -45,7 +56,6 @@
   }
 
   .input-bar input{
-    max-width: 95%;
     overflow-x: auto;
     overflow-y: hidden;
     margin: 0 2rem 0rem 0;
@@ -62,8 +72,7 @@
   }
 
   .Prompt {
-    min-width: 98%;
-    max-width: 98%;
+    width: auto;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;

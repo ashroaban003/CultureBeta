@@ -48,6 +48,8 @@ router.post('/login',async(req,res)=>{
                            if(err) throw err;
                            res.cookie('token',token).json({
                               id:user._id,
+                              followers: user.followers.length,
+                              followings: user.following.length,
                               username,
                               isAdmin: user.isAdmin,
                            })
