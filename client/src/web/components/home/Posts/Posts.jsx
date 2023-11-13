@@ -12,6 +12,7 @@ import useFetch from '../../../hooks/usefetch';
 import deleteDark from '../../../../images/deletedark.svg'
 import deleteLight from '../../../../images/deletelight.svg'
 import { useEffect } from 'react';
+import useFetch2 from '../../../hooks/usefetch2';
 
 export default function Posts({item,margin, height}) {
     const {user}=useContext(AuthContext);
@@ -52,8 +53,9 @@ export default function Posts({item,margin, height}) {
     const [backgroundOfLikeButton, setBackgroundOfLikeButton] = useState();
     const [displayCommentSection, setDisplayCommentSection] = useState(false);
     const tags=item.tags;
-
+    const {data2}=useFetch2(`http://localhost:4000/api/user/${item.userId}`);
     useEffect(()=>{
+
         setDeleteImage(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
     },[localStorage.getItem('colorThemeOfCultureHub')]);
 
@@ -67,8 +69,8 @@ export default function Posts({item,margin, height}) {
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU" alt="Profile" />
                     </div>
                     <div className='flexColStart'>
-                        <span>Anonymous</span>
-                        <span className='smalltext'>50k followers</span>
+                        <span>{data2.username}</span>
+                        <span className='smalltext'>{data2.followers.length} followers</span>
 
                     </div>
                     {
