@@ -49,11 +49,10 @@ const updateUser = async (req, res) => {
 };
 
 const followUser = async (req, res) => {
-  console.log("follow")
   const id = req.params.id;
- 
+
   const { curUserId } = req.body;
-  
+
   // curuser want's to follow the user with "id"
 
   if (curUserId === id) {
@@ -131,11 +130,30 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+const isUserFollowing = async (req, res) => {
+  const userId = req.params.id;
+  const user2 = req.params.id2;
+
+  try {
+    const user1 = await UserModel.findById(userId);
+    console.log("post found (hasuser liked)")
+    if(!user1 || !user2){
+      res.status(404).json("no such posts");
+      return;
+    }
+    const liked = (user1.following.includes(user2));
+    res.status(200).json(liked);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
 module.exports = {
   getUser,
   updateUser,
   followUser,
   deleteUser,
   unFollowUser,
-  getAllUsers
+  getAllUsers,
+  isUserFollowing
 };
