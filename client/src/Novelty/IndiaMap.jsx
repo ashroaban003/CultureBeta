@@ -224,10 +224,10 @@ export function IndiaMap(props) {
         material={materials.IndiaMap}
         onClick={() => {
           Navigate("/Maharashtra");
-          eng_response = "Welcome to Karnataka";
+          eng_response = "Welcome to Maharashtra";
           console.log(eng_response);
           response = "ఆంధ్ర ప్రదేశ్ కు స్వాగతం";
-          language = "kannada";
+          language = "marathi";
           handleTTSreq({ response, language });
           setTimeout(() => {
             handleTTSreq2({ eng_response });
