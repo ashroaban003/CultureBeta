@@ -9,25 +9,32 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Login from "../login/Login";
 
+import FollowersCard from '../../components/FollwersCard/FollowersCard'
+import { useState } from "react";
+
+
+
 export default function Home(params) {
+  const [searchedTag, setSearchedTag] = useState("");
   const {user}=useContext(AuthContext);
   const navigate=useNavigate();
   
   return(
     
       <div>
-     {user  &&
-     <div> 
-      <Navbar/>  
-      
+     {user &&
+     <>
+     <Navbar setTag={setSearchedTag}/>  
        <div className="Home">
          <div className="HomeMain" style={{marginTop: "5rem"}}>
-       {user && <ProfileSide />}
-        <PostFeed/>
-        <RightSide />
+        <ProfileSide />
+        <PostFeed tagToDisplay={searchedTag}/>
+        {/* <RightSide /> */}
+        <FollowersCard />
         </div>
        </div>
-       </div>
+       
+       </>
      } 
      {!user &&
        <Login/>

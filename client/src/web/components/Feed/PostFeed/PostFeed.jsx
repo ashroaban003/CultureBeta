@@ -4,8 +4,12 @@ import './postfeed.css';
 import axios from 'axios';
 import useFetch from '../../../hooks/usefetch';
 
-export default function PostFeed(params) {
+export default function PostFeed({tagToDisplay}) {
     const [search,setsearch]=useState("");
+    useEffect(()=>{
+        setsearch(tagToDisplay);
+    }, [tagToDisplay])
+    console.log(search);
     const bufferdata=[
         {
             name: "Ashish",
@@ -40,18 +44,18 @@ export default function PostFeed(params) {
     return(
 
         <div className='feed'>
-             <input
+             {/* <input
             type="text"
             id="tags"
             name="tags"
             className="tags-input"
             placeholder="Enter tag"
             onChange={handletags}
-          />
+          /> */}
           {/* <button className="userPostButton"type="submit" disabled={loading} onClick={handlechange}>
             search
           </button> */}
-          <span>{search}</span>
+          {/* <span>{search}</span> */}
            <div> {data.map((item)=>(
                 <Posts item={item} key={item._id} margin="1rem auto 2.5rem auto" height="auto"/>
             ))}</div>

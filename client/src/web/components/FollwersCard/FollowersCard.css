@@ -7,7 +7,7 @@
     flex-direction: column;
     padding: 0.7rem 0.1rem 0.4rem 0.1rem;
     position: fixed;
-    bottom: 0%;
+    right: 2%;
 }
 
 #light .FollowersCard{
