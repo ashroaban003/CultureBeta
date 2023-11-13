@@ -2,19 +2,25 @@ import { useContext, useState } from "react"
 import { AuthContext } from "../../context/AuthContext"
 import axios from "axios";
 
-export default function Followbox({follower}) {
+export default function Followbox({follower,reFetch}) {
     const {user}=useContext(AuthContext);
-    const [CurUserId,setflw]=useState(null);
+    const [flw,setflw]=useState({
+        curUserId : user.id,
+    });
     const [suc,setsuc]=useState("false");
-    const handleclick =(async () => {
-        setflw(user.id)
+    const handleclick =async (e) => {
+        e.preventDefault();
         try{
-        const res=await axios.post(`http://localhost:4000/api/user/${follower._id}/follow`,CurUserId)
-        if(res) setsuc("true");
+        const res=await axios.put(`http://localhost:4000/api/user/${follower._id}/follow/`,flw);
+        if(res){
+            setsuc("success");
+            reFetch();
+        } 
         }catch(e){
-            console.log(e);
+            setsuc("failee");
+            console.error(e.response || e);
         }
-    })
+    }
     return(
         <div className="follower">
                     <div>
@@ -24,7 +30,7 @@ export default function Followbox({follower}) {
                             <span> {(follower.followers).length} Followers</span>
                         </div>
                     </div>
-                    {/* <span>{suc}</span> */}
+                    <span>{suc}</span>
                   {user &&  <button className="followButton" onClick={handleclick} style={{backgroundColor : "linear-gradient(to right, #0074e4, #00a1ff);"}}>
                         Follow
                     </button>}

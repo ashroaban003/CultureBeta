@@ -6,7 +6,7 @@ import useFetch from '../../hooks/usefetch.js'
 import { AuthContext } from '../../context/AuthContext.js'
 import Followbox from './Followbox.jsx'
 const FollowersCard = () => {
-    const {data}=useFetch('http://localhost:4000/api/user')
+    const {data,reFetch}=useFetch('http://localhost:4000/api/user')
     const {user} =useContext(AuthContext);
     
   return (
@@ -19,7 +19,7 @@ const FollowersCard = () => {
             }
             return(
                 id < 5 &&
-                <Followbox follower={follower}/>
+                <Followbox follower={follower} reFetch={reFetch}/>
             )
         })}
     </div>
