@@ -19,22 +19,7 @@ const FollowersCard = () => {
             }
             return(
                 id < 5 &&
-<<<<<<< HEAD
-                <div className="follower">
-                    <div>
-                        <img src={follower.img} alt="" className='followerImage' />
-                        <div className="name">
-                            <span>{follower.name}</span>
-                            <span>@{follower.username}</span>
-                        </div>
-                    </div>
-                    <button className="followButton" style={{backgroundColor : "linear-gradient(to right, #0074e4, #00a1ff);"}}>
-                        Follow
-                    </button>
-                </div>
-=======
                 <Followbox follower={follower} reFetch={reFetch}/>
->>>>>>> 012730413f4a56d6be873f22f43a13acb3e9ad4c
             )
         })}
     </div>
