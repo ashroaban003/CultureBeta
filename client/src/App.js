@@ -59,7 +59,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div id={theme}>
-        <div style={{ position: "fixed", bottom: "0%", right: "0%" }}>
+        <div style={{ position: "fixed", bottom: "2%", right: "1%" }}>
           <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
         </div>
         <BrowserRouter>

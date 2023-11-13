@@ -1,7 +1,9 @@
 import './posts.css';
 import likeAfter from "../../../../images/likeAfter.svg";
 import comment from "../../../../images/comment.svg";
+import commentDark from "../../../../images/commentDark.svg";
 import likeBefore from "../../../../images/likeBefore.svg";
+import likeBeforeDark from "../../../../images/likeBeforeDark.svg";
 import { useContext, useState } from "react";
 import CommentBox from '../../CommentBox/CommentBox';
 import OtherUserComment from '../../CommentBox/OtherUserComment';
@@ -53,7 +55,8 @@ export default function Posts({item,margin, height,reload}) {
 
       };
 
-    const [imageLink, setImageLink] = useState(likeBefore);
+    const [imageLink, setImageLink] = useState(localStorage.getItem('colorThemeOfCultureHub')=="light"?likeBefore:likeBeforeDark);
+    const [commentIcon, setCommentIcon] = useState(localStorage.getItem('colorThemeOfCultureHub')=="light"?comment:commentDark);
     const [deleteImage, setDeleteImage] = useState(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
     const [backgroundOfLikeButton, setBackgroundOfLikeButton] = useState();
     const [backgroundOfTags, setBackgroundOfTags] = useState(localStorage.getItem('colorThemeOfCultureHub')=="light"?"gray":"white");
@@ -72,8 +75,9 @@ export default function Posts({item,margin, height,reload}) {
             setImageLink(likeAfter);
            
         } 
-        else setImageLink(likeBefore);
-
+        else setImageLink(localStorage.getItem('colorThemeOfCultureHub')=="light"?likeBefore:likeBeforeDark);
+        
+        setCommentIcon(localStorage.getItem('colorThemeOfCultureHub')=="light"?comment:commentDark);
         setDeleteImage(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
         setBackgroundOfTags(localStorage.getItem('colorThemeOfCultureHub')=="light"?"gray":"white");
     },[localStorage.getItem('colorThemeOfCultureHub')]);
@@ -144,10 +148,10 @@ export default function Posts({item,margin, height,reload}) {
            </div>
            <span>{data1.islike}</span>
            <div className="postReactionsBar">
-           {!data1.islike && <button className="like" style={{backgroundColor:backgroundOfLikeButton}} onClick={handlelike}><img src={likeBefore} alt="LikeButton"/></button>}
+           {!data1.islike && <button className="like" style={{backgroundColor:backgroundOfLikeButton}} onClick={handlelike}><img src={imageLink} alt="LikeButton"/></button>}
            {data1.islike && <button className="like" style={{backgroundColor:backgroundOfLikeButton}} onClick={handlelike}><img src={likeAfter} alt="LikeButton"/></button>}
 
-            <button className="commentButton" onClick={()=>setDisplayCommentSection((curr)=>!curr)}><img src={comment} alt="commentButton" style={{
+            <button className="commentButton" onClick={()=>setDisplayCommentSection((curr)=>!curr)}><img src={commentIcon} alt="commentButton" style={{
     margin: "0.1rem 0.4rem 0rem 0.4rem"}}/></button>
             
         </div>
