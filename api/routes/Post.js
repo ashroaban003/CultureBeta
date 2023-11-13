@@ -11,6 +11,7 @@ const {
   deleteComment,
   getComments,
   getPostByTags,
+  hasUserLikedPost,
 } = require("../controllers/PostController.js");
 const router = express.Router();
 
@@ -25,5 +26,7 @@ router.get('/:id/comments', getComments)
 router.get('/:id/userposts', getUserPosts)
 router.post('/:id/comment', commentOnPost);
 router.delete('/:id/comment', deleteComment);
+router.get('/:id/like/:id2', hasUserLikedPost)
+
 
 module.exports = router;

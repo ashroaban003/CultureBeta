@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Cover from "../../../images/cover.jpg";
 import Profile from "../../../images/profileImg.jpg";
 import "./ProfileCard.css";
@@ -11,7 +11,13 @@ const ProfileCard = () => {
   const {user,dispatch}=useContext(AuthContext);
   const navigate = useNavigate();
   //const {data,loading,reFetch}=useFetch(`http://localhost:4000/api/user/${user.id}`)
-
+ 
+  // const {data,loading,reFetch}=useFetch(`http://localhost:4000/api/user/${user.id}`)
+ const [vis,setvis]=useState(false);
+ const [folr,setfolr]=useState(0);
+  const [folw,setfolw]=useState(0);
+ 
+//  useEffect
   return (
     <div className="ProfileCard">
       <div className="ProfileImages">
@@ -32,17 +38,19 @@ const ProfileCard = () => {
       <div className="followStatus">
         <hr />
         <div>
-          <div className="follow">
-            <span>0</span>
+           <div className="follow">
+           {user && <span>{user.followings}</span>} 
+           {!user && <span>0</span>}
             <span>Followings</span>
           </div>
           <div className="vl"></div>
           <div className="follow">
-            <span>0</span>
-            <span>Followers</span>
-          </div>
+           {user && <span>{user.followers}</span>} 
+           {!user && <span>0</span>}
+             <span>Followers</span> 
+           </div> 
 
-          {ProfilePage && (
+          {/* {ProfilePage && (
             <>
               <div className="vl"></div>
               <div className="follow">
@@ -50,7 +58,7 @@ const ProfileCard = () => {
                 <span>Posts</span>
               </div>
             </>
-          )}
+          )} */}
         </div>
         <hr />
       </div>

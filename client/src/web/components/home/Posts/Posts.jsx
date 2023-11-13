@@ -12,6 +12,8 @@ import useFetch from '../../../hooks/usefetch';
 import deleteDark from '../../../../images/deletedark.svg'
 import deleteLight from '../../../../images/deletelight.svg'
 import { useEffect } from 'react';
+import useFetch2 from '../../../hooks/usefetch2';
+import useFetch1 from '../../../hooks/usefetch1';
 
 export default function Posts({item,margin, height}) {
     const {user}=useContext(AuthContext);
@@ -21,10 +23,14 @@ export default function Posts({item,margin, height}) {
         userId: null,
         text: null,
     });
+    const [liked,setliked]=useState({
+        userId : user.id,
+    })
    
    const [suc,setsuc]=useState("try again")
 
    const { data, loading,reFetch }=useFetch(`http://localhost:4000/api/post/${item._id}/comments`)
+   
 
     const handlecomment=async()=>{
         try{
@@ -53,11 +59,38 @@ export default function Posts({item,margin, height}) {
     const [backgroundOfTags, setBackgroundOfTags] = useState(localStorage.getItem('colorThemeOfCultureHub')=="light"?"gray":"white");
     const [displayCommentSection, setDisplayCommentSection] = useState(false);
     const tags=item.tags;
+    const {data2,reFetch2}=useFetch2(`http://localhost:4000/api/user/${item.userId}`);
 
+    const {data1,reFetch1}=useFetch1(`http://localhost:4000/api/post/${item._id}/like/${user.id}`);
+    console.log(data1);
+    const [like,setlike]=useState();
+    console.log(like);
+    // const [vis,setvis]=useState(true)
     useEffect(()=>{
+        
+        if(like){
+            setImageLink(likeAfter);
+           
+        } 
+        else setImageLink(likeBefore);
+
         setDeleteImage(localStorage.getItem('colorThemeOfCultureHub')=="light"?deleteLight:deleteDark);
         setBackgroundOfTags(localStorage.getItem('colorThemeOfCultureHub')=="light"?"gray":"white");
     },[localStorage.getItem('colorThemeOfCultureHub')]);
+
+    const handlelike=async (e)=>{
+        e.preventDefault();
+        try{
+            const res = await axios.put(`http://localhost:4000/api/post/${item._id}/like`, liked);
+            if(res) setsuc("liked");
+            reFetch1();
+           
+
+        }catch(e){
+            setsuc("failed");
+            console.log(e);
+        }
+    }
 
      return(
         <section  className='post-section' style={{margin: margin}}>
@@ -69,8 +102,8 @@ export default function Posts({item,margin, height}) {
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU" alt="Profile" />
                     </div>
                     <div className='flexColStart'>
-                        <span>Anonymous</span>
-                        <span className='smalltext'>50k followers</span>
+                        <span>{data2.username}</span>
+                        {/* <span className='smalltext'> followers</span> */}
 
                     </div>
                     {
@@ -93,14 +126,11 @@ export default function Posts({item,margin, height}) {
                 // "hsl(" + Math.random() * 360 + ", 100%, 60%)"
                 }}>{tag}</span>))}
            </div>
+           <span>{data1.islike}</span>
            <div className="postReactionsBar">
-            <button className="like" style={{backgroundColor:backgroundOfLikeButton}} onClick={()=>{
-                if(imageLink===likeBefore){
-                    setImageLink(likeAfter);
-                    setBackgroundOfLikeButton("transparent");
-                }
-                else setImageLink(likeBefore);
-            }}><img src={imageLink} alt="LikeButton"/></button>
+           {!data1.islike && <button className="like" style={{backgroundColor:backgroundOfLikeButton}} onClick={handlelike}><img src={likeBefore} alt="LikeButton"/></button>}
+           {data1.islike && <button className="like" style={{backgroundColor:backgroundOfLikeButton}} onClick={handlelike}><img src={likeAfter} alt="LikeButton"/></button>}
+
             <button className="commentButton" onClick={()=>setDisplayCommentSection((curr)=>!curr)}><img src={comment} alt="commentButton" style={{
     margin: "0.1rem 0.4rem 0rem 0.4rem"}}/></button>
             

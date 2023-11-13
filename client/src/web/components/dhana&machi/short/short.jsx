@@ -28,7 +28,7 @@ const Short = ({item}) => {
         <div className="shortMain">
             {/* <ShortsTagBar></ShortsTagBar> */}
             <div className="contentReactionsContainer">
-            <ShortContent videoRef={videoRef}></ShortContent>
+            <ShortContent videoRef={videoRef} link={item.video}></ShortContent>
             <ShortReactionsBar></ShortReactionsBar>
             <div className="controlsOfVideo">
                 {/* <button onClick={()=>{
@@ -48,7 +48,7 @@ const Short = ({item}) => {
             </div>
             
             
-            <ShortFooter></ShortFooter>
+            {/* <ShortFooter></ShortFooter> */}
             </div>
 
                 

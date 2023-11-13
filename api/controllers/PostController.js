@@ -217,14 +217,34 @@ const getComments = async (req, res) => {
 };
 
 const getPostByTags = async (req, res) => {
-  console.log(" inside getostbytags");
+   console.log(" inside getostbytags");
   const tag = req.params.id;
-  //const {tag} = req.body;
   console.log(tag, " is the tag requested\n");
   try {
     const posts = await PostModel.find();
     const filteredPosts = posts.filter(post => post.tags.some(postTag => postTag.includes(tag)));
     res.status(200).json(filteredPosts);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
+const hasUserLikedPost = async (req, res) => {
+  const id = req.params.id;
+  const userId = req.params.id2;
+
+  try {
+    const post = await PostModel.findById(id);
+    //console.log("post found (hasuser liked)")
+    if(!post){
+      res.status(404).json("no such posts");
+      return;
+    }
+    const liked = (post.likes.includes(userId));
+    if(liked){
+      res.status(200).json({islike:true})
+    }
+    else res.status(200).json({islike:false});
   } catch (error) {
     res.status(500).json(error);
   }
@@ -241,5 +261,6 @@ module.exports = {
   commentOnPost,
   deleteComment,
   getComments,
-  getPostByTags
+  getPostByTags,
+  hasUserLikedPost
 };
