@@ -9,7 +9,7 @@ export default function PostFeed({tagToDisplay}) {
     useEffect(()=>{
         setsearch(tagToDisplay);
     }, [tagToDisplay])
-    console.log(search);
+    //console.log(search);
     const bufferdata=[
         {
             name: "Ashish",

@@ -3,6 +3,7 @@ import Short from "./short"
 
 const ShortFeed = () => {
     const {data,loading,reFetch}=useFetch(`http://localhost:4000/api/shorts`);
+    console.log(data);
     return ( 
         <div className="ShortFeed">
             {data.map((item)=>(

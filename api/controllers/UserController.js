@@ -122,9 +122,11 @@ const deleteUser = async (req, res) => {
 };
 
 const getAllUsers = async (req, res) => {
+  // console.log("in get all users\n")
   try {
-    const user = await UserModel.find();
-    res.status(200).json(user);
+    const users = await UserModel.find();
+    const shuffledUsers = users.sort(() => Math.random() - 0.5);
+    res.status(200).json(shuffledUsers);
   } catch (error) {
     res.status(500).json(error);
   }
