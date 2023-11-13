@@ -22,6 +22,7 @@ const createPost = async (req, res) => {
 const getPosts = async (req, res) => {
   try {
     const post = await PostModel.find();
+    post.sort((a, b) => b.createdAt - a.createdAt);
     res.status(200).json(post);
   } catch (error) {
     res.status(500).json(error);
