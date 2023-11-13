@@ -70,14 +70,14 @@ const deletePost = async (req, res) => {
   const { userId } = req.body;
   try {
     const post = await PostModel.findById(id);
-    if (post.userId === userId) {
+    
       await post.deleteOne();
       console.log("post deleted");
       res.status(200).json("Post deleted");
-    } else {
-      console.log("not possible to delete post, it not same");
-      res.status(403).json("Action Forbidden");
-    }
+    // } else {
+    //   console.log("not possible to delete post, it not same");
+    //   res.status(403).json("Action Forbidden");
+    //}
   } catch (error) {
     res.status(500).json(error);
   }
