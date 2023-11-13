@@ -15,30 +15,32 @@ const ChatBot = () => {
     dangerouslyAllowBrowser: true,
   });
 
-  const sendMessage = async () => {
-    console.log({prompt});
-    setResponse("");
-    try {
-      const response = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "system",
-            content:
-              "You are a cultural chatbot focusing exclusively on Indian cultures. Your primary aim is to educate the user regarding the beauty and diversity of Indian Culture. You SHOULD NOT ANSWER ANY QUESTION UNRELATED TO INDIAN CULTURE.",
-          },
-          { role: "user", content: prompt },
-        ],
-      });
 
+  const sendMessage = () => {
+    console.log({ prompt });
+    setResponse("");
+  
+    return openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a cultural chatbot focusing exclusively on Indian cultures. Your primary aim is to educate the user regarding the beauty and diversity of Indian Culture. You SHOULD NOT ANSWER ANY QUESTION UNRELATED TO INDIAN CULTURE.",
+        },
+        { role: "user", content: prompt },
+      ],
+    })
+    .then(response => {
       setResponse(response.choices[0].message.content);
-      
-    } catch (error) {
+    })
+    .catch(error => {
       console.error("Error sending message:", error);
       setResponse("An error occurred while processing your request.");
-    }
-    //setPrompt("");
+    });
   };
+  
+
 
   const handleTTSreq = async () => {
     try {
@@ -62,6 +64,10 @@ const ChatBot = () => {
       console.log(err);
     }
   };
+  
+  
+
+  
 
   // Speech recognition functions
   const startListening = () => {
@@ -101,6 +107,7 @@ const ChatBot = () => {
     }
   }, [listening]);
 
+  
   return (
     <div className="ChatBot" style={{ height: "100vh" }}>
       <Navbar />
@@ -115,7 +122,13 @@ const ChatBot = () => {
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
             />
-            <button className="search-button" onClick={sendMessage}>
+              {/* Speech recognition buttons */}
+            {listening ? (
+              <button className="button" onClick={stopListening}  style={{position:"relative", left:"1rem"}}>Stop Listening</button>
+            ) : (
+              <i className="fa fa-microphone" style={{fontSize:'48px', cursor:"pointer",position:"relative", left:"5px",right:"1rem"}}onClick={startListening}></i>
+            )}
+            <button className="search-button" style={{marginLeft:'30px'}}onClick={sendMessage}>
               Send
             </button>
           </div>
@@ -124,17 +137,12 @@ const ChatBot = () => {
             <span style={{ fontWeight: "bold" }}>Warning</span>: Please don't
             submit more than three requests within a minute.
           </p>
+          
+          {/* Display transcript in the component */}
+          <p>Transcript: {transcript}</p>
           <button className="search-button" onClick={handleTTSreq}>
             Hear
           </button>
-          {/* Speech recognition buttons */}
-          {listening ? (
-            <button className="button" onClick={stopListening}  style={{position:"relative", left:"1rem"}}>Stop Listening</button>
-          ) : (
-            <i class="fa fa-microphone" style={{fontSize:'48px', cursor:"pointer",position:"relative", bottom:"-0.8rem", left:"1rem"}}onClick={startListening}></i>
-          )}
-          {/* Display transcript in the component */}
-          <p>Transcript: {transcript}</p>
         </div>
       </div>
     </div>
