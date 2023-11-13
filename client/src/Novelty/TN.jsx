@@ -99,14 +99,8 @@ const TN = (props) => {
           rotation-x={Math.PI}
           scale={20}
         />
-<<<<<<< HEAD
 
         {/* <mesh
-=======
-        {/* <IndianTemples /> */}
-        <PositionalAudio autoplay loop url="/TNsong.mp3" distance={6} />
-        <mesh
->>>>>>> new/main
           geometry={nodes.Cube002.geometry}
           material={materials["Material.001"]}
           position={[20, 0, 0]}

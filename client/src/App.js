@@ -40,8 +40,6 @@ import Delhi from "./Novelty/Delhi";
 // import { OrbitControls } from "@react-three/drei";
 import UttarPradesh from "./Novelty/UttarPradesh";
 import Karnataka from "./Novelty/Karnataka";
-import UserpostShort from './web/pages/Userpost/UserpostShort';
-import ShortFeed from './web/components/dhana&machi/short/ShortFeed';
 
 export let ThemeContext = createContext(null);
 
@@ -59,15 +57,7 @@ function App() {
     );
   };
   return (
-<<<<<<< HEAD
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-=======
-    <>
-    
-    <ThemeContext.Provider
-    value = {{theme, toggleTheme}}>
-
->>>>>>> new/main
       <div id={theme}>
         <div style={{ position: "fixed", bottom: "0%", right: "0%" }}>
           <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
@@ -288,42 +278,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-<<<<<<< HEAD
     </ThemeContext.Provider>
-=======
-      
-    <BrowserRouter>
-      <Routes>
-        
-        <Route path="/profile" element={<ProfilePage/>}/>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Signin />} />
-        <Route path="/userpost" element={<Userpost/>} />
-        <Route path="/PostShort" element={<UserpostShort/>} />
-        
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/chatbot" element={<ChatBot />} />
-        <Route path="/model" element={<Model />} />
-        <Route path="/TN" element={<TN />} />
-        <Route path="/AP" element={<AP />} />
-        <Route path="/WB" element={<WB />} />
-        <Route path="/Telangana" element={<Telangana />} />
-        <Route path="/Assam" element={<Assam />} />
-        <Route path="/Maharashtra" element={<Maharashtra />} />
-        <Route path="/Punjab" element={<Punjab />} />
-        <Route path="/Delhi" element={<Delhi />} />
-        <Route path="/UttarPradesh" element={<UttarPradesh />} />
-        <Route path="/Karnataka" element={<Karnataka />} />
-        <Route path="/Punjab" element={<Punjab />} />
-        <Route path="/shorts" element = {<ShortFeed/>}></Route>
-      </Routes>
-    </BrowserRouter>
-    </div>
-    </ThemeContext.Provider> 
-    
-</>
->>>>>>> new/main
   );
 }
 

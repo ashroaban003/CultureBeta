@@ -70,7 +70,6 @@ const Karnataka = (props) => {
 
   // console.log("dummy");
   return (
-<<<<<<< HEAD
     // <Canvas
     //   style={{
     //     width: "100%",
@@ -84,20 +83,6 @@ const Karnataka = (props) => {
     // >
     <>
       <PositionalAudio autoplay loop url="/Karnataka.mp3" distance={1.5} />
-=======
-    <Canvas
-      style={{
-        width: "100%",
-        height: "100%",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        overflow: "hidden",
-      }}
-      camera={{ position: [-20, 0, 0] }}
-    >
-      <PositionalAudio autoplay loop url="/Karnataka.mp3" distance={3.8} />
->>>>>>> new/main
       <OrbitControls
         enablePan={true}
         enableRotate={true}

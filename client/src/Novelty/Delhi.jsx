@@ -63,7 +63,6 @@ const Delhi = (props) => {
   const texture3 = useTexture(v4[currentIndex]);
   // console.log("dummy");
   return (
-<<<<<<< HEAD
     // <Canvas
     //   style={{
     //     width: "100%",
@@ -77,20 +76,6 @@ const Delhi = (props) => {
     // >
     <>
       <PositionalAudio autoplay loop url="/Delhi.mp3" distance={1.5} />
-=======
-    <Canvas
-      style={{
-        width: "100%",
-        height: "100%",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        overflow: "hidden",
-      }}
-      camera={{ position: [-20, 0, 0] }}
-    >
-      <PositionalAudio autoplay loop url="/Delhi.mp3" distance={2} />
->>>>>>> new/main
       <OrbitControls
         enablePan={true}
         enableRotate={true}

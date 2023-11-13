@@ -88,7 +88,7 @@ const Telangana = (props) => {
         }}
       />
       {/* <ambientLight intensity={0.5} /> */}
-      <PositionalAudio autoplay loop url="/Telangana.mp3" distance={2} />
+      <PositionalAudio autoplay loop url="/Telangana.mp3" distance={1.5} />
 
       <group {...props} dispose={null}>
         <CharminarTry />
