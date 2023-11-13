@@ -15,7 +15,7 @@ import { useEffect } from 'react';
 import useFetch2 from '../../../hooks/usefetch2';
 import useFetch1 from '../../../hooks/usefetch1';
 
-export default function Posts({item,margin, height}) {
+export default function Posts({item,margin, height,reload}) {
     const {user}=useContext(AuthContext);
     const [id,setid]=useState(null);
    
@@ -92,6 +92,16 @@ export default function Posts({item,margin, height}) {
         }
     }
 
+    const handldelete=async (e)=>{
+        e.preventDefault();
+        try{
+            const res= await axios.delete(`http://localhost:4000/api/post/${item._id}`, liked);
+            if(res) reload();
+        }catch(e){
+            console.log(e);
+        }
+    }
+
      return(
         <section  className='post-section' style={{margin: margin}}>
             {loading && <div className="loadingAnimationDiv"></div>}
@@ -106,12 +116,18 @@ export default function Posts({item,margin, height}) {
                         {/* <span className='smalltext'> followers</span> */}
 
                     </div>
-                    {
+
+                    {user.id === item.userId &&
                         height=="20rem" &&
+                        
                         <div style={{width:"1.5rem", height: "1.5rem", margin:" 0 0 0 auto", alignSelf:"flex-start"}}>
+                            <button onDoubleClick={handldelete}>
                             <img style={{width:"1.5rem", height: "1.5rem", objectFit:"contain"}} src={deleteImage}></img>
+                            </button>
                         </div>
+                        
                     }
+
                 </div>
                 <div className='post-comments'>
                     <span>{item.desc}<br/></span>
