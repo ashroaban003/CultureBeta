@@ -18,7 +18,7 @@ const FollowersCard = () => {
                 return (<></>)
             }
             return(
-                id < 5 &&
+                id < 8 &&
                 <Followbox follower={follower} reFetch={reFetch}/>
             )
         })}

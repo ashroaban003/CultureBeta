@@ -13,17 +13,18 @@ const Assam = (props) => {
   const { nodes, materials } = useGLTF("/Assam.glb");
   console.log("dummy");
   return (
-    <Canvas
-      style={{
-        width: "100%",
-        height: "100%",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        overflow: "hidden",
-      }}
-      camera={{ position: [-20, 0, 0] }}
-    >
+    // <Canvas
+    //   style={{
+    //     width: "100%",
+    //     height: "100%",
+    //     position: "fixed",
+    //     top: 0,
+    //     left: 0,
+    //     overflow: "hidden",
+    //   }}
+    //   camera={{ position: [-20, 0, 0] }}
+    // >
+    <>
       <OrbitControls
         enablePan={true}
         enableRotate={true}
@@ -77,7 +78,8 @@ const Assam = (props) => {
           scale={20}
         />
       </group>
-    </Canvas>
+    </>
+    // </Canvas>
   );
 };
 

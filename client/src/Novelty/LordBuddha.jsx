@@ -50,6 +50,7 @@ export function LordBuddha(props) {
         <mesh
           geometry={nodes["12333_statue_v1_l2_2"].geometry}
           material={materials["12333_Statue_base"]}
+          
         />
         <mesh
           geometry={nodes["12333_statue_v1_l2_3"].geometry}
