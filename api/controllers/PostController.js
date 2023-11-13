@@ -231,17 +231,20 @@ const getPostByTags = async (req, res) => {
 
 const hasUserLikedPost = async (req, res) => {
   const id = req.params.id;
-  const {userId} = req.body;
+  const userId = req.params.id2;
 
   try {
     const post = await PostModel.findById(id);
-    console.log("post found (hasuser liked)")
+    //console.log("post found (hasuser liked)")
     if(!post){
       res.status(404).json("no such posts");
       return;
     }
     const liked = (post.likes.includes(userId));
-    res.status(200).json(liked);
+    if(liked){
+      res.status(200).json({islike:true})
+    }
+    else res.status(200).json({islike:false});
   } catch (error) {
     res.status(500).json(error);
   }
