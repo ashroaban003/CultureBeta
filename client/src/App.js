@@ -61,8 +61,8 @@ function App() {
 
       <div id={theme}>
         <div style={{position:"fixed",
-        bottom:"0%",
-        right:"0%"}}>
+        bottom:"2%",
+        right:"1%"}}>
           <ReactSwitch  onChange={toggleTheme} checked = {theme==="dark"}/>
       </div>
       

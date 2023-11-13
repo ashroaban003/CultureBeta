@@ -11,6 +11,7 @@ import Login from "../login/Login";
 
 import FollowersCard from '../../components/FollwersCard/FollowersCard'
 import { useState } from "react";
+import OtherDetails from "../../components/OtherDetails/OtherDetails";
 
 
 
@@ -31,6 +32,7 @@ export default function Home(params) {
         <PostFeed tagToDisplay={searchedTag}/>
         {/* <RightSide /> */}
         <FollowersCard />
+        <OtherDetails/>
         </div>
        </div>
        
