@@ -136,13 +136,13 @@ const isUserFollowing = async (req, res) => {
 
   try {
     const user1 = await UserModel.findById(userId);
-    console.log("post found (hasuser liked)")
+    // console.log("post found (hasuser liked)")
     if(!user1 || !user2){
       res.status(404).json("no such posts");
       return;
     }
     const liked = (user1.following.includes(user2));
-    res.status(200).json(liked);
+    res.status(200).json({isfollow : liked});
   } catch (error) {
     res.status(500).json(error);
   }
