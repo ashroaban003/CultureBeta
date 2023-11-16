@@ -75,7 +75,11 @@ function App() {
             <Route path="/chatbot" element={<ChatBot />} />
             <Route path="/model" element={<Model />} />
             <Route path="/PostShort" element={<UserpostShort />} />
+<<<<<<< HEAD
            
+=======
+
+>>>>>>> d7e3668153b8f3dcd410ec47de9fe8ba9943b538
             {/* <Route path="/TN" element={<TN />} /> */}
             <Route
               path="/AP"
