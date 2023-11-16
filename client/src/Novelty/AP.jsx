@@ -39,7 +39,7 @@ const AP = (props) => {
 
   const v4 = [
     "./Photos/AP/Temple/t1.jpeg",
-    "./Photos/AP/Temple/t2.avif",
+    "./Photos/AP/Temple/t2.jpeg",
     "./Photos/AP/Temple/t3.png",
     "./Photos/AP/Temple/t4.jpeg",
   ];
