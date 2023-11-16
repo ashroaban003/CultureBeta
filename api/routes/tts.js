@@ -1,5 +1,5 @@
 const express = require("express");
-const { gen_audio, gen_female_audio } = require("../tts.js");
+const { gen_audio } = require("../tts.js");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
@@ -40,7 +40,9 @@ router.post("/female", async (req, res) => {
   try {
     (async () => {
       try {
-        const x = await gen_female_audio({ text });
+        console.log("in female route");
+        const lang = "female"
+        const x = await gen_audio({ text, lang});
         //console.log(x);
         if (Array.isArray(x) && x.length > 0) {
           const firstResponse = x[0];
