@@ -152,7 +152,8 @@ export default function UserpostShort(params) {
           <input
             type="file"
             onChange={(event) => {
-            setVideoUpload(event.target.files[0]);
+              setContinueVideo(true);
+              setVideoUpload(event.target.files[0]);
              }}
             />
 
