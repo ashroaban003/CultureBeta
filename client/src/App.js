@@ -25,6 +25,7 @@ import Home from "./web/pages/home/Home";
 import Login from "./web/pages/login/Login";
 import Signin from "./web/pages/login/Signin";
 import Userpost from "./web/pages/Userpost/Userpost";
+import UserpostShort from "./web/pages/Userpost/UserpostShort";
 import Quiz from "./web/pages/quiz/Quiz";
 import ChatBot from "./web/pages/chatBot/ChatBot";
 import Model from "./Novelty/Model";
@@ -41,7 +42,6 @@ import Delhi from "./Novelty/Delhi";
 import UttarPradesh from "./Novelty/UttarPradesh";
 import Karnataka from "./Novelty/Karnataka";
 import ShortFeed from "./web/components/dhana&machi/short/ShortFeed";
-import UserpostShort from "./web/pages/Userpost/UserpostShort";
 
 export let ThemeContext = createContext(null);
 
@@ -75,11 +75,7 @@ function App() {
             <Route path="/chatbot" element={<ChatBot />} />
             <Route path="/model" element={<Model />} />
             <Route path="/PostShort" element={<UserpostShort />} />
-<<<<<<< HEAD
            
-=======
-
->>>>>>> d7e3668153b8f3dcd410ec47de9fe8ba9943b538
             {/* <Route path="/TN" element={<TN />} /> */}
             <Route
               path="/AP"
