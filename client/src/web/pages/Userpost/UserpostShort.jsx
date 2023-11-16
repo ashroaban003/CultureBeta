@@ -43,6 +43,7 @@ export default function UserpostShort(params) {
 
       const url = await getDownloadURL(videoRef);
       setReqVideoUrl(url);
+      setContinueVideo(false)
       
       return url; // Return the URL for further use
     } catch (error) {
