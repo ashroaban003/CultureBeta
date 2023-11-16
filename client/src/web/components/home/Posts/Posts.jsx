@@ -16,6 +16,7 @@ import deleteLight from "../../../../images/deletelight.svg";
 import { useEffect } from "react";
 import useFetch2 from "../../../hooks/usefetch2";
 import useFetch1 from "../../../hooks/usefetch1";
+import { useNavigate } from "react-router-dom";
 
 export default function Posts({ item, margin, height, reload }) {
   const { user } = useContext(AuthContext);
@@ -144,6 +145,11 @@ export default function Posts({ item, margin, height, reload }) {
       console.log(e);
     }
   };
+  const Navigate=useNavigate();
+
+  const profileclick = async (e) => {
+       Navigate(`/profile/${item.userId}`);
+  }
 
   return (
     <section className="post-section" style={{ margin: margin }}>
@@ -152,7 +158,7 @@ export default function Posts({ item, margin, height, reload }) {
         <>
           <div className="post-container">
             <div className="post_header">
-              <div className="profile-image">
+              <div className="profile-image" onClick={profileclick}>
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU"
                   alt="Profile"

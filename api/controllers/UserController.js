@@ -160,8 +160,9 @@ const getUserInfo = async (req, res) => {
     if (user) {
       const { password, followers, following, ...otherDetails } = user._doc;
       const userInfo = {
-        followersCount: followers.length,
-        followingCount: following.length,
+        name: user.username,
+        followers: followers.length,
+        following: following.length,
       };
       res.status(200).json(userInfo);
     } else {

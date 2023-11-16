@@ -8,33 +8,19 @@ import PostFeed from "../../components/Feed/PostFeed/PostFeed";
 import useFetch from "../../hooks/usefetch";
 import Posts from "../../components/home/Posts/Posts";
 import Navbar from "../../components/navbar/Navbar";
+import { useLocation } from "react-router-dom";
+import useFetch2 from "../../hooks/usefetch2";
 
 const PostprofilePage = () => {
   const ProfilePage = true;
   const { user, dispatch } = useContext(AuthContext);
+ const location=useLocation()
+ const id = location.pathname.split("/")[2];
 
-  const bufferdata = [
-    {
-      name: "Ashish",
-      icon: "https://placekitten.com/40/40",
-      description:
-        "I have never thought that there be people intelligent than me but doesnt mean i cant go to their level",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH5KA8xPCyRCKz8tpd7RGbqCNDqfuawBgDCw&usqp=CAU",
-      tags: ["life is not simple", "never give up"],
-    },
-    {
-      name: "mana",
-      icon: "https://placekitten.com/40/40",
-      description:
-        "I have never thought that there be people intelligent than me but doesnt mean i cant go to their level",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH5KA8xPCyRCKz8tpd7RGbqCNDqfuawBgDCw&usqp=CAU",
-      tags: ["life is not simple", "never give up"],
-    },
-  ];
+ const {data2}=useFetch2( `http://localhost:4000/api/user/${id}/profile`);
+ 
   const { data, loading, reFetch } = useFetch(
-    `http://localhost:4000/api/post/${user.id}/userposts`
+    `http://localhost:4000/api/post/${id}/userposts`
   );
   let count = 0;
 
@@ -63,7 +49,7 @@ const PostprofilePage = () => {
         </div>
 
         <div className="ProfilePageName">
-          {user && <span>{user.username}</span>}
+          {user && <span>{data2.name}</span>}
           {!user && <span>Anonymous</span>}
           {/* <span>Explorer | Coder | Culture Lover</span> */}
         </div>
@@ -72,12 +58,12 @@ const PostprofilePage = () => {
           <hr />
           <div>
             <div className="ProfilePagefollow">
-              {/* <span>{user.followings}</span> */}
+              <span>{data2.following}</span>
               <span>Following</span>
             </div>
             <div className="ProfilePagevl"></div>
             <div className="ProfilePagefollow">
-              {/* <span>{user.followers}</span> */}
+              <span>{data2.followers}</span>
               <span>Followers</span>
             </div>
           </div>
