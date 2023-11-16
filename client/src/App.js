@@ -25,6 +25,7 @@ import Home from "./web/pages/home/Home";
 import Login from "./web/pages/login/Login";
 import Signin from "./web/pages/login/Signin";
 import Userpost from "./web/pages/Userpost/Userpost";
+import UserpostShort from "./web/pages/Userpost/UserpostShort";
 import Quiz from "./web/pages/quiz/Quiz";
 import ChatBot from "./web/pages/chatBot/ChatBot";
 import Model from "./Novelty/Model";
@@ -73,6 +74,7 @@ function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/chatbot" element={<ChatBot />} />
             <Route path="/model" element={<Model />} />
+            <Route path="/PostShort" element={<UserpostShort />} />
            
             {/* <Route path="/TN" element={<TN />} /> */}
             <Route
