@@ -13,7 +13,7 @@ export default function UserpostShort(params) {
   const [addpost, setaddpost] = useState({
     userId: null,
     video: null,
-    desc: undefined,
+    desc: "post",
     likes: [],
     tags: [],
   });
@@ -27,38 +27,51 @@ export default function UserpostShort(params) {
   const [reqVideoUrl, setReqVideoUrl] = useState("");
   const [temp, setTemp] = useState(12);
   const videoListRef = ref(storage, "videos/")
-  const uploadVideo = (event) => {
-    event.preventDefault(); 
 
-    if (videoUpload == null) return;
+  const [continuevideo, setContinueVideo] = useState(false);
 
-    const videoRef = ref(storage, `videos/${videoUpload.name + v4()}`);
-    uploadBytes(videoRef, videoUpload).then(() => {
-      alert("Video Uploaded");
-      setTemp(123123);
-    });
-  }
+  const uploadVideo = async () => {
+    try {
+      if (videoUpload == null) return;
+      if(continuevideo==false) return;
 
-  useEffect( () => {
-    listAll(videoListRef).then((res) => {
-      console.log(res);
-      res.items.forEach((item) => {
-        // console.log("cur item : ",item)
-        if(videoUpload){
-        console.log("video upload : ",videoUpload.name)
-        if(item._location.path_.includes(videoUpload.name)){
-          console.log("got the same file from fb")
-          getDownloadURL(item).then((url) => {
+      const videoRef = ref(storage, `videos/${videoUpload.name + v4()}`);
+      await uploadBytes(videoRef, videoUpload);
+
+      setTemp((prev) => prev + 1);
+      alert("Video Uploaded to firebase");
+
+      const url = await getDownloadURL(videoRef);
+      setReqVideoUrl(url);
+      
+      return url; // Return the URL for further use
+    } catch (error) {
+      console.error("Error uploading video:", error.message);
+      throw error; // Re-throw the error to be caught in the calling function
+    }
+  };
+
+  useEffect(() => {
+    const fetchVideoUrl = async () => {
+      try {
+        const res = await listAll(videoListRef);
+        for (const item of res.items) {
+          if (videoUpload && item._location.path_.includes(videoUpload.name)) {
+            const url = await getDownloadURL(item);
             setReqVideoUrl(url);
-            alert("got the req URL");
-            console.log(url)
-            return;
-          })
+           // alert("Got the req URL");
+            console.log(url);
+            break;
+          }
         }
+      } catch (error) {
+        console.error("Error fetching video URL:", error.message);
       }
-      })
-    })
-  }, [temp])
+    };
+
+    fetchVideoUrl();
+  }, [temp, videoListRef, videoUpload]);
+
   function parseTags(input) {
     const tags = input.split(",").map((tag) => tag.trim());
     return tags;
@@ -77,38 +90,33 @@ export default function UserpostShort(params) {
   const { user } = useContext(AuthContext);
   const Navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setLoading(false);
-    setErr(null);
-    
-  };
-
- 
   const handleshortPost = async (e) => {
     e.preventDefault();
 
-    uploadVideo();
     setLoading(true);
 
     try {
       if (!user) {
         Navigate("/login");
+        return;
       }
+     
+      
+      const uploadedVideoUrl = await uploadVideo();
 
-      const tagsList = await parseTags(inptags);
       setaddpost({
         ...addpost,
         userId: user.id,
-        tags: tagsList,
+        video: reqVideoUrl,
       });
-
-      setaddpost((prev) => ({ ...prev, video: reqVideoUrl }));
 
       const res = await axios.post("http://localhost:4000/api/shorts/", addpost);
 
-      if(res) setsuccess(true);
-      
-    } catch (e) {
+      if (res) {
+        alert("Video Uploaded to backend");
+        setsuccess(true);
+      }
+    } catch (error) {
       setLoading(false);
       if (addpost.userId) {
         setErr("Can't post");
@@ -118,7 +126,10 @@ export default function UserpostShort(params) {
     }
   };
 
-  
+  const handleChange=(e)=>{
+    e.preventDefault();
+    setContinueVideo(true);
+  }
   
   return (
     <div className="userpostcnt" style={{height:"100vh"}}>
