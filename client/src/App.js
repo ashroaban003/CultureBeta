@@ -42,6 +42,7 @@ import Delhi from "./Novelty/Delhi";
 import UttarPradesh from "./Novelty/UttarPradesh";
 import Karnataka from "./Novelty/Karnataka";
 import ShortFeed from "./web/components/dhana&machi/short/ShortFeed";
+import PostprofilePage from "./web/pages/ProfilePage/Postprofilepage";
 
 export let ThemeContext = createContext(null);
 
@@ -75,6 +76,7 @@ function App() {
             <Route path="/chatbot" element={<ChatBot />} />
             <Route path="/model" element={<Model />} />
             <Route path="/PostShort" element={<UserpostShort />} />
+            <Route path="/profile/:id" element={<PostprofilePage />} />
            
             {/* <Route path="/TN" element={<TN />} /> */}
             <Route
