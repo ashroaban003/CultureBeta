@@ -33,6 +33,7 @@
     padding: 0.3rem;
     border-radius: 1.8rem 0rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    max-width: 97%;
     
 }
 #light .follower{
@@ -79,7 +80,7 @@
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    
+    right: 2.5%;
   box-shadow:  0 0.23rem 0.2rem 0rem blue;
 }
 

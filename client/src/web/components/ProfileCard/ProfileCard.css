@@ -1,5 +1,5 @@
 .ProfileCard{
-  width: 25%;
+  max-width: 25%;
   height: auto;
     border-radius: 1.5rem;
     display: flex;

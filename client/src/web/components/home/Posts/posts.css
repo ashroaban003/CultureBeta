@@ -1,5 +1,5 @@
 .post-section{
-    width: 30rem;
+    max-width: 30rem;
     min-height: fit-content;
     border-radius: 7px;
     padding-bottom: 2rem;
