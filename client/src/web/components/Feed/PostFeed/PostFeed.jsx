@@ -43,7 +43,7 @@ export default function PostFeed({tagToDisplay}) {
     
     return(
 
-        <div className='feed'>
+        <div className='feed' style={{margin:0}}>
              {/* <input
             type="text"
             id="tags"

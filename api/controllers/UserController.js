@@ -150,6 +150,30 @@ const isUserFollowing = async (req, res) => {
   }
 }
 
+const getUserInfo = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const user = await UserModel.findById(id);
+
+    //if user exists (ie. if we find id in the database)
+    if (user) {
+      const { password, followers, following, ...otherDetails } = user._doc;
+      const userInfo = {
+        name: user.username,
+        followers: followers.length,
+        following: following.length,
+      };
+      res.status(200).json(userInfo);
+    } else {
+      res.status(404).json("User does not exist");
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+
 module.exports = {
   getUser,
   updateUser,
@@ -157,5 +181,6 @@ module.exports = {
   deleteUser,
   unFollowUser,
   getAllUsers,
-  isUserFollowing
+  isUserFollowing,
+  getUserInfo
 };

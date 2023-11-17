@@ -87,7 +87,7 @@ export default function Followbox({follower,reFetch}) {
                     <div>
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU" alt="" className='followerImage' />
                         <div className="name">
-                            <span style={{width: "10rem", overflow:"hidden", textOverflow:"ellipsis"}}>{follower.username}</span>
+                            <span style={{width: "90%", overflow:"hidden", textOverflow:"ellipsis"}}>{follower.username}</span>
                             <span> {(follower.followers).length} Followers</span>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ export default function Followbox({follower,reFetch}) {
                     <button className="followButton" onClick={handleunfollow} style={{backgroundColor : "linear-gradient(to right, #0074e4, #00a1ff);"}}>
                         {followText}
                     </button>} */}
-                    <button className="followButton" onClick={handleclick} style={{backgroundColor : "linear-gradient(to right, #0074e4, #00a1ff);"}}>
+                    <button className="followButton" onClick={handleclick} style={{backgroundColor : "linear-gradient(to right, #0074e4, #00a1ff);", position:'fixed'}}>
                         {followText}
                     </button>
          </div>
