@@ -20,7 +20,7 @@ import useFetch1 from "../../../hooks/usefetch1";
 export default function Posts({ item, margin, height, reload }) {
   const { user } = useContext(AuthContext);
   const [id, setid] = useState(null);
-
+  
   const [addcomment, setaddcoment] = useState({
     userId: null,
     text: null,
