@@ -129,5 +129,9 @@
 .ProfilePagePostDisplayColumn{
     display: flex;
     flex-direction: column;
+
+}
+.ProfilePagePostDisplayColumn>div{
+  width: 100%;
 }
   

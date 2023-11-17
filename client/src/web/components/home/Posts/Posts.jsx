@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 export default function Posts({ item, margin, height, reload }) {
   const { user } = useContext(AuthContext);
   const [id, setid] = useState(null);
-
+  
   const [addcomment, setaddcoment] = useState({
     userId: null,
     text: null,
@@ -171,6 +171,7 @@ export default function Posts({ item, margin, height, reload }) {
 
               {user.id === item.userId && height == "20rem" && (
                 <div
+                //o={()=>console.log("onmouse")}
                 onDoubleClick={handldelete}
                   style={{
                     width: "1.5rem",
