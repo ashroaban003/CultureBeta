@@ -39,7 +39,7 @@ export default function UserpostShort(params) {
       await uploadBytes(videoRef, videoUpload);
 
       setTemp((prev) => prev + 1);
-      alert("Video Uploaded to firebase");
+      alert("click again to upload");
 
       const url = await getDownloadURL(videoRef);
       setReqVideoUrl(url);
@@ -114,13 +114,13 @@ export default function UserpostShort(params) {
       const res = await axios.post("http://localhost:4000/api/shorts/", addpost);
 
       if (res) {
-        alert("Video Uploaded to backend");
+        alert("Video Uploaded");
         setsuccess(true);
       }
     } catch (error) {
       setLoading(false);
       if (addpost.userId) {
-        setErr("Can't post");
+        // setErr("Can't post");
       } else {
         setsuccess(true);
       }

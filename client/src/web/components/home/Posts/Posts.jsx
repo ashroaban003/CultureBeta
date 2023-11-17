@@ -171,6 +171,7 @@ export default function Posts({ item, margin, height, reload }) {
 
               {user.id === item.userId && height == "20rem" && (
                 <div
+                onDoubleClick={handldelete}
                   style={{
                     width: "1.5rem",
                     height: "1.5rem",
