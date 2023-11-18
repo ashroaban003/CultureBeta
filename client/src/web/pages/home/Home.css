@@ -8,6 +8,7 @@
     margin-right: 2rem;
 }
 .HomeMain{
+    top: 5rem;
     position:relative;
     display: grid;
     grid-template-columns: 20rem auto 21rem;

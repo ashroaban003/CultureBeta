@@ -3,12 +3,15 @@ import { AuthContext } from "../../context/AuthContext"
 import axios from "axios";
 import useFetch1 from "../../hooks/usefetch1";
 import { useEffect } from "react";
+import { useNavigate, useNavigation } from "react-router";
 
 export default function Followbox({follower,reFetch}) {
+
     const {user}=useContext(AuthContext);
     const [flw,setflw]=useState({
         curUserId : user.id,
     });
+    const Navigate = useNavigate();
     
     const [suc,setsuc]=useState("false");
     
@@ -81,11 +84,14 @@ export default function Followbox({follower,reFetch}) {
         setFollowText(data1.isfollow ? "UnFollow":"Follow");
     }, [data1]);
 
+    const profileclick = async (e) => {
+        Navigate(`/profile/${follower._id}`);
+   }
 
     return(
         <div className="follower">
                     <div>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU" alt="" className='followerImage' />
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEkveEWaWSZ6ytqtnxs7r3ObfsL07gjHsZg&usqp=CAU" alt="" className='followerImage' onClick={()=>profileclick()}/>
                         <div className="name">
                             <span style={{width: "90%", overflow:"hidden", textOverflow:"ellipsis"}}>{follower.username}</span>
                             <span> {(follower.followers).length} Followers</span>

@@ -18,7 +18,7 @@ const Short = ({ item }) => {
     videoRef.current.muted = !videoRef.current.muted;
   };
 
-  console.log("ITEM", item);
+  //console.log("ITEM", item);
 
   return (
     <div className="shortContainer" style={{ height: "100vh" }}>

@@ -88,7 +88,7 @@ const PostprofilePage = () => {
               .map((item) => (
                 <div
                   style={{
-                    width: "49%",
+                    width: "100%",
                     scale: "0.95",
                     margin: "-0.5rem 0 0 1rem",
                   }}
@@ -111,7 +111,7 @@ const PostprofilePage = () => {
               .map((item) => (
                 <div
                   style={{
-                    width: "49%",
+                    width: "100%",
                     scale: "0.95",
                     margin: "0 1rem 0 1.5rem",
                   }}
