@@ -57,6 +57,10 @@
     height: 3.2rem;
     border-radius: 50%;
 }
+.followerImage:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
 
 .name{
     display: flex;

@@ -45,18 +45,19 @@ export default function Login(params) {
     <div className="login">
       <div className="lContainer">
         <p style={{ fontSize: 40, fontWeight: "bold" }}>
-          Welcome to Culture Hub
+          Welcome to Culture Hub <div style={{ fontSize: 30, fontWeight: 300 }}>Start Exploring...</div>
         </p>
         <input
           type="text"
-          placeholder="username"
+          placeholder="Your Username"
+          className = "userName"
           id="username"
           onChange={handleChange}
         />
 
         <input
           type="password"
-          placeholder="password"
+          placeholder="Enter your password..."
           id="password"
           onChange={handleChange}
         />

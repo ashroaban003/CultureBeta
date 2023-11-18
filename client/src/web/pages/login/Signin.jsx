@@ -41,17 +41,20 @@ export default function Signin(params) {
     return(
         <div className="login" >
         <div className="lContainer">
+        <p style={{ fontSize: 40, fontWeight: "bold" }}>
+          Welcome to Culture Hub <div style={{ fontSize: 30, fontWeight: 300 }}>It all begins here...</div>
+        </p>
           <input
             type="text"
-            placeholder="username"
+            placeholder="Give yourself a Username"
             id="username"
              onChange={handleChange}
-            className="lInput"
+            className="lInput userName"
           />
           
           <input
             type="password"
-            placeholder="password"
+            placeholder="Type your password"
             id="password"
             onChange={handleChange}
             className="lInput"
@@ -59,7 +62,7 @@ export default function Signin(params) {
           <button disabled={loading} onClick={handleClick} className="lButton">
             Register
           </button>
-          <button  onClick={regClick} className="lButton">/Login</button>
+          <button  onClick={regClick} className="lButton">Login</button>
           {error && <span>{error}</span>}
         </div>
       </div>
