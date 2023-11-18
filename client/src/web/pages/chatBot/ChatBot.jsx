@@ -12,16 +12,50 @@ const ChatBot = () => {
   const [response, setResponse] = useState("");
   const [transcript, setTranscript] = useState("");
   const [listening, setListening] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("english");
+  const [hear, sethear] = useState(true);
+  const [send, setsend] = useState(true);
   const [botImage, setBotImage] = useState(Bharat);
+
+
+  const handleLanguageChange = async (language) => {
+    sethear(false);
+    setsend(false);
+    setSelectedLanguage(language);
+    
+  };
+
+
+  const translateText = async (text, targetLanguage) => {
+    try {
+      const apiKey = 'fuckyou';
+      const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+  
+      const response = await axios.post(url, {
+        q: text,
+        target: targetLanguage,
+      });
+  
+      const translatedText = response.data.data.translations[0].translatedText;
+      console.log(`Translated text to ${targetLanguage}: ${translatedText}`);
+      return translatedText
+    } catch (error) {
+      console.error('Translation error:', error.response.data.error.message);
+      return text
+    }
+  };
+  
+
   const openai = new OpenAI({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
     dangerouslyAllowBrowser: true,
   });
 
   const sendMessage = () => {
+    setsend(true);
     console.log({ prompt });
     setResponse("");
-
+  
     return openai.chat.completions
       .create({
         model: "gpt-3.5-turbo",
@@ -29,27 +63,56 @@ const ChatBot = () => {
           {
             role: "system",
             content:
-              "You are a cultural chatbot focusing exclusively on Indian cultures. Your primary aim is to educate the user regarding the beauty and diversity of Indian Culture. You SHOULD NOT ANSWER ANY QUESTION UNRELATED TO INDIAN CULTURE. If the question asked to you is not related to Indian culture then just reply that you are a culture chat bot and will only be able to help you in such matters.",
+              "You are a cultural chatbot focusing exclusively on Indian cultures. Your primary aim is to educate the user regarding the beauty and diversity of Indian Culture. You SHOULD NOT ANSWER ANY QUESTION UNRELATED TO INDIAN CULTURE.",
+          },
+          {
+            role: "system",
+            content:
+              "Limit your answers to 3 or 4 lines. Dont write more than 200 words",
           },
           { role: "user", content: prompt },
         ],
       })
-      .then((response) => {
-        setResponse(response.choices[0].message.content);
+      .then(async (response) => {
+        let gptResponse = response.choices[0].message.content;
+  
+        // Translate the response based on the selected language
+        let translation = "";
+        if (selectedLanguage === "tamil") {
+          translation = await translateText(gptResponse, 'ta');
+        } else if (selectedLanguage === "telugu") {
+          translation = await translateText(gptResponse, 'te');
+        } else if (selectedLanguage === "marathi") {
+          translation = await translateText(gptResponse, 'mr');
+        } else if (selectedLanguage === "punjabi") {
+          translation = await translateText(gptResponse, 'pa');
+        } else if (selectedLanguage === "kannada") {
+          translation = await translateText(gptResponse, 'kn');
+        } else if (selectedLanguage === "hindi") {
+          translation = await translateText(gptResponse, 'hi');
+        } else {
+          translation = gptResponse;
+        }
+  
+        setResponse(translation);
       })
       .catch((error) => {
         console.error("Error sending message:", error);
         setResponse("An error occurred while processing your request.");
       });
   };
+  
 
   const handleTTSreq = async () => {
+    sethear(true);
     try {
       console.log(response);
       const val = {
         text: response,
       };
-      const res = await axios.post("http://localhost:4000/api/tts/", val);
+      console.log({selectedLanguage});
+      const url = `http://localhost:4000/api/tts/${selectedLanguage}`
+      const res = await axios.post(url, val);
       console.log(res);
       const audioBase64 = res.data.audioResponse;
 
@@ -67,6 +130,7 @@ const ChatBot = () => {
   };
 
   const handleTTSreqFEMALE = async () => {
+    sethear(true);
     try {
       console.log(response);
       const val = {
@@ -99,9 +163,10 @@ const ChatBot = () => {
   };
 
   const toggleGender = () => {
-    //console.log(isfemale);
-    setisfemale(!isfemale);
+    sethear(false);
+    console.log(isfemale);
     setBotImage(!isfemale?Bharathi:Bharat);
+    setisfemale(!isfemale);
   };
 
   const handleTTSrequest = () => {
@@ -144,10 +209,8 @@ const ChatBot = () => {
     <div className="ChatBot" style={{ height: "100vh" }}>
       <Navbar />
       <div className="container">
-      
         <div className="containerMain">
-        
-      <div style={{width: "5rem", height:"5rem", position:"absolute", right:"35%", top:"22%"}}>
+ <div style={{width: "5rem", height:"5rem", position:"absolute", right:"35%", top:"22%"}}>
           <img src={botImage} style={{width: "5rem", height:"5rem", objectFit:"cover", borderRadius:"50%"}}></img>
         </div>
           <h1 className="botName">Culture Bot</h1>
@@ -158,13 +221,30 @@ const ChatBot = () => {
           >
             Talk to {isfemale?<span>Bharath</span>:<span>Bharathi</span>}
           </button>
+          <div className="language-dropdown">
+            <select
+              value={selectedLanguage}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+            >
+              <option value="english">English</option>
+              <option value="tamil">Tamil</option>
+              <option value="telugu">Telugu</option>
+              <option value="punjabi">Punjabi</option>
+              <option value="marathi">Marathi</option>
+              <option value="kannada">Kannada</option>
+              <option value="hindi">Hindi</option>
+            </select>
+          </div>
           <div className="input-bar">
             <input
               type="text"
               className="Prompt"
               placeholder="Type your message..."
               value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
+              onChange={(e) => {
+                setPrompt(e.target.value)
+                sethear(false)
+                setsend(false)}}
             />
             {/* Speech recognition buttons */}
             {listening ? (
@@ -192,6 +272,7 @@ const ChatBot = () => {
               className="search-button"
               style={{ marginLeft: "30px" }}
               onClick={sendMessage}
+              disabled={send}
             >
               Send
             </button>
@@ -204,10 +285,9 @@ const ChatBot = () => {
 
           {/* Display transcript in the component */}
           <p>Transcript: {transcript}</p>
-          <button className="search-button" onClick={handleTTSrequest}>
+          <button className="search-button" onClick={handleTTSrequest} disabled={hear}>
             Hear
           </button>
-          
         </div>
       </div>
     </div>
