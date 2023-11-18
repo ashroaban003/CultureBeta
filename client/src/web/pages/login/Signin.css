@@ -5,7 +5,9 @@
     justify-content: center;
   }
 
-  
+  /* .userName{
+
+  } */
 
   #light .login input{
     background-color: white;
@@ -19,12 +21,10 @@
     border: 0.1rem solid white;
   }
 
-  #username, #password {
+  #password, .userName {
     width: 100%;
     border-radius: 1rem;
     font-size: large;
-  }
-  #password{
     height: 2.7rem;
     padding: 0 0rem 0 0.5rem ;
   }

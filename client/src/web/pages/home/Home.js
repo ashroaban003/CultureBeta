@@ -24,7 +24,7 @@ export default function Home(params) {
         <>
           <Navbar setTag={setSearchedTag} />
           <div className="Home">
-            <div className="HomeMain" style={{ marginTop: "5rem" }}>
+            <div className="HomeMain">
               <ProfileSide />
               <PostFeed tagToDisplay={searchedTag} />
               {/* <RightSide /> */}
