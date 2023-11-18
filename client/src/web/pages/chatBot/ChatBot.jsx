@@ -3,6 +3,8 @@ import { OpenAI } from "openai";
 import "./ChatBot.css";
 import Navbar from "../../components/navbar/Navbar";
 import axios from "axios";
+import Bharat from "../../../images/indian-man.svg"
+import Bharathi from "../../../images/indian-woman.svg";
 
 const ChatBot = () => {
   const [prompt, setPrompt] = useState("");
@@ -10,7 +12,7 @@ const ChatBot = () => {
   const [response, setResponse] = useState("");
   const [transcript, setTranscript] = useState("");
   const [listening, setListening] = useState(false);
-
+  const [botImage, setBotImage] = useState(Bharat);
   const openai = new OpenAI({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
     dangerouslyAllowBrowser: true,
@@ -97,8 +99,9 @@ const ChatBot = () => {
   };
 
   const toggleGender = () => {
-    console.log(isfemale);
+    //console.log(isfemale);
     setisfemale(!isfemale);
+    setBotImage(!isfemale?Bharathi:Bharat);
   };
 
   const handleTTSrequest = () => {
@@ -141,14 +144,19 @@ const ChatBot = () => {
     <div className="ChatBot" style={{ height: "100vh" }}>
       <Navbar />
       <div className="container">
+      
         <div className="containerMain">
+        
+      <div style={{width: "5rem", height:"5rem", position:"absolute", right:"35%", top:"22%"}}>
+          <img src={botImage} style={{width: "5rem", height:"5rem", objectFit:"cover", borderRadius:"50%"}}></img>
+        </div>
           <h1 className="botName">Culture Bot</h1>
           <button
-            className="button"
+            className="button toggleGenderButton"
             onClick={toggleGender}
-            style={{ position: "relative", left: "1rem" }}
+            style={{ position: "absolute", right: "25%", top:"25%"}}
           >
-            Switch Gender
+            Talk to {isfemale?<span>Bharath</span>:<span>Bharathi</span>}
           </button>
           <div className="input-bar">
             <input
@@ -199,6 +207,7 @@ const ChatBot = () => {
           <button className="search-button" onClick={handleTTSrequest}>
             Hear
           </button>
+          
         </div>
       </div>
     </div>
