@@ -2,7 +2,7 @@ const express = require("express");
 const { gen_audio } = require("../tts.js");
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/english", async (req, res) => {
   const { text } = req.body;
   console.log(text);
   try {
