@@ -46,7 +46,7 @@ const handleTTSreq2 = async ({ eng_response }) => {
     const val = {
       text: eng_response,
     };
-    const res = await axios.post("http://localhost:4000/api/tts", val);
+    const res = await axios.post("http://localhost:4000/api/tts/english", val);
     console.log(res);
     const audioBase64 = res.data.audioResponse;
 
