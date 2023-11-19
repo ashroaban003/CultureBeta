@@ -32,10 +32,19 @@ To set up CultureHub locally, follow these steps:
 
    ```bash
    git clone https://github.com/ashroaban003/CultureBeta
-   cd CultureHub
+   npm install
+   cd client
    npm install
    npm start
+
+   
 The application should now be accessible locally at http://localhost:3000.
+
+To run the backend, do the following from the root directory:
+ ```bash
+   cd api
+   nodemon index
+```
 
 ## Usage
 
